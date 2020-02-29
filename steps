@@ -15,3 +15,5 @@ Created new Procfile in root with
 
 release: python manage.py migrate
 web: gunicorn djreact.wsgi --log-file -
+
+setting heroku config:set DISABLE_COLLECTSTATIC=1 -a -rlearningblog 
