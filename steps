@@ -1,0 +1,9 @@
+Initialized git repo with git init
+Added .gitignore
+$create-react-app frontend
+$virtualenv -p python3 env
+$source env/bin/activate
+$pip install djangorestframework psycopg2 whitenoise django-cors-headers gunicorn django_heroku
+$django-admin start project api_core
+unpack api_core and frontend to root dir
+
