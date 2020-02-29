@@ -136,3 +136,5 @@ SITE_ID = 1
 CORS_ORIGIN_WHITELIST = (
     'https://localhost:3000',
 )
+
+django_heroku.settings(locals())
