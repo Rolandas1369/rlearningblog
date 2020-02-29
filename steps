@@ -6,4 +6,12 @@ $source env/bin/activate
 $pip install djangorestframework psycopg2 whitenoise django-cors-headers gunicorn django_heroku
 $django-admin start project api_core
 unpack api_core and frontend to root dir
+$git remote add origin https://github.com/Rolandas1369/rlearningblog.git
+$git push -u origin master
 
+added buildpacks and database in heroku
+
+Created new Procfile in root with 
+
+release: python manage.py migrate
+web: gunicorn djreact.wsgi --log-file -
