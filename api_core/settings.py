@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
+
     'api_blog',
 ]
 
@@ -131,5 +133,5 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
+    'https://localhost:3000',
 )
