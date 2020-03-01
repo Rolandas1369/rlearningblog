@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import BaseRouter from '../../routes';
+import Posts from '../post';
 
+require('dotenv').config()
 
-export default class App extends Component{
+const API_URL = process.env.REACT_APP_API_URL
+
+export default class App extends Component {
+
+    state = {
+        itemList: '',
+        ss: {}
+    };
+
+    componentDidMount = () => {
+        fetch(API_URL + "/api/")
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({ itemList: data})
+        })
+        .catch(console.log);
+    }
+
     render() {
+
+        
+        console.log('what', this.state.itemList);
+        const { itemList } = this.state;
+        console.log("from items", itemList);
+
         return (
             <div>
-                <Router>
-                    <BaseRouter />
-                </Router>
+                
+                <Posts items={this.state.itemList}/>
             </div>
         )
     }

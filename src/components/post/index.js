@@ -1,3 +1,3 @@
-import Post from  './post';
+import Posts from  './post';
 
-export default Post;
+export default Posts;

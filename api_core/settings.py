@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = ['rlearningblog.herokuapp.com','127.0.0.1:8000', 'localhost:8000', 'localhost']
+ALLOWED_HOSTS = ['rlearningblog.herokuapp.com','127.0.0.1', 'localhost:8000', 'localhost']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'corsheaders',
+    'rest_framework',
 
     'api_blog',
 ]
@@ -115,14 +116,6 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
@@ -134,7 +127,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    'https://localhost:3000',
+    ['http://localhost:3000']
 )
 
-django_heroku.settings(locals())
+
+
+#django_heroku.settings(locals())
