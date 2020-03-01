@@ -5,8 +5,11 @@ export default class Posts extends Component {
         showList(items) {
             return Object.keys(items).map((item) => {
             
-                return ( 
-                    <li key={items[item].id} className="item">{items[item].title}</li>
+                return (
+                    <div key={items[item].id + `div`}> 
+                        <div key={items[item].id} className="item">{items[item].title}</div>
+                        <div key={items[item].id + `tr`} className="item">{items[item].content}</div>
+                    </div>
                 )
             });
         }  
@@ -17,9 +20,9 @@ export default class Posts extends Component {
 
            return (
                <div className="items-list">
-                   <ul>
+                   
                    {items_list}
-                   </ul>  
+                    
                </div>
            )
        }
