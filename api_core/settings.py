@@ -127,9 +127,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    ['https://rlearningblog.herokuapp.com']
+    'localhost:3000',
 )
 
 
 
-#django_heroku.settings(locals())
+
+django_heroku.settings(locals())
