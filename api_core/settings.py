@@ -127,7 +127,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    ['http://localhost:3000']
+    ['https://localhost:3000']
 )
 
 
