@@ -6,7 +6,7 @@ export default class Posts extends Component {
             return Object.keys(items).map((item) => {
             
                 return (
-                    <div key={items[item].id + `div`}> 
+                    <div key={items[item].id + `div`} className="listdivs"> 
                         <div key={items[item].id} className="item">{items[item].title}</div>
                         <div key={items[item].id + `tr`} className="item">{items[item].content}</div>
                     </div>
