@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+
 import Posts from '../post';
+import Header from '../header';
+import Blog from '../blog';
+
 
 require('dotenv').config()
 
@@ -9,29 +14,39 @@ export default class App extends Component {
 
     state = {
         itemList: '',
-        ss: {}
+        item: ''
     };
 
-    componentDidMount = () => {
-        fetch(API_URL + "/api/")
-        .then((res) => res.json())
+    getAllPosts = () => {
+        axios.get(API_URL + "/posts/")
         .then((data) => {
-            this.setState({ itemList: data})
+            this.setState({ itemList: data.data})
         })
         .catch(console.log);
     }
 
+    getPost = (id) => {
+        axios.get(API_URL + `/posts/${id}`)
+        .then((item) => {
+            this.setState({ item: item.data})
+        })
+        .catch(console.log);
+    }
+
+    componentDidMount = () => {
+        this.getAllPosts()
+        this.getPost(1)
+    }
+
     render() {
 
+        const { itemList, item } = this.state;
         
-        console.log('what', this.state.itemList);
-        const { itemList } = this.state;
-        console.log("from items", itemList);
-
         return (
             <div>
-                
-                <Posts items={this.state.itemList}/>
+                <Header />
+                <Posts items={itemList}/>
+                <Blog item={item}/>
             </div>
         )
     }

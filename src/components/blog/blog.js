@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-export default class Blog extends Component{
+export default class Blog extends Component {
+
     render() {
+
+        const { item } = this.props
         return (
             <div>
-                Ready for first Blog post
+                <p>{item.title}</p>
+                <p>{item.content}</p>     
             </div>
         )
     }

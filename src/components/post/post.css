@@ -1,0 +1,20 @@
+.listdivs {
+    display: flex;
+    flex-direction: column;
+    color: green;
+    background-color: teal;
+    margin-top: 10px;
+}
+
+.itemleft {
+    width: 80%;
+    margin: 10px 10px;
+    background-color: violet;
+    text-align: center;
+}
+
+.itemright {
+    width: 80%;
+    margin: 10px 10px;
+    background-color: tomato;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './post.css'
 export default class Posts extends Component {
            
         showList(items) {
@@ -7,8 +8,8 @@ export default class Posts extends Component {
             
                 return (
                     <div key={items[item].id + `div`} className="listdivs"> 
-                        <div key={items[item].id} className="item">{items[item].title}</div>
-                        <div key={items[item].id + `tr`} className="item">{items[item].content}</div>
+                        <div key={items[item].id} className="itemleft">{items[item].title}</div>
+                        <div key={items[item].id + `tr`} className="itemright">{items[item].content}</div>
                     </div>
                 )
             });
@@ -19,10 +20,8 @@ export default class Posts extends Component {
            const items_list = this.showList(items)
 
            return (
-               <div className="items-list">
-                   
-                   {items_list}
-                    
+               <div className="items-list">   
+                   {items_list}       
                </div>
            )
        }

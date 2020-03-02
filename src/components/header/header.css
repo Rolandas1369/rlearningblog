@@ -1,0 +1,10 @@
+.header {
+    background-color: grey;
+    width: 100%;
+    text-align: center;
+}   
+
+.header-h1 {
+    color: orange;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
