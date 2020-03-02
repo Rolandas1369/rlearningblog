@@ -6,6 +6,7 @@ import Header from '../header';
 import Blog from '../blog';
 
 
+
 require('dotenv').config()
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -20,14 +21,16 @@ export default class App extends Component {
     getAllPosts = () => {
         axios.get(API_URL + "/posts/")
         .then((data) => {
+            
             this.setState({ itemList: data.data})
         })
         .catch(console.log);
     }
 
     getPost = (id) => {
-        axios.get(API_URL + `/posts/${id}`)
+        axios.get(API_URL + `/posts/${id}/`)
         .then((item) => {
+            console.log(item.j)
             this.setState({ item: item.data})
         })
         .catch(console.log);
