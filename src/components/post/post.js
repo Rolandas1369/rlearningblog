@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
 
 import './post.css'
-export default class Posts extends Component {
-           
-        showList(items) {
-            return Object.keys(items).map((item) => {
-            
-                return (
-                    <div key={items[item].id + `div`} className="listdivs"> 
-                        <div key={items[item].id} className="itemleft">{items[item].title}</div>
-                        <div key={items[item].id + `tr`} className="itemright">{items[item].content}</div>
-                    </div>
-                )
-            });
-        }  
+export default class Post extends Component {
 
-       render() {
-           const items = this.props.items
-           const items_list = this.showList(items)
+    state = {
+        blue: false,
+        style: {color: ''}
+    }
 
-           return (
-               <div className="items-list">   
-                   {items_list}       
-               </div>
-           )
-       }
+    addRed = () => {
+        this.setState({style: { color:'red'}})
+    }
 
+    makeBlue = () => {
+        this.setState({ blue: !this.state.blue})
+    }
+
+    selectWord = (item) => {
+        console.log("props")
+    }
+
+    render() {
+
+        let classNames = ''
+
+        if(this.state.blue){
+            classNames += ' blue'
+        }
+
+        const { item } = this.props
+        console.log(item)
+        return (
+            <div>
+                <p className={classNames} style={this.state.style} onClick={this.makeBlue}>{item.title}</p>
+                <p>{item.content}</p>     
+            </div>
+        )
+    }
 }
-

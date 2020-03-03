@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-import Posts from '../post';
+import Post from '../post';
 import Header from '../header';
-import Blog from '../blog';
-
+import PostList from '../post-list/post-list';
 
 
 require('dotenv').config()
@@ -44,12 +43,13 @@ export default class App extends Component {
     render() {
 
         const { itemList, item } = this.state;
-        
+        console.log('From list', itemList)
         return (
             <div>
                 <Header />
-                <Posts items={itemList}/>
-                <Blog item={item}/>
+                <PostList items={itemList}/>
+                {itemList.title}
+                {/* <Post item={item}/>  */}
             </div>
         )
     }
