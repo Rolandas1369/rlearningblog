@@ -47,7 +47,7 @@ export default class App extends Component {
         const { itemList, item } = this.state;
         console.log('From list', itemList)
         return (
-            <div>
+            <div className='main'>
                 <Header />
                 <PostList items={itemList}/>
                 {itemList.title}

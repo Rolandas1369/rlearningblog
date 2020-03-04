@@ -32,11 +32,20 @@ export default class Post extends Component {
         console.log(item)
         return (
             <div className="post-data">
-                <p className={classNames} 
-                   style={this.state.style} 
-                   onClick={this.makeBlue}>
-                   {item.title}</p>
-                <button>Hello</button>    
+                <div className={classNames} 
+                    style={this.state.style} 
+                    onClick={this.makeBlue}>
+                    <h3>{item.title}</h3>
+                </div>
+                
+                <div>
+                    <p>{item.content}</p>            
+                </div>
+                <div>
+                    <button>Hello</button>
+                </div>
+                   
+                 
             </div>
         )
     }
