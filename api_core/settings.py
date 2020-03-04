@@ -131,7 +131,7 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "src/media")
 
 
 django_heroku.settings(locals())

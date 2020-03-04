@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import Image from 'react-image-resizer';
+
+import shot from '../../../src/media/one.png'
+
 import './post.css'
 export default class Post extends Component {
 
@@ -36,6 +40,11 @@ export default class Post extends Component {
                     style={this.state.style} 
                     onClick={this.makeBlue}>
                     <h3>{item.title}</h3>
+                    <Image 
+                     src={shot} 
+                     height={200}
+                     width={200}
+                     alt="this is car"/>
                 </div>
                 
                 <div>
