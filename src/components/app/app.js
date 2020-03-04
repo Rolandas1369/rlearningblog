@@ -40,7 +40,8 @@ export default class App extends Component {
 
     removeElement = (id) => {
         axios
-            .delete(API_URL + `/posts/${id}/`)
+            .delete(API_URL + `/posts/${id}/`, {xsrfCookieName: 'XSRF-TOKEN',
+            xsrfHeaderName: 'X-XSRF-TOKEN',})
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
                 console.log("deleted index", id, 'element id', idx)
