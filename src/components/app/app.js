@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-import Post from '../post';
 import Header from '../header';
-import PostList from '../post-list/post-list';
-
+import PostList from '../post-list';
+import AddPostForm from '../add-post-form';
 
 require('dotenv').config()
 
 const API_URL = process.env.REACT_APP_API_URL
-
-const display_this = 'displayinh'
 
 export default class App extends Component {
 
@@ -39,19 +36,40 @@ export default class App extends Component {
 
     componentDidMount = () => {
         this.getAllPosts()
-        // this.getPost(1)
+    }
+
+    removeElement = (id) => {
+        axios
+            .delete(API_URL + `/posts/${id}/`)
+            .then(this.setState(({ itemList }) => {
+                const idx = itemList.findIndex((el) => el.id === id)
+                console.log("deleted index", id, 'element id', idx)
+                const before = itemList.slice(0, idx)
+                const after = itemList.slice(idx + 1)
+                const all = [...before, ...after]
+
+                return {
+                    itemList: all
+                } 
+            }))
+    }
+
+    addItem = (e) => {
+        e.preventDefault()
+        console.log('item')
     }
 
     render() {
 
-        const { itemList, item } = this.state;
+        const { itemList } = this.state;
         console.log('From list', itemList)
         return (
             <div className='main'>
                 <Header />
-                <PostList items={itemList}/>
+                <AddPostForm addItem={this.addItem}/>
+                <PostList onDeleted={(id)=> this.removeElement(id)} items={itemList}/>
                 {itemList.title}
-                {/* <Post item={item}/>  */}
+                
             </div>
         )
     }

@@ -10,10 +10,13 @@ export default class PostList extends Component {
         items: ''
     }
 
+    
+
     componentDidMount = () => {
         console.log('monuer',this.props.items)
         this.setState({items: this.props.items})
     }
+
                
     showList = (items) => {
 
@@ -23,7 +26,7 @@ export default class PostList extends Component {
         return items1.map((item) => {
             
             return (
-                <Post key={item.id + `post`} item={item}/>        
+                <Post onDeleted={(e) => this.props.onDeleted(e)} key={item.id + `post`} item={item}/>        
         )   
     });
 }
@@ -31,6 +34,7 @@ export default class PostList extends Component {
    render() {
        const items = this.props.items
        const items_list = this.showList(items)
+
 
        console.log('soc', this.state.items)
        return (
