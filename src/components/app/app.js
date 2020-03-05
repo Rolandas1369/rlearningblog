@@ -39,18 +39,20 @@ export default class App extends Component {
     }
 
     removeElement = (id) => {
+        
+        console.log("Id of elelem",id)
         axios
-            .delete(API_URL + `/posts/${id}/`, {xsrfCookieName: 'XSRF-TOKEN',
-            xsrfHeaderName: 'X-XSRF-TOKEN',})
+
+            .delete(API_URL + `/posts/${id}/`)
+            
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
-                console.log("deleted index", id, 'element id', idx)
-                const before = itemList.slice(0, idx)
-                const after = itemList.slice(idx + 1)
-                const all = [...before, ...after]
+                // removing item that we want to remove
+                itemList.splice(idx, 1)
+                const newItemList = [...itemList.slice(0, idx), ...itemList.slice(idx)]
 
                 return {
-                    itemList: all
+                    itemList: newItemList
                 } 
             }))
     }

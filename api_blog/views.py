@@ -8,7 +8,8 @@ from rest_framework.response import Response
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
-    RetrieveUpdateDestroyAPIView
+    RetrieveUpdateDestroyAPIView,
+    DestroyAPIView
 )
 
 from .models import Post
@@ -23,4 +24,9 @@ class PostListView(ListCreateAPIView):
 class PostDetail(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+class DeletePost(DestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
 
