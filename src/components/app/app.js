@@ -13,7 +13,8 @@ export default class App extends Component {
 
     state = {
         itemList: '',
-        item: ''
+        item: '', 
+        image: ''
     };
 
     getAllPosts = () => {
@@ -57,10 +58,10 @@ export default class App extends Component {
             }))
     }
 
-    addItem = (e) => {
-        e.preventDefault()
-        console.log('item')
-    }
+    addItem = (item, content, image) => {
+
+        console.log("item=>", item, "conte=>", content, image)
+    };
 
     render() {
 
