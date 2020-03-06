@@ -5,8 +5,8 @@ import './add-post-form.js';
 export default class AddPostForm extends Component { 
 
     state = {
-        title: '',
-        content: ''
+        title: 'dd',
+        content: 'dd'
     }
 
 
@@ -18,20 +18,33 @@ export default class AddPostForm extends Component {
         this.setState({ content: e.target.value})
     }
 
-    onSubmit = (e) =>{
-        e.preventDefault()
-        console.log(this.state.title, this.state.content)
+    addImage = () => {
+        
     }
 
-    render(){
+    onSubmit = (e) =>{
+        e.preventDefault()
+        // console.log(this.state.title, this.state.content)
+    }
 
-        // console.log(this.state.title)
+    componentDidMount = () =>  {
+        this.setState({title: "fuck", content: "me"})
+    } 
+
+    render(){
+        const title = this.state.title
+        const content = this.state.content
+        
+        
+        console.log(title)
 
         return(
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={(e) => this.onSubmit(e)}>
                 <input onChange={this.onLabelChange} type="text" />
                 <input onChange={this.onContentChange} type="content" />
-                <button >Add content</button>
+                
+                <button onClick={() => this.props.addItem(title, content)}>Add content</button>
+                <input onChange={this.addImage} type="file" />
             </form>
         )
     }

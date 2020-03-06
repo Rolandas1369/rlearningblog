@@ -26,7 +26,7 @@ export default class PostList extends Component {
         return items1.map((item) => {
             
             return (
-                <Post onDeleted={(e) => this.props.onDeleted(e)} key={item.id + `post1`} item={item}/>        
+                <Post onDeleted={(e) => this.props.onDeleted(item.id)} key={item.id + `post`} item={item}/>        
         )   
     });
 }

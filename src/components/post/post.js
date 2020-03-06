@@ -26,7 +26,7 @@ export default class Post extends Component {
             classNames += ' blue'
         }
 
-        const { item, deleteItem } = this.props
+        const { item } = this.props
         
         return (
             <div className="post-data">

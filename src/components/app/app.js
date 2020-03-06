@@ -13,7 +13,8 @@ export default class App extends Component {
 
     state = {
         itemList: '',
-        item: ''
+        item: '', 
+        image: ''
     };
 
     getAllPosts = () => {
@@ -39,25 +40,32 @@ export default class App extends Component {
     }
 
     removeElement = (id) => {
+        
+        console.log("Id of elelem",id)
         axios
+<<<<<<< HEAD
             .delete(API_URL + `/posts/${id}/`)
+=======
+
+            .delete(API_URL + `/posts/${id}/`)
+            
+>>>>>>> 5b66b0809a1dcda7291de7856ada85f879d6a660
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
-                console.log("deleted index", id, 'element id', idx)
-                const before = itemList.slice(0, idx)
-                const after = itemList.slice(idx + 1)
-                const all = [...before, ...after]
+                // removing item that we want to remove
+                itemList.splice(idx, 1)
+                const newItemList = [...itemList.slice(0, idx), ...itemList.slice(idx)]
 
                 return {
-                    itemList: all
+                    itemList: newItemList
                 } 
             }))
     }
 
-    addItem = (e) => {
-        e.preventDefault()
-        console.log('item')
-    }
+    addItem = (item, content, image) => {
+
+        console.log("item=>", item, "conte=>", content, image)
+    };
 
     render() {
 
