@@ -13,8 +13,8 @@ export default class PostList extends Component {
     
 
     componentDidMount = () => {
-        console.log('monuer',this.props.items)
-        this.setState({items: this.props.items})
+        // console.log('monuer',this.props.items)
+        // this.setState({items: this.props.items})
     }
 
                
@@ -26,7 +26,7 @@ export default class PostList extends Component {
         return items1.map((item) => {
             
             return (
-                <Post onDeleted={(e) => this.props.onDeleted(e)} key={item.id + `post`} item={item}/>        
+                <Post onDeleted={(e) => this.props.onDeleted(e)} key={item.id + `post1`} item={item}/>        
         )   
     });
 }
