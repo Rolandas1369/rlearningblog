@@ -43,13 +43,9 @@ export default class App extends Component {
         
         console.log("Id of elelem",id)
         axios
-<<<<<<< HEAD
-            .delete(API_URL + `/posts/${id}/`)
-=======
 
             .delete(API_URL + `/posts/${id}/`)
             
->>>>>>> 5b66b0809a1dcda7291de7856ada85f879d6a660
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
                 // removing item that we want to remove
@@ -65,6 +61,9 @@ export default class App extends Component {
     addItem = (item, content, image) => {
 
         console.log("item=>", item, "conte=>", content, image)
+
+        axios.post(API_URL + "/posts/create/", {title: item, content: content})
+        .then((err) => console.log(err))
     };
 
     render() {

@@ -9,7 +9,8 @@ from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
-    DestroyAPIView
+    DestroyAPIView,
+    CreateAPIView
 )
 
 from .models import Post
@@ -20,6 +21,10 @@ from .serializers import PostSerializer, ImageSerializer
 class PostListView(ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+class CreateAPIView(CreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer 
 
 class PostDetail(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()

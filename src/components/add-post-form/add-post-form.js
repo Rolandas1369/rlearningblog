@@ -18,8 +18,8 @@ export default class AddPostForm extends Component {
         this.setState({ content: e.target.value})
     }
 
-    addImage = () => {
-        
+    addImage = (e) => {
+        this.setState({ item: e.target.value})
     }
 
     onSubmit = (e) =>{
