@@ -50,11 +50,15 @@ class CsrfExemptSessionAuthentication(SessionAuthentication):
 #             return Response(serializer.data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class PostCreateView(CreateAPIView):
+from django.views.decorators.csrf import csrf_exempt
+from braces.views import CsrfExemptMixin
+
+class PostCreateView(CsrfExemptMixin, CreateAPIView):
+    authentication_classes = []
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (permissions.AllowAny, )
-    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+    # permission_classes = (permissions.AllowAny, )
+    # authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
 
 
 class PostListView(ListCreateAPIView):
