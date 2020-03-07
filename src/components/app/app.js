@@ -61,40 +61,10 @@ export default class App extends Component {
 
     addItem = (item, content, image) => {
 
-<<<<<<< HEAD
-        console.log("item=>", item, "conte=>", content, "ime", image)
-
-        let file = this.state.file
-
-        let formData = new FormData()
-        
-        formData.append('title', item)
-        // formData.append('image', file)
-        
-        formData.append('content', content)
-
-        console.log(API_URL + `/posts/`)
-
-        
-        // var csrftoken = getCookie('csrftoken');
-        // var headers = new Headers();
-        // headers.append('X-CSRFToken', csrftoken);
-        // fetch('/api/upload', {
-        //     method: 'POST',
-        //     body: formData,
-        //     headers: headers,
-        //     credentials: 'include'
-        // })
-
-        axios.post(API_URL + `/posts/create`,{title: item, content: content})
-
-
-=======
         console.log("item=>", item, "conte=>", content, image)
 
         axios.post(API_URL + "/posts/create/", {id: max_id, title: item, content: content})
         .then((err) => console.log(err))
->>>>>>> 050b8690c7f995e35ea5cc173c057da23400a957
     };
 
     render() {
