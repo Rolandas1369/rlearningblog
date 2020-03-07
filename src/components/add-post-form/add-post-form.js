@@ -14,7 +14,7 @@ export default class AddPostForm extends Component {
 
 
     handleFormSubmit = async (event, requestType) => {
-        // event.preventDefault();
+        event.preventDefault();
     
         // const postObj = {
         //   title: event.target.elements.title.value,
