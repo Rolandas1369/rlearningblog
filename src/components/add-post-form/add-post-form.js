@@ -23,7 +23,7 @@ export default class AddPostForm extends Component {
     }
 
     onSubmit = (e) =>{
-        //e.preventDefault()
+        e.preventDefault()
         // console.log(this.state.title, this.state.content)
     }
 
