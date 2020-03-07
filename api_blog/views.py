@@ -43,7 +43,7 @@ from .serializers import PostSerializer, ImageSerializer
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class PostCreateView(CreateAPIView):
-    
+
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = (permissions.AllowAny, )
@@ -52,10 +52,6 @@ class PostCreateView(CreateAPIView):
 class PostListView(ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-
-class CreateAPIView(CreateAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer 
 
 class PostDetail(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
