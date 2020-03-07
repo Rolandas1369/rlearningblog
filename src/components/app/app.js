@@ -103,16 +103,12 @@ export default class App extends Component {
         
         console.log("item=>", item, "conte=>", content, image)
         
-        //yV5a9avgR5TRCd9OiW9z6crgjPkf5928Dk4MdojekhJb2i9cA9HFX1bS7hBSrUra
 
         axios.post(API_URL + "/posts/create/", 
             {id: max_id, title: item, content: content}, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
             'Content-Type': 'application/json',}}
-
-
-
             )
-        .then((err) => console.log(err))
+        .then(this.getAllPosts())
     };
 
     render() {
@@ -121,12 +117,12 @@ export default class App extends Component {
         console.log('From list', itemList)
         return (
             <div className='main'>
-                <CookiesProvider>
+                
                     <Header />
                     <AddPostForm addItem={this.addItem}/>
                     <PostList onDeleted={(id)=> this.removeElement(id)} items={itemList}/>
                     {itemList.title}
-                </CookiesProvider>
+                
                 
             </div>
         )
