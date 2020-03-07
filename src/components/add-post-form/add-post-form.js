@@ -42,14 +42,8 @@ export default class AddPostForm extends Component {
         this.setState({ content: e.target.value})
     }
 
-<<<<<<< HEAD
-    handleFile(e) {
-        let file = e.target.files[0]
-        this.setState({file: file})
-=======
     addImage = (e) => {
         this.setState({ item: e.target.value})
->>>>>>> 050b8690c7f995e35ea5cc173c057da23400a957
     }
 
     onSubmit = (e) =>{
@@ -58,11 +52,7 @@ export default class AddPostForm extends Component {
     }
 
     componentDidMount = () =>  {
-<<<<<<< HEAD
-        this.setState({title: "fuck", content: "me", file: null})
-=======
         this.setState({title: "this", content: "is"})
->>>>>>> 050b8690c7f995e35ea5cc173c057da23400a957
     } 
 
     render(){
