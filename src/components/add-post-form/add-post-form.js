@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import './add-post-form.js';
-import DjangoCSRFToken from 'django-react-csrftoken'
-import axios from 'axios'
+import DjangoCSRFToken from 'django-react-csrftoken';
+import CSRFToken from '../csrf-token/csrf-token';
+import axios from 'axios';
 export default class AddPostForm extends Component { 
 
     state = {
@@ -66,7 +67,7 @@ export default class AddPostForm extends Component {
 
         return(
             <form onSubmit={(e) => this.handleFormSubmit(e)}>
-                <DjangoCSRFToken />
+                <CSRFToken />
                 <input onChange={this.onLabelChange} type="text" name='title'/>
                 <input onChange={this.onContentChange} type="content" name='content'/>
                 
