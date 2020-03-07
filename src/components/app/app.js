@@ -66,7 +66,8 @@ export default class App extends Component {
         console.log("Id of elelem",id)
         axios
 
-            .delete(API_URL + `/posts/${id}/`, {headers: {Authorization: cokie}})
+            .delete(API_URL + `/posts/${id}/`, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
+            'Content-Type': 'application/json',}})
             
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
