@@ -87,7 +87,7 @@ export default class App extends Component {
         //yV5a9avgR5TRCd9OiW9z6crgjPkf5928Dk4MdojekhJb2i9cA9HFX1bS7hBSrUra
 
         axios.post(API_URL + "/posts/create/", 
-            {id: max_id, title: item, content: content}}
+            {id: max_id, title: item, content: content}
 
 
 
