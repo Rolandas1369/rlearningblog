@@ -13,24 +13,25 @@ export default class AddPostForm extends Component {
 
 
     handleFormSubmit = async (event, requestType) => {
-        event.preventDefault();
+        // event.preventDefault();
     
-        const postObj = {
-          title: event.target.elements.title.value,
-          content: event.target.elements.content.value
-        }
+        // const postObj = {
+        //   title: event.target.elements.title.value,
+        //   content: event.target.elements.content.value
+        // }
     
-        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-        axios.defaults.xsrfCookieName = "csrftoken";
-        axios.defaults.headers = {
-          "Content-Type": "application/json",
-          Authorization: `Token ${this.props.token}`,
-        };
+        // axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+        // axios.defaults.xsrfCookieName = "csrftoken";
+        // axios.defaults.headers = {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Token ${this.props.token}`,
+        // };
         
-        if (requestType === "post") {
-          await axios.post("http://127.0.0.1:8000/posts/create/", postObj)
+        // if (requestType === "post") {
+        //   await axios.post("http://127.0.0.1:8000/posts/create/", postObj)
 
-        }
+        // }
+        console.log("hello")
     }
 
 
