@@ -22,6 +22,14 @@ from .models import Post
 
 from .serializers import PostSerializer, ImageSerializer
 
+
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication 
+
+class CsrfExemptSessionAuthentication(SessionAuthentication):
+
+    def enforce_csrf(self, request):
+        return  # To not perform the csrf check previously happening
+
 # Create your views here.
 
 # @ensure_csrf_cookie
@@ -46,6 +54,7 @@ class PostCreateView(CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = (permissions.AllowAny, )
+    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
 
 
 class PostListView(ListCreateAPIView):
