@@ -28,7 +28,7 @@ export default class AddPostForm extends Component {
     }
 
     componentDidMount = () =>  {
-        this.setState({title: "fuck", content: "me"})
+        this.setState({title: "this", content: "is"})
     } 
 
     render(){
