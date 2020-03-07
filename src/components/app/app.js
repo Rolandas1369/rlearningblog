@@ -63,7 +63,7 @@ export default class App extends Component {
         console.log("item=>", item, "conte=>", content, image)
 
         axios.post(API_URL + "/posts/create/", {id: max_id, title: item, content: content})
-        .then(() => window.location.reload(false))
+        .then((err) => console.log(err))
     };
 
     render() {
