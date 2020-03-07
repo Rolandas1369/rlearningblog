@@ -9,6 +9,9 @@ from rest_framework.decorators import api_view
 from django.views.decorators.csrf import ensure_csrf_cookie
 from rest_framework import permissions
 
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 from rest_framework.generics import (
     ListAPIView,
@@ -60,5 +63,8 @@ class PostDetail(RetrieveUpdateDestroyAPIView):
 class DeletePost(DestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
