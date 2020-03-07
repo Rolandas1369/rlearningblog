@@ -9,7 +9,7 @@ import AddPostForm from '../add-post-form';
 require('dotenv').config()
 
 const API_URL = process.env.REACT_APP_API_URL
-
+const max_id = 100
 export default class App extends Component {
 
     state = {
@@ -61,6 +61,7 @@ export default class App extends Component {
 
     addItem = (item, content, image) => {
 
+<<<<<<< HEAD
         console.log("item=>", item, "conte=>", content, "ime", image)
 
         let file = this.state.file
@@ -88,6 +89,12 @@ export default class App extends Component {
         axios.post(API_URL + `/posts/create`,{title: item, content: content})
 
 
+=======
+        console.log("item=>", item, "conte=>", content, image)
+
+        axios.post(API_URL + "/posts/create/", {id: max_id, title: item, content: content})
+        .then((err) => console.log(err))
+>>>>>>> 050b8690c7f995e35ea5cc173c057da23400a957
     };
 
     render() {

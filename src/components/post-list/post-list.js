@@ -13,8 +13,8 @@ export default class PostList extends Component {
     
 
     componentDidMount = () => {
-        console.log('monuer',this.props.items)
-        this.setState({items: this.props.items})
+        // console.log('monuer',this.props.items)
+        // this.setState({items: this.props.items})
     }
 
                
