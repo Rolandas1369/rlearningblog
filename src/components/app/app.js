@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { CookiesProvider } from 'react-cookie';
 
 import Header from '../header';
 import PostList from '../post-list';
@@ -60,7 +61,33 @@ export default class App extends Component {
 
     addItem = (item, content, image) => {
 
-        console.log("item=>", item, "conte=>", content, image)
+        console.log("item=>", item, "conte=>", content, "ime", image)
+
+        let file = this.state.file
+
+        let formData = new FormData()
+        
+        formData.append('title', item)
+        // formData.append('image', file)
+        
+        formData.append('content', content)
+
+        console.log(API_URL + `/posts/`)
+
+        
+        // var csrftoken = getCookie('csrftoken');
+        // var headers = new Headers();
+        // headers.append('X-CSRFToken', csrftoken);
+        // fetch('/api/upload', {
+        //     method: 'POST',
+        //     body: formData,
+        //     headers: headers,
+        //     credentials: 'include'
+        // })
+
+        axios.post(API_URL + `/posts/create`,{title: item, content: content})
+
+
     };
 
     render() {
@@ -69,10 +96,12 @@ export default class App extends Component {
         console.log('From list', itemList)
         return (
             <div className='main'>
-                <Header />
-                <AddPostForm addItem={this.addItem}/>
-                <PostList onDeleted={(id)=> this.removeElement(id)} items={itemList}/>
-                {itemList.title}
+                <CookiesProvider>
+                    <Header />
+                    <AddPostForm addItem={this.addItem}/>
+                    <PostList onDeleted={(id)=> this.removeElement(id)} items={itemList}/>
+                    {itemList.title}
+                </CookiesProvider>
                 
             </div>
         )
