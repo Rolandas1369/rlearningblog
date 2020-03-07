@@ -60,13 +60,17 @@ export default class App extends Component {
     }
 
     addItem = (item, content, image) => {
-
+        
         console.log("item=>", item, "conte=>", content, image)
+        
+        
 
         axios.post(API_URL + "/posts/create/", 
-            {id: max_id, title: item, content: content},
-            { credentials: 'include'},
-            {headers: {'Content-Type': 'text/plain', }})
+            {id: max_id, title: item, content: content}, {config: {xsrfCookieName: 'XSRF-TOKEN', xsrfHeaderName: 'X-XSRF-TOKEN'}}
+
+
+
+            )
         .then((err) => console.log(err))
     };
 
