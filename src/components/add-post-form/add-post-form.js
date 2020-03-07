@@ -28,7 +28,7 @@ export default class AddPostForm extends Component {
         };
         
         if (requestType === "post") {
-          await axios.post("http://127.0.0.1:8000/posts/create/", postObj)
+          await axios.post("https://rlearningblog.herokuapp.com:8000/posts/create/", postObj)
 
         }
     }
