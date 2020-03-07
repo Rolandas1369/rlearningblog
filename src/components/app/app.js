@@ -49,7 +49,7 @@ export default class App extends Component {
             
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
-                // removing item that we want to remove
+                // removing item that we want to remove only to commit
                 itemList.splice(idx, 1)
                 const newItemList = [...itemList.slice(0, idx), ...itemList.slice(idx)]
 
