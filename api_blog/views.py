@@ -49,10 +49,10 @@ class PostCreateView(CreateAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-
+    permission_classes = (permissions.AllowAny, )
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 
 class PostListView(ListCreateAPIView):
@@ -68,6 +68,6 @@ class DeletePost(DestroyAPIView):
     serializer_class = PostSerializer
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = (permissions.AllowAny, )
 
 
