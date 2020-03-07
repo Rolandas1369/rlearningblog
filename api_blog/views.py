@@ -49,7 +49,10 @@ class PostCreateView(CreateAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (permissions.AllowAny, )
+
+
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class PostListView(ListCreateAPIView):
