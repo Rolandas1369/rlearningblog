@@ -26,8 +26,8 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = ['rlearningblog.herokuapp.com']
-#ALLOWED_HOSTS = ['rlearningblog.herokuapp.com','127.0.0.1', 'localhost:8000', 'localhost']
+#ALLOWED_HOSTS = ['rlearningblog.herokuapp.com']
+ALLOWED_HOSTS = ['rlearningblog.herokuapp.com','127.0.0.1', 'localhost:8000', 'localhost']
 
 
 # Application definition
@@ -109,12 +109,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
         'rest_framework.permissions.AllowAny',
-]
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ]
 }
-
 
 
 # Internationalization

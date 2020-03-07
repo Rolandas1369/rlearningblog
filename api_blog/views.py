@@ -22,14 +22,6 @@ from .models import Post
 
 from .serializers import PostSerializer, ImageSerializer
 
-
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication 
-
-class CsrfExemptSessionAuthentication(SessionAuthentication):
-
-    def enforce_csrf(self, request):
-        return  # To not perform the csrf check previously happening
-
 # Create your views here.
 
 # @ensure_csrf_cookie
@@ -50,15 +42,11 @@ class CsrfExemptSessionAuthentication(SessionAuthentication):
 #             return Response(serializer.data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-from django.views.decorators.csrf import csrf_exempt
-from braces.views import CsrfExemptMixin
-
-class PostCreateView(CsrfExemptMixin, CreateAPIView):
-    authentication_classes = []
+class PostCreateView(CreateAPIView):
+    
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    # permission_classes = (permissions.AllowAny, )
-    # authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+    permission_classes = (permissions.AllowAny, )
 
 
 class PostListView(ListCreateAPIView):
