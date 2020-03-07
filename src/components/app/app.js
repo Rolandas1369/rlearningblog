@@ -66,7 +66,8 @@ export default class App extends Component {
         console.log("Id of elelem",id)
         axios
 
-            .delete(API_URL + `/posts/${id}/`)
+            .delete(API_URL + `/posts/${id}/`, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
+                'Content-Type': 'application/json',}})
             
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
@@ -87,7 +88,8 @@ export default class App extends Component {
         //yV5a9avgR5TRCd9OiW9z6crgjPkf5928Dk4MdojekhJb2i9cA9HFX1bS7hBSrUra
 
         axios.post(API_URL + "/posts/create/", 
-            {id: max_id, title: item, content: content}
+            {id: max_id, title: item, content: content}, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
+            'Content-Type': 'application/json',}}
 
 
 
