@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './add-post-form.js';
-import CSRFToken from '../csrf-token/csrf-token';
+
 export default class AddPostForm extends Component { 
 
     state = {
@@ -53,7 +53,7 @@ export default class AddPostForm extends Component {
 
         return(
             <form onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
-                <CSRFToken />
+                
                 <input onChange={this.onLabelChange} type="text" name='title'/>
                 <input onChange={this.onContentChange} type="content" name='content'/>
                 
