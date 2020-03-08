@@ -32,9 +32,16 @@ export default class Post extends Component {
         
         
 
-        const path = '/media/'+ item.filename
+        const idx = (item.image).search(/(?=[^/]*$)/)
+        const name = (item.image).slice(idx)
+        const src = "https://rlearningblog.herokuapp.com/static/media/" + name
+        //const src1 = "http://localhost:8000/static/media/" + name
 
-        //console.log("path is", path)
+        //const index = /(?=[^/]*$)
+
+        console.log("path is", src)
+        
+
         
         return (
             <div className="post-data">
@@ -47,7 +54,7 @@ export default class Post extends Component {
 
                     
                     <Image 
-                        src="https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png" 
+                        src={src} 
                         height={200}
                         width={200}
                         alt="this is image"/>
