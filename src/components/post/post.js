@@ -30,28 +30,28 @@ export default class Post extends Component {
 
         const { item } = this.props
         
-        // let idx = 0;
-        // let name = ''
+        let idx = 0;
+        let name = ''
 
-        // if (item.image !== null) {
-        //      idx = (item.image).search(/(?=[^/]*$)/)
-        //      name = (item.image).slice(idx)
-        // }
+        if (item.image !== null) {
+             idx = (item.image).search(/(?=[^/]*$)/)
+             name = (item.image).slice(idx)
+        }
 
         
         
-        //const src1 = "http://localhost:8000/static/media/" + name
-
-        //const index = /(?=[^/]*$)
-
-        // let src = '';
         
-        // if (idx > 0) {
-        //     src = "https://rlearningblog.herokuapp.com/static/media/" + name
-        // }
-        // else {
-        //     src = "https://rlearningblog.herokuapp.com/static/media/one.png"
-        // }
+
+        
+
+        let src = '';
+        
+        if (idx > 0) {
+            src = "https://rlearningblog.herokuapp.com/static/media/" + name
+        }
+        else {
+            src = "https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png"
+        }
 
         console.log("strt", item.image)
 
