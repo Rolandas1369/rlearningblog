@@ -5,15 +5,14 @@ import './add-post-form.js';
 export default class AddPostForm extends Component { 
 
     state = {
-        title: 'dd',
-        content: 'dd',
+        title: 'title',
+        content: 'content',
         file: null
     }
 
 
     handleFile = (e) => {
         let file = e.target.files[0]
-
         this.setState({file: file})
     }
 

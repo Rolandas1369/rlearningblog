@@ -102,7 +102,7 @@ export default class App extends Component {
         
         console.log("item=>", item, "conte=>", content, image)
 
-        let formData = new FormData()?title=vienas&content=dy&file=Screenshot+from+2020-02-29+23-08-05.png
+        let formData = new FormData()
 
         formData.append('image', image, image.name)
         formData.append('title', item)
