@@ -68,8 +68,8 @@ export default class Post extends Component {
                     
                     <Image 
                         src={src} 
-                        height={300}
-                        width={300}
+                        height={400}
+                        width={400}
                         alt="this is image"/>
                 </div>
                 <div>
