@@ -17,9 +17,9 @@ export default class AddPostForm extends Component {
         this.setState({file: file})
     }
 
-    handleFormSubmit = async (event, requestType) => {
-        event.preventDefault();
-    }
+    // handleFormSubmit = (event, requestType) => {
+        
+    // }
 
 
     onLabelChange = (e) => {
@@ -36,7 +36,6 @@ export default class AddPostForm extends Component {
 
     onSubmit = (e) =>{
         e.preventDefault()
-        // console.log(this.state.title, this.state.content)
     }
 
     componentDidMount = () =>  {
@@ -52,8 +51,7 @@ export default class AddPostForm extends Component {
         console.log(title)
 
         return(
-            <form onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
-                
+            <form >
                 <input onChange={this.onLabelChange} type="text" name='title'/>
                 <input onChange={this.onContentChange} type="content" name='content'/>
                 

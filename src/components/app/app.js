@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { CookiesProvider } from 'react-cookie';
 
 import Header from '../header';
 import PostList from '../post-list';
@@ -45,12 +44,12 @@ export default class App extends Component {
 
         function getCookie(name) {
             var cookieValue = null;
-            if (document.cookie && document.cookie != '') {
+            if (document.cookie && document.cookie !== '') {
                 var cookies = document.cookie.split(';');
                 for (var i = 0; i < cookies.length; i++) {
                     var cookie = cookies[i].trim();
                     // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                         break;
                     }
@@ -81,16 +80,16 @@ export default class App extends Component {
             }))
     }
 
-    addItem = (item, content, image) => {
+    addItem = async (item, content, image) => {
 
         function getCookie(name) {
             var cookieValue = null;
-            if (document.cookie && document.cookie != '') {
+            if (document.cookie && document.cookie !== '') {
                 var cookies = document.cookie.split(';');
                 for (var i = 0; i < cookies.length; i++) {
                     var cookie = cookies[i].trim();
                     // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                         break;
                     }
@@ -103,7 +102,7 @@ export default class App extends Component {
         
         console.log("item=>", item, "conte=>", content, image)
 
-        let formData = new FormData()
+        let formData = new FormData()?title=vienas&content=dy&file=Screenshot+from+2020-02-29+23-08-05.png
 
         formData.append('image', image, image.name)
         formData.append('title', item)
@@ -113,7 +112,7 @@ export default class App extends Component {
 
         
 
-        axios.post(API_URL + "/posts/create/", 
+        await axios.post(API_URL + "/posts/create/", 
             formData, 
             {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
             'Content-Type': 'multipart/form-data',}}
