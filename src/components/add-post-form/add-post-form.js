@@ -5,20 +5,21 @@ import './add-post-form.js';
 export default class AddPostForm extends Component { 
 
     state = {
-        title: 'title',
-        content: 'content',
+        title: 'dd',
+        content: 'dd',
         file: null
     }
 
 
     handleFile = (e) => {
         let file = e.target.files[0]
+
         this.setState({file: file})
     }
 
-    // handleFormSubmit = (event, requestType) => {
-        
-    // }
+    handleFormSubmit = (event, requestType) => {
+        event.preventDefault()
+    }
 
 
     onLabelChange = (e) => {
@@ -50,7 +51,7 @@ export default class AddPostForm extends Component {
         console.log(title)
 
         return(
-            <form >
+            <form onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
                 <input onChange={this.onLabelChange} type="text" name='title'/>
                 <input onChange={this.onContentChange} type="content" name='content'/>
                 
