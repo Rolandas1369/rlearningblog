@@ -45,7 +45,7 @@ export default class Post extends Component {
                     <p>{item.image}</p>
                     
 
-                    <img src="/static/Screenshot_from_20.20-02-29_22-05-52.png" alt="text"/>
+                    <img url="https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png" alt="text"/>
                     <Image 
                         src={path} 
                         height={200}
