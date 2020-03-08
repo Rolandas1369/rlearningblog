@@ -67,7 +67,7 @@ export default class Post extends Component {
 
                     
                     <Image 
-                        src={"https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png"} 
+                        src={src} 
                         height={200}
                         width={200}
                         alt="this is image"/>
