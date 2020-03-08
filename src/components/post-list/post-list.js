@@ -20,10 +20,13 @@ export default class PostList extends Component {
                
     showList = (items) => {
 
-        const items1 = [...items]
-        console.log('from showList', items1[0])
+        const itemsArray = [...items]
+        if (itemsArray.length > 0){
+            console.log('Item array data', itemsArray[0].image)
+        }
         
-        return items1.map((item) => {
+        
+        return itemsArray.map((item) => {
             
             return (
                 <Post onDeleted={(e) => this.props.onDeleted(item.id)} key={item.id + `post`} item={item}/>        

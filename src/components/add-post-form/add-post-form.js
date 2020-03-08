@@ -5,22 +5,21 @@ import './add-post-form.js';
 export default class AddPostForm extends Component { 
 
     state = {
-        title: 'dd',
-        content: 'dd',
-        file: null
+        title: '',
+        content: '',
+        file: null,
+        filename: ''
     }
-
 
     handleFile = (e) => {
         let file = e.target.files[0]
-
-        this.setState({file: file})
+        this.setState({file: file, filename: file.name})
+        console.log("file props", file)
     }
 
-    handleFormSubmit = (event, requestType) => {
+    handleFormSubmit = (event) => {
         event.preventDefault()
     }
-
 
     onLabelChange = (e) => {
         this.setState({ title: e.target.value})
@@ -34,28 +33,21 @@ export default class AddPostForm extends Component {
         this.setState({ item: e.target.value})
     }
 
-    onSubmit = (e) =>{
-        e.preventDefault()
-    }
-
     componentDidMount = () =>  {
-        this.setState({title: "this", content: "is"})
+        this.setState({title: "title", content: "content", file: null})
     } 
 
     render(){
         const title = this.state.title
         const content = this.state.content
         const file = this.state.file
+        const filename = this.state.filename
         
-        
-        console.log(title)
-
         return(
             <form onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
                 <input onChange={this.onLabelChange} type="text" name='title'/>
                 <input onChange={this.onContentChange} type="content" name='content'/>
-                
-                <button onClick={() => this.props.addItem(title, content, file)}>Add content</button>
+                <button onClick={() => this.props.addItem(title, content, file, filename)}>Add post</button>
                 <input onChange={(e) => this.handleFile(e)} type="file" name="file" />
             </form>
         )

@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 
 import Image from 'react-image-resizer';
 
-import shot from '../../../src/media/one.png'
+import img from '../../../src/media/one.png';
 
 import './post.css'
+
+
 export default class Post extends Component {
 
     state = {
         blue: false,
-        style: {color: ''}
+        style: {color: ''},
+        image_src: ''
     }
 
     makeBlue = () => {
         this.setState({ blue: !this.state.blue})
     }
 
-    
 
     render() {
 
@@ -28,14 +30,24 @@ export default class Post extends Component {
 
         const { item } = this.props
         
+        
+
+        const path = '/media/'+ item.filename
+
+        //console.log("path is", path)
+        
         return (
             <div className="post-data">
                 <div className={classNames} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
                      <h3>{item.title}</h3>
+                    <p>{item.image}</p>
+                    
+
+                    <img src="/static/Screenshot_from_20.20-02-29_22-05-52.png" alt="text"/>
                     <Image 
-                        src={shot} 
+                        src={path} 
                         height={200}
                         width={200}
                         alt="this is image"/>
@@ -44,7 +56,7 @@ export default class Post extends Component {
                     <p>{item.content}</p>            
                 </div>
                 <div>
-                    <button onClick={this.props.onDeleted}>Hello</button>
+                    <button onClick={this.props.onDeleted}>Delete Post</button>
                 </div>
             </div>
         )
