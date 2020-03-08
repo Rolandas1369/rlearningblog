@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import './add-post-form.js';
-import DjangoCSRFToken from 'django-react-csrftoken';
 import CSRFToken from '../csrf-token/csrf-token';
-import axios from 'axios';
 export default class AddPostForm extends Component { 
 
     state = {
@@ -12,6 +10,12 @@ export default class AddPostForm extends Component {
         file: null
     }
 
+
+    handleFile = (e) => {
+        let file = e.target.files[0]
+
+        this.setState({file: file})
+    }
 
     handleFormSubmit = async (event, requestType) => {
         event.preventDefault();
@@ -48,7 +52,7 @@ export default class AddPostForm extends Component {
         console.log(title)
 
         return(
-            <form onSubmit={(e) => this.handleFormSubmit(e)}>
+            <form onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
                 <CSRFToken />
                 <input onChange={this.onLabelChange} type="text" name='title'/>
                 <input onChange={this.onContentChange} type="content" name='content'/>

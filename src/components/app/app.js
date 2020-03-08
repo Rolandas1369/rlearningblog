@@ -102,13 +102,22 @@ export default class App extends Component {
         let cokie = getCookie('csrftoken');
         
         console.log("item=>", item, "conte=>", content, image)
+
+        let formData = new FormData()
+
+        formData.append('image', image, image.name)
+        formData.append('title', item)
+        formData.append('content', content)
+
+        console.log("fomts" ,image.name)
+
         
 
         axios.post(API_URL + "/posts/create/", 
-            {id: max_id, title: item, content: content}, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
-            'Content-Type': 'application/json',}}
+            formData, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
+            'Content-Type': 'multipart/form-data',}}
             )
-        .then(this.getAllPosts())
+            .then(this.getAllPosts())
     };
 
     render() {
