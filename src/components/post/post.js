@@ -30,17 +30,30 @@ export default class Post extends Component {
 
         const { item } = this.props
         
-        
+        let idx = 0;
+        let name = ''
 
-        const idx = (item.image).search(/(?=[^/]*$)/)
-        const name = (item.image).slice(idx)
-        const src = "https://rlearningblog.herokuapp.com/static/media/" + name
+        if ((item.image).length > 0) {
+             idx = (item.image).search(/(?=[^/]*$)/)
+             name = (item.image).slice(idx)
+        }
+
+        
+        
         //const src1 = "http://localhost:8000/static/media/" + name
 
         //const index = /(?=[^/]*$)
 
-        console.log("path is", src)
+        let src = '';
         
+        if (idx > 0) {
+            src = "https://rlearningblog.herokuapp.com/static/media/" + name
+        }
+        else {
+            src = "https://rlearningblog.herokuapp.com/static/media/one.png"
+        }
+
+        console.log("strt", src)
 
         
         return (
