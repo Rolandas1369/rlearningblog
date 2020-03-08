@@ -33,7 +33,7 @@ export default class Post extends Component {
         let idx = 0;
         let name = ''
 
-        if ((item.image).length > 0) {
+        if (item.image !== 0) {
              idx = (item.image).search(/(?=[^/]*$)/)
              name = (item.image).slice(idx)
         }
