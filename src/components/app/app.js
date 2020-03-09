@@ -91,7 +91,7 @@ export default class App extends Component {
 
         console.log("formdata", formData.get("image"))
 
-        await axios.post(API_URL + "/posts/create/", 
+        await axios.post(API_URL + "/api/posts/create/", 
             formData, 
             {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
             'Content-Type': 'multipart/form-data',}}
