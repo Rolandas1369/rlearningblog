@@ -23,10 +23,17 @@ from django.conf.urls.static import static
 
 
 
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('api_blog.urls')),
+#     path('ok', TemplateView.as_view(template_name='index.html')),
+#     # re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
+# ]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api_blog.urls')),
-    path('ok', TemplateView.as_view(template_name='index.html')),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('api/', include('api_blog.urls')),
     # re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
 ]
 

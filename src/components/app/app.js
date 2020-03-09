@@ -19,7 +19,7 @@ export default class App extends Component {
     };
 
     getAllPosts = () => {
-        axios.get(API_URL + "/posts/")
+        axios.get(API_URL + "/api/posts/")
         .then((data) => {
             console.log('data from list', data)
             this.setState({ itemList: data.data})
@@ -61,7 +61,7 @@ export default class App extends Component {
         let cokie = this.getCookie('csrftoken');
 
         axios
-            .delete(API_URL + `/posts/${id}/`, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
+            .delete(API_URL + `/api/posts/${id}/`, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
                 'Content-Type': 'application/json'}})
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
