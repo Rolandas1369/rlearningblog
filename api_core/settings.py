@@ -150,10 +150,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "build/static/media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "build/")
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 
 
 django_heroku.settings(locals())
