@@ -150,7 +150,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "build/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
