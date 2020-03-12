@@ -17,8 +17,12 @@ export default class AddPostForm extends Component {
         console.log("file props", file)
     }
 
-    handleFormSubmit = (event) => {
+    handleFormSubmit = async (event) => {
+        
         event.preventDefault()
+        console.log("weee", event)
+        await new Promise(r => setTimeout(r, 3000));
+        window.location.reload(false);
     }
 
     onLabelChange = (e) => {

@@ -28,33 +28,9 @@ export default class Post extends Component {
         }
 
         const { item } = this.props
-        
-        // let idx = 0;
-        // let name = ''
-
-        // if (item.image !== null) {
-        //      idx = (item.image).search(/(?=[^/]*$)/)
-        //      name = (item.image).slice(idx)
-        // }
-
-        
-        
-        
-
-        
-
-        // let src = '';
-        
-        // if (idx > 0) {
-        //     src = "https://rlearningblog.herokuapp.com/static/media/" + name
-        // }
-        // else {
-        //     src = "https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png"
-        // }
 
         
         let url = (item.image).slice(0, item.image.indexOf('?'))
-        let src = 'media/' + item.filename
 
         
         return (
@@ -63,11 +39,7 @@ export default class Post extends Component {
                      style={this.state.style} 
                      onClick={this.makeBlue}>
                      <h3>{item.title}</h3>
-                    
-                    
-                    
-
-                    
+                                    
                     <Image 
                         src={url} 
                         height={400}

@@ -18,8 +18,8 @@ export default class App extends Component {
         filename: ''
     };
 
-    getAllPosts = () => {
-        axios.get(API_URL + "/api/posts/")
+    getAllPosts = async () => {
+        await axios.get(API_URL + "/api/posts/")
         .then((data) => {
             console.log('data from list', data)
             this.setState({ itemList: data.data})
@@ -91,11 +91,12 @@ export default class App extends Component {
 
         console.log("formdata", formData.get("image"))
 
-        await axios.post(API_URL + "/api/posts/create/", 
+            await axios.post(API_URL + "/api/posts/create/", 
             formData, 
             {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
             'Content-Type': 'multipart/form-data',}}
             )
+            .then(console.log("image uploaded"))
             .then(this.getAllPosts())
     };
 
