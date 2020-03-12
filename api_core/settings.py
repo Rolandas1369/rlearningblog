@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'storages',
 
     'api_blog',
 ]
@@ -143,17 +144,28 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    [os.environ['CORS']]
+    [os.environ['CORS'], 'https://rlearning.s3.eu-north-1.amazonaws.com']
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "build/static/media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 
 
 django_heroku.settings(locals())
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_LOCATION = 'media'

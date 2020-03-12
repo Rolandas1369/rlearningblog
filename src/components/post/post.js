@@ -52,7 +52,9 @@ export default class Post extends Component {
         //     src = "https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png"
         // }
 
-        console.log("strt", item.image)
+        
+        let url = (item.image).slice(0, item.image.indexOf('?'))
+        let src = 'media/' + item.filename
 
         
         return (
@@ -61,12 +63,13 @@ export default class Post extends Component {
                      style={this.state.style} 
                      onClick={this.makeBlue}>
                      <h3>{item.title}</h3>
-                    <p>{item.image}</p>
+                    
+                    
                     
 
                     
                     <Image 
-                        src={"http://localhost:8000/media/" + item.filename} 
+                        src={url} 
                         height={400}
                         width={400}
                         alt="this is image"/>
