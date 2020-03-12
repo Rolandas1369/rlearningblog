@@ -53,6 +53,7 @@ export default class Post extends Component {
         // }
 
         console.log("strt", item.image)
+        let url = (item.image).slice(0, item.image.indexOf('?'))
         let src = 'media/' + item.filename
 
         
@@ -63,12 +64,12 @@ export default class Post extends Component {
                      onClick={this.makeBlue}>
                      <h3>{item.title}</h3>
                     <p>{item.image}</p>
-                    <img src={src} alt="xx"/>
+                    
                     
 
                     
                     <Image 
-                        src={item.image} 
+                        src={url} 
                         height={400}
                         width={400}
                         alt="this is image"/>
