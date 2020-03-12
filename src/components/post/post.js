@@ -63,7 +63,7 @@ export default class Post extends Component {
                      style={this.state.style} 
                      onClick={this.makeBlue}>
                      <h3>{item.title}</h3>
-                    <p>{item.image}</p>
+                    
                     
                     
 
