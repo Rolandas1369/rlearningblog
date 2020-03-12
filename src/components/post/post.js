@@ -52,7 +52,7 @@ export default class Post extends Component {
         //     src = "https://rlearningblog.herokuapp.com/static/media/one.7b3b826c.png"
         // }
 
-        console.log("strt", item.image)
+        
         let url = (item.image).slice(0, item.image.indexOf('?'))
         let src = 'media/' + item.filename
 

@@ -22,7 +22,7 @@ export default class PostList extends Component {
 
         const itemsArray = [...items]
         if (itemsArray.length > 0){
-            console.log('Item array data', itemsArray[0].image)
+            console.log('Item array data')
         }
         
         

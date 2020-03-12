@@ -144,7 +144,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    [os.environ['CORS']]
+    [os.environ['CORS'], 'https://rlearning.s3.eu-north-1.amazonaws.com']
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
