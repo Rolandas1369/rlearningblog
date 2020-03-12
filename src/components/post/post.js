@@ -66,7 +66,7 @@ export default class Post extends Component {
 
                     
                     <Image 
-                        src={item.image} 
+                        src={"http://localhost:8000/media/" + item.filename} 
                         height={400}
                         width={400}
                         alt="this is image"/>
