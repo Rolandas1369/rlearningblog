@@ -27,6 +27,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
     path('api/', include('api_blog.urls')),
     path('rest-auth/', include('rest_auth.urls')),
+    path('create/', TemplateView.as_view(template_name='index.html'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
