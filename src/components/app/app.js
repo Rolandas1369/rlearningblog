@@ -5,6 +5,9 @@ import Header from '../header';
 import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
 
+
+import { BrowserRouter as Router, Route} from 'react-router-dom'
+
 require('dotenv').config()
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -105,15 +108,23 @@ export default class App extends Component {
         const { itemList } = this.state;
         console.log('From list', itemList)
         return (
-            <div className='main'> 
-                    <Header />
-                    <AddPostForm 
-                        addItem={this.addItem}/>
-                    <PostList 
-                        onDeleted={(id)=> this.removeElement(id)} 
-                        items={itemList}/>
-                    {itemList.title}
-            </div>
+            <Router>
+                <div className='main'>
+                    <Route path="/create" render={() =>
+                        <AddPostForm 
+                            addItem={this.addItem}/>
+                    } />
+                    <Route path="/" render = {() => 
+                        <div>
+                            <Header />
+                            <PostList 
+                            onDeleted={(id)=> this.removeElement(id)} 
+                            items={itemList}/>
+                            {itemList.title}
+                        </div>
+                        } exact/>
+                </div>
+            </Router>
         )
     }
 }
