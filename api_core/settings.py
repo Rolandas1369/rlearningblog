@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'storages',
-    'precise_bbcode',
 
     'api_blog',
 ]
@@ -112,8 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-
-    
 
 }
 

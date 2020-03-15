@@ -1,10 +1,9 @@
 from django.db import models
-from precise_bbcode.fields import BBCodeTextField
 
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=120)
-    content = BBCodeTextField()
+    content = models.TextField()
     image = models.ImageField('uploadimage')
     filename = models.CharField(max_length=120)
 
