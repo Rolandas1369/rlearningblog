@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Image from 'react-image-resizer';
+import parser from 'bbcode-to-react';
+
 
 
 import './post.css'
@@ -47,7 +49,7 @@ export default class Post extends Component {
                         alt="this is image"/>
                 </div>
                 <div>
-                    <p>{item.content}</p>            
+                    <p>{parser.toReact(item.content)}</p>            
                 </div>
                 <div>
                     <button onClick={this.props.onDeleted}>Delete Post</button>
