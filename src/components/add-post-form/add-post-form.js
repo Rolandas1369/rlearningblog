@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './add-post-form.js';
+import './add-post-form.css';
 
 export default class AddPostForm extends Component { 
 
@@ -50,12 +50,16 @@ export default class AddPostForm extends Component {
         const filename = this.state.filename
         
         return(
-            <form onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
-                <input onChange={this.onLabelChange} type="text" name='title'/>
-                <input onChange={this.onContentChange} type="content" name='content'/>
-                <button onClick={() => this.props.addItem(title, content, file, filename)}>Add post</button>
-                <input onChange={(e) => this.handleFile(e)} type="file" name="file" />
-            </form>
+            <div className="add-post-div">
+                <form className="add-post-form" onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
+                    <h2>Label for content</h2>
+                    <input className="form-input" onChange={this.onLabelChange} type="text" name='title'/>
+                    <h3>Content</h3>
+                    <textarea onChange={this.onContentChange} type="text" name='content'></textarea>
+                    <button onClick={() => this.props.addItem(title, content, file, filename)}>Add post</button>
+                    <input className="file-upload-button" onChange={(e) => this.handleFile(e)} type="file" name="file"/>
+                </form>
+            </div>
         )
     }
 } 

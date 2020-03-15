@@ -48,6 +48,6 @@ class DeletePost(DestroyAPIView):
     serializer_class = PostSerializer
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = (permissions.AllowAny, )
+    permission_classes = (permissions.IsAuthenticated, )
 
 
