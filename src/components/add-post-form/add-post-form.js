@@ -43,6 +43,10 @@ export default class AddPostForm extends Component {
         this.setState({title: "title", content: "content", file: null})
     } 
 
+    addBold = () => {
+        
+    }
+
     render(){
         const title = this.state.title
         const content = this.state.content
@@ -51,6 +55,7 @@ export default class AddPostForm extends Component {
         
         return(
             <div className="add-post-div">
+                <button onClick={() => this.addBold}>Bold</button>
                 <form className="add-post-form" onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
                     <h2>Label for content</h2>
                     <input className="form-input" onChange={this.onLabelChange} type="text" name='title'/>
