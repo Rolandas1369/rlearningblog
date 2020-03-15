@@ -76,11 +76,12 @@ export default class App extends Component {
             }))
     }
 
-    addItem = async (item, content, image, filename) => {
+    addItem = (item, content, image, filename) => {
 
         let cokie = this.getCookie('csrftoken');
         
         console.log("item=>", item, "content=>", content, "file=>", image, "filename->", filename)
+        console.log('cokke', cokie)
 
         let formData = new FormData()
 
@@ -95,14 +96,14 @@ export default class App extends Component {
         console.log("formdata", formData.get("image"))
 
             
-
-            await axios.post(API_URL + "/api/posts/create/", 
+            // set this axios.post(API_url + "/api/posts/create/", made and hard error to debug 
+            axios.post("/api/posts/create/", 
             formData, 
             {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
-            'Content-Type': 'multipart/form-data',}}
+            'Content-Type': 'multipart/form-data', Authorization: cokie}}
             )
             .then(console.log("image uploaded"))
-            .then(this.getAllPosts())
+            //.then(this.getAllPosts())
     };
 
     render() {
