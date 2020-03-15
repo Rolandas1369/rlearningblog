@@ -96,7 +96,7 @@ export default class App extends Component {
         console.log("formdata", formData.get("image"))
 
             
-            // set this axios.post(API_url + "/api/posts/create/", made and hard error to debug 
+            // set this axios.post(API_url + "/api/posts/create/", made a hard error to debug 
             axios.post("/api/posts/create/", 
             formData, 
             {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
@@ -113,6 +113,7 @@ export default class App extends Component {
         return (
             <Router>
                 <div className='main'>
+                    
                     <Route path="/create" render={() =>
                         <AddPostForm 
                             addItem={this.addItem}/>
@@ -124,6 +125,7 @@ export default class App extends Component {
                             onDeleted={(id)=> this.removeElement(id)} 
                             items={itemList}/>
                             {itemList.title}
+                            
                         </div>
                         } exact/>
                 </div>

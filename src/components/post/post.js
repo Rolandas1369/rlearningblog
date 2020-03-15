@@ -20,10 +20,18 @@ export default class Post extends Component {
         this.setState({ blue: !this.state.blue})
     }
 
+    return_content = () => {
+        
+
+        
+    }
+
 
     render() {
 
         let classNames = ''
+
+        const x = this.return_content
 
         if(this.state.blue){
             classNames += ' blue'
@@ -48,6 +56,8 @@ export default class Post extends Component {
                         width={400}
                         alt="this is image"/>
                 </div>
+                <iframe id="ifrm" src="https://gist.github.com/Rolandas1369/1f93d4682a27442dea50e3ed0bfbe5d5.js"></iframe>
+                
                 <div>
                     <p>{parser.toReact(item.content)}</p>            
                 </div>
