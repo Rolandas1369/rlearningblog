@@ -69,7 +69,7 @@ export default class Post extends Component {
                     <p>{parser.toReact(item.content)}</p>            
                 </div>
                 <div>
-                    <button onClick={this.props.onDeleted}>Delete Post</button>
+                    {/* <button onClick={this.props.onDeleted}>Delete Post</button> */}
                 </div>
             </div>
         )
