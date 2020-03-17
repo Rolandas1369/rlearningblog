@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Image from 'react-image-resizer';
 import parser from 'bbcode-to-react';
 
-import Iframe from '../Iframe';
+import EmbeddedGist from '../Iframe';
 
 
 import './post.css'
@@ -57,7 +57,9 @@ export default class Post extends Component {
                         width={400}
                         alt="this is image"/>
                 </div>
-                <Iframe source={this.state.src} />
+
+                
+                <EmbeddedGist gist="Rolandas1369/62154d53b4d004faa138144cd5fc6372" file="gistfile1.txt"></EmbeddedGist>
                 
                 
                 <div>
