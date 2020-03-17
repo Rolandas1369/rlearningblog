@@ -5,6 +5,7 @@ import Header from '../header';
 import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
 
+import './app.css'
 
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 
@@ -20,7 +21,8 @@ export default class App extends Component {
         itemList: '',
         item: '', 
         image: '',
-        filename: ''
+        filename: '',
+        
     };
 
     

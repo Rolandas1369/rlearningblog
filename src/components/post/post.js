@@ -3,13 +3,10 @@ import React, { Component } from 'react';
 import Image from 'react-image-resizer';
 import parser from 'bbcode-to-react';
 
+import Iframe from '../Iframe';
+
+
 import './post.css'
-
-import load from 'little-loader';
-
-
-
-
 
 
 export default class Post extends Component {
@@ -18,8 +15,7 @@ export default class Post extends Component {
         blue: false,
         style: {color: ''},
         image_src: '',
-        scriptLoaded: false,
-        status: 'start'
+        src: 'https://rlearning.s3.eu-north-1.amazonaws.com/media/first.html'
     }
 
 
@@ -40,6 +36,8 @@ export default class Post extends Component {
 
         let classNames = ''
 
+        
+
         if(this.state.blue){
             classNames += ' blue'
         }
@@ -57,8 +55,11 @@ export default class Post extends Component {
                         src={url} 
                         height={200}
                         width={400}
-                        alt="this is image"/>    
-                </div>     
+                        alt="this is image"/>
+                </div>
+                <Iframe source={this.state.src} />
+                
+                
                 <div>
 
 
