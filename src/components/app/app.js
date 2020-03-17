@@ -6,6 +6,7 @@ import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
 
 
+
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 require('dotenv').config()
@@ -18,8 +19,11 @@ export default class App extends Component {
         itemList: '',
         item: '', 
         image: '',
-        filename: ''
+        filename: '',
+        
     };
+
+    
 
     getAllPosts = async () => {
         await axios.get(API_URL + "/api/posts/")

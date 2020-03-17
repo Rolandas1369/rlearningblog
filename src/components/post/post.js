@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Image from 'react-image-resizer';
 import parser from 'bbcode-to-react';
 
+import Iframe from '../Iframe';
+
 
 
 import './post.css'
@@ -13,7 +15,8 @@ export default class Post extends Component {
     state = {
         blue: false,
         style: {color: ''},
-        image_src: ''
+        image_src: '',
+        src: 'https://rlearning.s3.eu-north-1.amazonaws.com/media/first.html'
     }
 
     makeBlue = () => {
@@ -31,7 +34,7 @@ export default class Post extends Component {
 
         let classNames = ''
 
-        const x = this.return_content
+        
 
         if(this.state.blue){
             classNames += ' blue'
@@ -56,7 +59,8 @@ export default class Post extends Component {
                         width={400}
                         alt="this is image"/>
                 </div>
-                <iframe id="ifrm" src="https://gist.github.com/Rolandas1369/1f93d4682a27442dea50e3ed0bfbe5d5.js"></iframe>
+                <Iframe source={this.state.src} />
+                
                 
                 <div>
                     <p>{parser.toReact(item.content)}</p>            
