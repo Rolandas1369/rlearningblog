@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Image from 'react-image-resizer';
 import parser from 'bbcode-to-react';
 
-import EmbeddedGist from '../Iframe';
+import EmbeddedGist from '../embedded-gist';
 
 
 import './post.css'
