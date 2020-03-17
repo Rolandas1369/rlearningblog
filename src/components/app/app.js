@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 require('dotenv').config()
 
+
+
 const API_URL = process.env.REACT_APP_API_URL
 
 export default class App extends Component {
@@ -20,6 +22,8 @@ export default class App extends Component {
         image: '',
         filename: ''
     };
+
+    
 
     getAllPosts = async () => {
         await axios.get(API_URL + "/api/posts/")
@@ -64,8 +68,10 @@ export default class App extends Component {
         let cokie = this.getCookie('csrftoken');
 
         axios
-            .delete(API_URL + `/api/posts/${id}/`, {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
-                'Content-Type': 'application/json'}})
+            .delete(API_URL + `/api/posts/${id}/`, 
+                    {headers: {'X-CSRFToken': cokie, 
+                               'Accept': 'application/json',
+                               'Content-Type': 'application/json'}})
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
                 itemList.splice(idx, 1)
@@ -85,25 +91,22 @@ export default class App extends Component {
 
         let formData = new FormData()
 
-        
         formData.append('title', item)
         formData.append('content', content)
         formData.append('image', image, image.name)
         formData.append('filename', filename)
 
-    
-
         console.log("formdata", formData.get("image"))
 
-            
             // set this axios.post(API_url + "/api/posts/create/", made a hard error to debug 
-            axios.post("/api/posts/create/", 
-            formData, 
-            {headers: {'X-CSRFToken': cokie, 'Accept': 'application/json',
-            'Content-Type': 'multipart/form-data', Authorization: cokie}}
-            )
-            .then(console.log("image uploaded"))
-            //.then(this.getAllPosts())
+        axios.post("/api/posts/create/", 
+                formData, 
+                {headers: {'X-CSRFToken': cokie, 
+                           'Accept': 'application/json',
+                           'Content-Type': 'multipart/form-data', 
+                           Authorization: cokie}})
+             .then(console.log("image uploaded"))
+                //.then(this.getAllPosts())
     };
 
     render() {
@@ -112,12 +115,11 @@ export default class App extends Component {
         console.log('From list', itemList)
         return (
             <Router>
-                <div className='main'>
-                    
+                <div className='main'>      
                     <Route path="/create" render={() =>
                         <AddPostForm 
                             addItem={this.addItem}/>
-                    } />
+                        } />
                     <Route path="/" render = {() => 
                         <div>
                             <Header />
@@ -125,7 +127,6 @@ export default class App extends Component {
                             onDeleted={(id)=> this.removeElement(id)} 
                             items={itemList}/>
                             {itemList.title}
-                            
                         </div>
                         } exact/>
                 </div>

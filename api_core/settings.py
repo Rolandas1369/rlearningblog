@@ -27,7 +27,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DEBUG = os.environ['DEBUG']
 
 #ALLOWED_HOSTS = ['rlearningblog.herokuapp.com']
-ALLOWED_HOSTS = ['rlearningblog.herokuapp.com','127.0.0.1', 'localhost:8000', 'localhost']
+ALLOWED_HOSTS = ['rlearningblog.herokuapp.com','127.0.0.1', 'localhost:8000', 'localhost', 'https://github.com']
 
 
 # Application definition

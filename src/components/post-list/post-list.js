@@ -10,14 +10,11 @@ export default class PostList extends Component {
         items: ''
     }
 
-    
-
     componentDidMount = () => {
         // console.log('monuer',this.props.items)
         // this.setState({items: this.props.items})
     }
-
-               
+     
     showList = (items) => {
 
         const itemsArray = [...items]
@@ -25,19 +22,18 @@ export default class PostList extends Component {
             console.log('Item array data')
         }
         
-        
         return itemsArray.map((item) => {
-            
             return (
-                <Post onDeleted={(e) => this.props.onDeleted(item.id)} key={item.id + `post`} item={item}/>        
-        )   
-    });
-}
+                <Post onDeleted={(e) => this.props.onDeleted(item.id)} 
+                                        key={item.id + `post`} 
+                                        item={item}/>        
+            )   
+        });
+    }
 
-   render() {
+    render() {
        const items = this.props.items
        const items_list = this.showList(items)
-
 
        console.log('soc', this.state.items)
        return (
@@ -46,7 +42,6 @@ export default class PostList extends Component {
            </div>
        )
    }
-
 }
 
  
