@@ -43,19 +43,38 @@ export default class Post extends Component {
         }
 
         const { item } = this.props
-        let url = (item.image).slice(0, item.image.indexOf('?'))
+        
+        let url = ""
+        let imageIfEgists = () => {
+            if(item.image !== null) {
+                url = (item.image).slice(0, item.image.indexOf('?'))
+                return (
+                    <a href={url} target="_blank" rel="noopener noreferrer">                         
+                    <Image 
+                        src={url} 
+                        height={200}
+                        width={400}
+                        alt="this is image"/>
+                    </a>  
+                )
+            } else {
+                return null;
+            }
+
+            
+        }
+        let image = imageIfEgists()
+        console.log(url)
+        
 
         return (
             <div className="post-data">
                 <div className={classNames} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
-                     <h3>{item.title}</h3>                             
-                    <Image 
-                        src={url} 
-                        height={200}
-                        width={400}
-                        alt="this is image"/>
+                     <h3>{item.title}</h3> 
+                      {image}
+                    
                 </div>
 
                 

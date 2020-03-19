@@ -95,8 +95,12 @@ export default class App extends Component {
 
         formData.append('title', item)
         formData.append('content', content)
-        formData.append('image', image, image.name)
-        formData.append('filename', filename)
+        if(image !== null) {
+            formData.append('image', image, image.name)
+            formData.append('filename', filename)
+        } 
+        
+        
 
         console.log("formdata", formData.get("image"))
 

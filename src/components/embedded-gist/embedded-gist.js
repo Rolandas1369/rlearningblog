@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './embedded-gist.css';
+
 class EmbeddedGist extends Component {
 
   constructor(props) {
@@ -56,7 +58,7 @@ class EmbeddedGist extends Component {
     if (this.state.loading) {
       return <div>loading...</div>;
     } else {
-      return <div dangerouslySetInnerHTML={{__html: this.state.src}} />;
+      return <div className="embedded-container" dangerouslySetInnerHTML={{__html: this.state.src}} />;
     }
   }
 }
@@ -70,6 +72,7 @@ EmbeddedGist.propTypes = {
 // global function name to serve as the JSONP callback.
 var gistCallbackId = 0;
 EmbeddedGist.nextGistCallback = () => {
+
     return "embed_gist_callback_" + gistCallbackId++;
 };
 
