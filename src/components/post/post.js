@@ -5,6 +5,7 @@ import parser from 'bbcode-to-react';
 import ImageDisplay from '../image-display';
 
 import GistDisplay from '../gist-display';
+import VideoDisplay from '../video-display';
 
 
 import './post.css'
@@ -42,6 +43,7 @@ export default class Post extends Component {
         
         return (
             <div className="post-data">
+                
                 <div className={classNames} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
@@ -49,6 +51,8 @@ export default class Post extends Component {
                 </div>
                 <ImageDisplay item={item}/>
                 <GistDisplay item={item}/>
+                <VideoDisplay item={item}/>
+                
                 
                 
                 <div>

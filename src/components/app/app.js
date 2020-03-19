@@ -84,7 +84,7 @@ export default class App extends Component {
             }))
     }
 
-    addItem = (item, content, image, filename) => {
+    addItem = (item, content, image, filename, gist_id, gist_filename, video_src) => {
 
         let cokie = this.getCookie('csrftoken');
 
@@ -100,7 +100,12 @@ export default class App extends Component {
         if(image !== null) {
             formData.append('image', image, image.name)
             formData.append('filename', filename)
-        } 
+            
+        }
+        formData.append('gist_id', gist_id)
+        formData.append('gist_filename', gist_filename)
+        formData.append('video_src', video_src)
+        
         
         
 

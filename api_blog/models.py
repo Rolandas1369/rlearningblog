@@ -8,6 +8,7 @@ class Post(models.Model):
     filename = models.CharField(max_length=120, null=True)
     gist_id = models.CharField(max_length=120, null=True)
     gist_filename = models.CharField(max_length=120, null=True)
+    video_src = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.title
