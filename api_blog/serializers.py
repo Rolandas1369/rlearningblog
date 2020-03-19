@@ -6,7 +6,7 @@ from api_blog.models import Image
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('id', 'title', 'content','image', 'filename')
+        fields = ('id', 'title', 'content','image', 'filename', 'gist_id', 'gist_filename')
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:

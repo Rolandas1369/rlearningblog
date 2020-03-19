@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import Image from 'react-image-resizer';
-import parser from 'bbcode-to-react';
 
-import EmbeddedGist from '../embedded-gist';
+import parser from 'bbcode-to-react';
+import ImageDisplay from '../image-display';
+
+import GistDisplay from '../gist-display';
 
 
 import './post.css'
@@ -15,10 +16,7 @@ export default class Post extends Component {
         blue: false,
         style: {color: ''},
         image_src: '',
-        src: 'https://rlearning.s3.eu-north-1.amazonaws.com/media/first.html'
     }
-
-
 
     makeBlue = () => {
         this.setState({ blue: !this.state.blue})
@@ -36,57 +34,24 @@ export default class Post extends Component {
 
         let classNames = ''
 
-        
-
         if(this.state.blue){
             classNames += ' blue'
         }
 
         const { item } = this.props
         
-        let url = ""
-        let imageIfEgists = () => {
-            if(item.image !== null) {
-                url = (item.image).slice(0, item.image.indexOf('?'))
-                return (
-                    <a href={url} target="_blank" rel="noopener noreferrer">                         
-                    <Image 
-                        src={url} 
-                        height={200}
-                        width={400}
-                        alt="this is image"/>
-                    </a>  
-                )
-            } else {
-                return null;
-            }
-
-            
-        }
-        let image = imageIfEgists()
-        console.log(url)
-        
-
         return (
             <div className="post-data">
                 <div className={classNames} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
-                     <h3>{item.title}</h3> 
-                      {image}
-                    
+                     <h3>{item.title}</h3>   
                 </div>
-
-                
-                <EmbeddedGist gist="Rolandas1369/62154d53b4d004faa138144cd5fc6372" file="gistfile1.txt"></EmbeddedGist>
+                <ImageDisplay item={item}/>
+                <GistDisplay item={item}/>
                 
                 
                 <div>
-
-
-                
-
-
                     <p>{parser.toReact(item.content)}</p>            
                 </div>
                 <div>

@@ -30,7 +30,7 @@ export default class App extends Component {
     getAllPosts = async () => {
         await axios.get(API_URL + "/api/posts/")
         .then((data) => {
-            console.log('data from list', data)
+            console.log('data from list', data.data)
             this.setState({ itemList: data.data})
         })
         .catch(console.log);
@@ -87,6 +87,8 @@ export default class App extends Component {
     addItem = (item, content, image, filename) => {
 
         let cokie = this.getCookie('csrftoken');
+
+
         
         console.log("item=>", item, "content=>", content, "file=>", image, "filename->", filename)
         console.log('cokke', cokie)
