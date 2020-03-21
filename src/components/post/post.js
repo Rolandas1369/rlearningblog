@@ -49,15 +49,16 @@ export default class Post extends Component {
                      onClick={this.makeBlue}>
                      <h3>{item.title}</h3>   
                 </div>
+                <div>
+                    <p>{parser.toReact(item.content)}</p>            
+                </div>
                 <ImageDisplay item={item}/>
                 <GistDisplay item={item}/>
                 <VideoDisplay item={item}/>
                 
                 
                 
-                <div>
-                    <p>{parser.toReact(item.content)}</p>            
-                </div>
+                
                 <div>
                     {/* <button onClick={this.props.onDeleted}>Delete Post</button> */}
                 </div>

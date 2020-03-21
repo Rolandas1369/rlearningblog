@@ -11,8 +11,6 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 require('dotenv').config()
 
-
-
 const API_URL = process.env.REACT_APP_API_URL
 
 export default class App extends Component {
@@ -25,7 +23,24 @@ export default class App extends Component {
         
     };
 
-    
+    checkLogin = () => {
+
+        const allCookies = document.cookie;
+
+        let cokie = this.getCookie('csrftoken');
+
+        axios.get(API_URL + "/rest-auth/user/",  
+            {headers: {'X-CSRFToken': cokie, 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'}})
+        
+        .then((data) => {
+            console.log('data form login', data.data)
+            
+        })
+        .catch(console.log);
+        console.log("koki", allCookies)
+    }
 
     getAllPosts = async () => {
         await axios.get(API_URL + "/api/posts/")
@@ -124,8 +139,9 @@ export default class App extends Component {
 
     render() {
 
+        const loggedIn = this.checkLogin()
         const { itemList } = this.state;
-        console.log('From list', itemList)
+        console.log('Is logged', loggedIn)
         return (
             <Router>
                 <div className='main'>      
