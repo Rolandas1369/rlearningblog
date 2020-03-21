@@ -133,6 +133,7 @@ export default class App extends Component {
                         <AddPostForm 
                             addItem={this.addItem}/>
                         } />
+                        
                     <Route path="/" render = {() => 
                         <div>
                             <Header />
