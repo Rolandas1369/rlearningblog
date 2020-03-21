@@ -24,7 +24,10 @@ from .models import Post
 from .serializers import PostSerializer, ImageSerializer
 
 
-class PostCreateView(CreateAPIView):
+class PostCreateView(LoginRequiredMixin, CreateAPIView):
+
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
