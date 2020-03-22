@@ -8,3 +8,9 @@
     color: orange;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.yellow-header {
+    background-color: yellow;
+    width: 100%;
+    text-align: center; 
+}

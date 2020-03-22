@@ -12,16 +12,17 @@ class GistDisplay  extends Component {
             return (                      
                 <EmbeddedGist gist={item.gist_id} file={item.gist_filename}></EmbeddedGist> 
             )
-    } else {
-        return null;
+        } else {
+            return null;
+        }
     }
-}
 render() {
 
     const filteredGist = this.gist()
 
     return (
-        <div className="filtered-gist">{filteredGist}</div>
+        <div>{filteredGist}</div>
+        //<div className="expand">{filteredGist}</div>
     )
     }
 }

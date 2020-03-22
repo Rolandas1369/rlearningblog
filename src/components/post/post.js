@@ -30,11 +30,12 @@ export default class Post extends Component {
     handleScriptCreate() {
         this.setState({ scriptLoaded: false })
     }
+    
 
     render() {
 
         let classNames = ''
-
+        
         if(this.state.blue){
             classNames += ' blue'
         }
@@ -47,12 +48,14 @@ export default class Post extends Component {
                 <div className={classNames} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
-                     <h3>{item.title}</h3>   
+                     <h3>{item.title}</h3> 
                 </div>
                 <div>
                     <p>{parser.toReact(item.content)}</p>            
                 </div>
+               
                 <ImageDisplay item={item}/>
+                <button>Expand gist</button>
                 <GistDisplay item={item}/>
                 <VideoDisplay item={item}/>
                 
