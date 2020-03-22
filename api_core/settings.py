@@ -135,12 +135,22 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
-    [os.environ['CORS'], 'https://rlearning.s3.eu-north-1.amazonaws.com']
+    [os.environ['CORS'], 'https://rlearning.s3.eu-north-1.amazonaws.com', 'https://cat-fact.herokuapp.com']
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 

@@ -5,6 +5,8 @@ import Header from '../header';
 import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
 
+import LifeCycles from '../../learningexamples/lifecycles';
+
 import './app.css'
 
 import { BrowserRouter as Router, Route} from 'react-router-dom'
@@ -144,6 +146,9 @@ export default class App extends Component {
         console.log('Is logged', loggedIn)
         return (
             <Router>
+                <Route path="/lifecycles" render={() => 
+                    <LifeCycles />
+                }/>
                 <div className='main'>      
                     <Route path="/create" render={() =>
                         <AddPostForm 
@@ -159,6 +164,7 @@ export default class App extends Component {
                             {itemList.title}
                         </div>
                         } exact/>
+                    
                 </div>
             </Router>
         )
