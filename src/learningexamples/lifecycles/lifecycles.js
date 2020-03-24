@@ -35,7 +35,7 @@ render () {
     
     return (
         <div>
-            <img src={x}></img>
+            <img src={cat} alt="cat"></img>
         </div>
     )
 }
