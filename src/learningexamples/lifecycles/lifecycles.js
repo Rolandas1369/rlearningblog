@@ -23,7 +23,7 @@ export default class LifeCycle extends Component {
     }
 
     // Method if fired then component is fully created, this will guarantee what we can work with
-    // component 
+    // component. componenDidMount is best practicd for retrieving data
     componentDidMount(){
         console.log("Mounting")
         this.getCatFacts()
