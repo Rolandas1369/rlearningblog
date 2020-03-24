@@ -27,8 +27,6 @@ export default class App extends Component {
 
     checkLogin = () => {
 
-        const allCookies = document.cookie;
-
         let cokie = this.getCookie('csrftoken');
 
         axios.get(API_URL + "/rest-auth/user/",  
@@ -41,13 +39,13 @@ export default class App extends Component {
             
         })
         .catch(console.log);
-        console.log("koki", allCookies)
+        
     }
 
     getAllPosts = async () => {
         await axios.get(API_URL + "/api/posts/")
         .then((data) => {
-            console.log('data from list', data.data)
+            //console.log('data from list', data.data)
             this.setState({ itemList: data.data})
         })
         .catch(console.log);
@@ -141,9 +139,9 @@ export default class App extends Component {
 
     render() {
 
-        const loggedIn = this.checkLogin()
+        //const loggedIn = this.checkLogin()
         const { itemList } = this.state;
-        console.log('Is logged', loggedIn)
+        //console.log('Is logged', loggedIn)
         return (
             <Router>
                 <Route path="/lifecycles" render={() => 
