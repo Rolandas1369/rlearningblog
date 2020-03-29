@@ -4,7 +4,7 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField(max_length=120)
     content = models.TextField()
-    image = models.ImageField('uploadimage', null=True)
+    image = models.ImageField('uploadimage', null=True, blank=True)
     filename = models.CharField(max_length=120, null=True)
     gist_id = models.CharField(max_length=120, null=True)
     gist_filename = models.CharField(max_length=120, null=True)
