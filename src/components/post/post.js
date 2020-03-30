@@ -51,7 +51,7 @@ export default class Post extends Component {
                      <h3>{item.title}</h3> 
                 </div>
                 <div>
-                    <p>{parser.toReact(item.content)}</p>            
+                    <div>{parser.toReact(item.content)}</div>            
                 </div>
                
                 <ImageDisplay item={item}/>

@@ -133,8 +133,11 @@ export default class App extends Component {
                            'Accept': 'application/json',
                            'Content-Type': 'multipart/form-data', 
                            Authorization: cokie}})
-             .then(console.log("image uploaded"))
+                .then(console.log("Ok"))
+                
                 //.then(this.getAllPosts())
+        
+            
     };
 
     render() {

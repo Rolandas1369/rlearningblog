@@ -5,10 +5,10 @@ class Post(models.Model):
     title = models.CharField(max_length=120)
     content = models.TextField()
     image = models.ImageField('uploadimage', null=True, blank=True)
-    filename = models.CharField(max_length=120, null=True)
-    gist_id = models.CharField(max_length=120, null=True)
-    gist_filename = models.CharField(max_length=120, null=True)
-    video_src = models.CharField(max_length=200, null=True)
+    filename = models.CharField(max_length=120, null=True, blank=True)
+    gist_id = models.CharField(max_length=120, null=True, blank=True)
+    gist_filename = models.CharField(max_length=120, null=True, blank=True)
+    video_src = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.title
