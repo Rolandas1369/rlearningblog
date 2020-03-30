@@ -8,7 +8,7 @@ class GistDisplay  extends Component {
     gist = () => {
         
         const { item } = this.props
-        if(item.gist_id !== null) {
+        if(item.gist_id !== null && item.gist_id !== "") {
             return (                      
                 <EmbeddedGist gist={item.gist_id} file={item.gist_filename}></EmbeddedGist> 
             )

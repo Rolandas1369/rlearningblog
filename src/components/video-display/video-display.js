@@ -32,9 +32,13 @@ export default class VideoDisplay extends React.Component {
     let videoUrl = this.props.item.video_src
     console.log("viddddd", videoUrl)
 
-    
-    const video = this.showVideo(videoUrl, opts)
-
+    let video = null
+    if(videoUrl == ""){
+      video = null
+    }
+    else{
+      video = this.showVideo(videoUrl, opts)
+    }
  
     return (
 
