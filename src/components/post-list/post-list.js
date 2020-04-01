@@ -21,8 +21,10 @@ export default class PostList extends Component {
         if (itemsArray.length > 0){
             console.log('Item array data')
         }
+        let sortedByHihgest = itemsArray.sort((a,b) => a-b)
+        console.log('List of array items', sortedByHihgest)
         
-        return itemsArray.map((item) => {
+        return sortedByHihgest.map((item) => {
             return (
                 <Post onDeleted={(e) => this.props.onDeleted(item.id)} 
                                         key={item.id + `post`} 
