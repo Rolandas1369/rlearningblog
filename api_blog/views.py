@@ -35,7 +35,7 @@ class PostCreateView(LoginRequiredMixin, CreateAPIView):
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
 
-class PostListView(ListCreateAPIView):
+class PostListView(ListAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
