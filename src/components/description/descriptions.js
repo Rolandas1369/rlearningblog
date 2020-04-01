@@ -26,6 +26,7 @@ const Description = () => {
                     <li>Sort items by date published (see post 155)</li>
                     <li>Pass login form to frontend</li>
                     <li>Inform, then post created</li>
+                    <li>Add more info to errors display</li>
                 </ul>
             </div>
         </div>
