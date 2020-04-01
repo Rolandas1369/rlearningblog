@@ -11,7 +11,8 @@ export default class AddPostForm extends Component {
         filename: '',
         gist_id: '',
         gist_filename: '',
-        video_src:''
+        video_src:'',
+        lang_choice: 'Both' // Set default language choice to be Both
     }
 
     handleFile = (e) => {
@@ -62,6 +63,10 @@ export default class AddPostForm extends Component {
         this.setState({content: this.state.content + " [b] [/b]"})
     }
 
+    onOptionChange = (e) => {
+        this.setState({lang_choice: e.target.value})
+    }
+
    
 
     render(){
@@ -72,6 +77,7 @@ export default class AddPostForm extends Component {
         const gist_id = this.state.gist_id
         const gist_filename = this.state.gist_filename
         const video_src = this.state.video_src
+        const lang_choice = this.state.lang_choice //this one
         
         return(
             <div className="add-post-div">
@@ -91,7 +97,14 @@ export default class AddPostForm extends Component {
                     <input className="gist-filename-input" onChange={this.onGistFileNameChange} type="text" name='gist_filename'/>
                     <h3>Video Src</h3>
                     <input className="video-src-input" onChange={this.onVideoSrcChange} type="text" name='video_src'/>
-                    <button onClick={() => this.props.addItem(title, content, file, filename, gist_id, gist_filename, video_src)}>Add post</button>
+                    <h3>Select language</h3>
+                    <select name="lang_choice" onChange={this.onOptionChange}>
+                        <option>---</option>
+                        <option>Python</option>
+                        <option>React</option>
+                        <option>Both</option>
+                    </select>
+                    <button onClick={() => this.props.addItem(title, content, file, filename, gist_id, gist_filename, video_src, lang_choice)}>Add post</button>
                     <input className="file-upload-button" onChange={(e) => this.handleFile(e)} type="file" name="file"/>
                 </form>
             </div>

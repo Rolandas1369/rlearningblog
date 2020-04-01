@@ -99,14 +99,9 @@ export default class App extends Component {
             }))
     }
 
-    addItem = (item, content, image, filename, gist_id, gist_filename, video_src) => {
+    addItem = (item, content, image, filename, gist_id, gist_filename, video_src, lang_choice) => { // add lang_choice
 
         let cokie = this.getCookie('csrftoken');
-
-
-        
-        console.log("item=>", item, "content=>", content, "file=>", image, "filename->", filename)
-        console.log('cokke', cokie)
 
         let formData = new FormData()
 
@@ -120,11 +115,14 @@ export default class App extends Component {
         formData.append('gist_id', gist_id)
         formData.append('gist_filename', gist_filename)
         formData.append('video_src', video_src)
+        formData.append('language_choice', lang_choice) //model name
         
         
         
 
-        console.log("formdata", formData.get("image"))
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
 
             // set this axios.post(API_url + "/api/posts/create/", made a hard error to debug 
         axios.post("/api/posts/create/", 

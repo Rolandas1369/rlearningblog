@@ -22,7 +22,10 @@ const Description = () => {
                     <li>Insights crud list</li>
                     <li>Add Expand gist functionality</li>
                     <li>Add yellow background for js blue for python</li>
-                    <li>Sort items by date published</li>
+                    <li>Add filters for displaying only python, js or multiple</li>
+                    <li>Sort items by date published (see post 155)</li>
+                    <li>Pass login form to frontend</li>
+                    <li>Inform, then post created</li>
                 </ul>
             </div>
         </div>

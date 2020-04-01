@@ -7,3 +7,16 @@
     align-items: center;
     flex-direction: column;
 }
+
+.blue-back {
+    background-color: #65b4bb;
+}
+
+.yellow-back {
+    background-color: #e3ab46;
+}
+
+.default-back {
+    background-color: #e1d8c7;
+}
+

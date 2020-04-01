@@ -1,0 +1,17 @@
+Test FizzBuzz with TDD
+
+Write failing test, make failing test pass, add littlest change in code possible, make test fail, make test pass repeat.
+
+
+51c342babba9a829675f84ed575787ca
+
+FizzBuzzTest.py
+
+
+Intresting approch to learn TDD
+
+Start learning TDD was hard for me, but this books approach is something interesting, we can see learning content is displayed as a story. Make a django project don't forget to start it, and test it in new functional_test.py file.
+
+75025ef8f7d705b35e35f63b126cbb11
+
+functional_test.py

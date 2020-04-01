@@ -33,22 +33,42 @@ export default class Post extends Component {
     
 
     render() {
-
-        let classNames = ''
-        
-        if(this.state.blue){
-            classNames += ' blue'
-        }
-
+        let languageBackground = 'post-data'
+        let classNamesh1 = ''
         const { item } = this.props
         
+        if(this.state.blue){
+            classNamesh1 += ' blue'
+        }
+
+
+        switch(item.language_choice) {
+            case "Python":
+            languageBackground += ' blue-back'
+              break;
+            case "React":
+            languageBackground += ' yellow-back'
+              break;
+            case "Both":
+            languageBackground += ' default-back'
+              break;
+            default:
+            languageBackground += ' default-back'
+          } 
+
+        
+        
+
+        
+        console.log(item)
         return (
-            <div className="post-data">
+            <div className={languageBackground}>
                 
-                <div className={classNames} 
+                <div className={classNamesh1} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
-                     <h3>{item.id} {item.title}</h3> 
+                     <h3>{item.id} {item.title}</h3>
+
                 </div>
                 <div>
                     <div>{parser.toReact(item.content)}</div>            
