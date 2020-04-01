@@ -4,6 +4,7 @@ import axios from 'axios'
 import Header from '../header';
 import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
+import Description from '../description';
 
 import LifeCycles from '../../learningexamples/lifecycles';
 
@@ -22,7 +23,6 @@ export default class App extends Component {
         item: '', 
         image: '',
         filename: '',
-        
     };
 
     checkLogin = () => {
@@ -159,6 +159,7 @@ export default class App extends Component {
                     <Route path="/" render = {() => 
                         <div>
                             <Header />
+                            <Description />
                             <PostList 
                             onDeleted={(id)=> this.removeElement(id)} 
                             items={itemList}/>

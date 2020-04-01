@@ -48,7 +48,7 @@ export default class Post extends Component {
                 <div className={classNames} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
-                     <h3>{item.title}</h3> 
+                     <h3>{item.id} {item.title}</h3> 
                 </div>
                 <div>
                     <div>{parser.toReact(item.content)}</div>            

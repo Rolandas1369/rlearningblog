@@ -1,0 +1,16 @@
+.description-item h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.description-item {
+    padding-left: 10%;
+}
+
+.insights-item {  
+    padding-top: 20px;
+}
+
+.features-item {
+    padding-top: 20px;
+}
