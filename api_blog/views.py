@@ -26,7 +26,7 @@ from .serializers import PostSerializer, ImageSerializer
 
 class PostCreateView(LoginRequiredMixin, CreateAPIView):
 
-    login_url = '/login/'
+    login_url = '/rest-auth/login/'
     redirect_field_name = 'redirect_to'
 
     queryset = Post.objects.all()
@@ -39,6 +39,7 @@ class PostListView(ListAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
 
 class PostDetail(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()

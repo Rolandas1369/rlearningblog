@@ -25,8 +25,11 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_title_input(self):
         self.browser.get('http://localhost:3000/create/')
+        time.sleep(2)
         title_field = self.browser.find_element_by_class_name('form-input')
-        content_field =  self.browser.find_element_by_tag_name('textarea')
+        time.sleep(2)
+        content_field = self.browser.find_element_by_tag_name('textarea')
+        time.sleep(2)
         options_field = self.browser.find_element_by_tag_name('select')
 
         title_field.send_keys('Title')
