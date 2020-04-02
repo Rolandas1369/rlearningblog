@@ -78,6 +78,7 @@ export default class AddPostForm extends Component {
         const gist_filename = this.state.gist_filename
         const video_src = this.state.video_src
         const lang_choice = this.state.lang_choice //this one
+
         
         return(
             <div className="add-post-div">
@@ -104,7 +105,8 @@ export default class AddPostForm extends Component {
                         <option>React</option>
                         <option>Both</option>
                     </select>
-                    <button onClick={() => this.props.addItem(title, content, file, filename, gist_id, gist_filename, video_src, lang_choice)}>Add post</button>
+
+                    <button id="submit-button" onClick={() => this.props.addItem(title, content, file, filename, gist_id, gist_filename, video_src, lang_choice)}>Add post</button>
                     <input className="file-upload-button" onChange={(e) => this.handleFile(e)} type="file" name="file"/>
                 </form>
             </div>

@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
@@ -10,12 +13,29 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
 
     # test if project works on port 3000 
-    def test_home_page(self):
-        self.browser.get('http://localhost:3000')
-    
-    # test if project works on port 8000 
-    def test_home_page_8000(self):
-        self.browser.get('http://localhost:8000')
+    # def test_home_page_3000(self):
+    #     self.browser.get('http://localhost:3000')
+    #
+    # # test if project works on port 8000
+    # def test_home_page_8000(self):
+    #     self.browser.get('http://localhost:8000')
+    #
+    # def test_create_page(self):
+    #     self.browser.get('http://localhost:8000/create/')
+
+    def test_title_input(self):
+        self.browser.get('http://localhost:3000/create/')
+        title_field = self.browser.find_element_by_class_name('form-input')
+        content_field =  self.browser.find_element_by_tag_name('textarea')
+        options_field = self.browser.find_element_by_tag_name('select')
+
+        title_field.send_keys('Title')
+        content_field.send_keys('Content')
+        options_field.send_keys('Python')
+        time.sleep(2)
+
+        submit_button = self.browser.find_element_by_id('submit-button')
+        submit_button.click()
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

@@ -22,7 +22,7 @@ export default class PostList extends Component {
             console.log('Item array data')
         }
         let sortedByHihgest = itemsArray.sort((a,b) => b.id - a.id)
-        console.log('List of array items', sortedByHihgest)
+
         
         return sortedByHihgest.map((item) => {
             return (

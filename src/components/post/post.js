@@ -56,11 +56,6 @@ export default class Post extends Component {
             languageBackground += ' default-back'
           } 
 
-        
-        
-
-        
-        console.log(item)
         return (
             <div className={languageBackground}>
                 
