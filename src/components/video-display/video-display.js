@@ -39,10 +39,17 @@ export default class VideoDisplay extends React.Component {
     else{
       video = this.showVideo(videoUrl, opts)
     }
+
+    let vid = null
+    if(video === null){
+        vid = null
+    } else {
+        vid = video
+    }
  
     return (
 
-    <div>{video}</div>
+    <div>{vid}</div>
 
       
     );

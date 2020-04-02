@@ -17,12 +17,12 @@ class HomePageTest(TestCase):
         response = self.client.get('/api/')
         self.assertEqual(response.status_code, 404)
     
-    # def test_user_can_post(self):
-    #     response =  self.client.post('/api/posts/',
-    #     data={'title': 'some', 'content': 'x', 'language_choice': 'Python'})
-    #     print(response.content)
-    #     self.assertEqual(response.status_code, 201)
-    
+    def test_user_cant_post_unuauthicated(self):
+        response =  self.client.post('/api/posts/create/',
+        data={'title': 'some', 'content': 'x', 'language_choice': 'Python'})
+        # redirect to login page
+        self.assertEqual(response.status_code, 302)
+
     
 class ItemModelTest(TestCase):
 
@@ -34,7 +34,7 @@ class ItemModelTest(TestCase):
         return user_response
 
     def test_saving_data_to_db(self):
-        ''' Create required data posts it to db checks data len and title'''
+        ''' Create required data, posts it to db checks data len and title text '''
         first_item = Post()
         first_item.title = 'text'
         first_item.content = 'Content'
@@ -51,7 +51,11 @@ class ItemModelTest(TestCase):
         self.assertEqual(len(saved_items), 2)
 
         first_saved_item_title = saved_items[0].title
+        first_saved_item_content = saved_items[0].content
+        first_saved_item_lang_choice = saved_items[0].language_choice
         self.assertEqual(first_saved_item_title, 'text')
+        self.assertEqual(first_saved_item_content, 'Content')
+        self.assertEqual(first_saved_item_lang_choice, 'Python')
 
     def test_authenticated_user_can_post(self):
         ''' Create user, login user, post data to api '''
