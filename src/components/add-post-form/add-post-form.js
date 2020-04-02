@@ -96,7 +96,7 @@ export default class AddPostForm extends Component {
                     <input className="gist-input" onChange={this.onGistIdChange} type="text" name='gist_id'/>
                     <h3>Gist file name</h3>
                     <input className="gist-filename-input" onChange={this.onGistFileNameChange} type="text" name='gist_filename'/>
-                    <h3>Video Src</h3>
+                    <h3>Video ID</h3>
                     <input className="video-src-input" onChange={this.onVideoSrcChange} type="text" name='video_src'/>
                     <h3>Select language</h3>
                     <select name="lang_choice" onChange={this.onOptionChange}>

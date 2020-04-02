@@ -17,7 +17,7 @@ class HomePageTest(TestCase):
         response = self.client.get('/api/')
         self.assertEqual(response.status_code, 404)
     
-    def test_user_cant_post_unuauthicated(self):
+    def test_user_cant_post_unauthenticated(self):
         response =  self.client.post('/api/posts/create/',
         data={'title': 'some', 'content': 'x', 'language_choice': 'Python'})
         # redirect to login page
@@ -57,7 +57,7 @@ class ItemModelTest(TestCase):
         self.assertEqual(first_saved_item_content, 'Content')
         self.assertEqual(first_saved_item_lang_choice, 'Python')
 
-    def test_authenticated_user_can_post(self):
+    def test_authenticated_user_can_post_and_save_to_db(self):
         ''' Create user, login user, post data to api '''
         user_response = self.auth_user()
         self.assertEquals(user_response.status_code, 200)
@@ -65,6 +65,12 @@ class ItemModelTest(TestCase):
                                                                      'content': 'x',
                                                                      'language_choice': 'Python'})
         self.assertEquals(post_response.status_code, 201)
+        self.assertEqual(Post.objects.count(), 1)
+        new_item = Post.objects.first()
+        self.assertEqual('some', new_item.title)
+
+
+
 
 
 
