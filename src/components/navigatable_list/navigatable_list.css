@@ -1,0 +1,8 @@
+.navigatable-list {
+    display: flex;
+    
+    padding-left: 10%;
+    flex-direction: column;
+    width: 80%;
+}
+

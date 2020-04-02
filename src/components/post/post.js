@@ -35,6 +35,7 @@ export default class Post extends Component {
     render() {
         let languageBackground = 'post-data'
         let classNamesh1 = ''
+        
         const { item } = this.props
         
         if(this.state.blue){
@@ -59,10 +60,11 @@ export default class Post extends Component {
         return (
             <div className={languageBackground}>
                 
-                <div className={classNamesh1} 
+                <div id={item.id}
+                     className={classNamesh1} 
                      style={this.state.style} 
                      onClick={this.makeBlue}>
-                     <h3>{item.id} {item.title}</h3>
+                     <h3>{item.id} {item.title}</h3> 
 
                 </div>
                 <div>
@@ -73,9 +75,7 @@ export default class Post extends Component {
                 <button>Expand gist</button>
                 <GistDisplay item={item}/>
                 <VideoDisplay item={item}/>
-                
-                
-                
+
                 
                 <div>
                     {/* <button onClick={this.props.onDeleted}>Delete Post</button> */}

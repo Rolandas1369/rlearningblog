@@ -5,6 +5,7 @@ import Header from '../header';
 import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
 import Description from '../description';
+import NavigatableList from '../navigatable_list';
 
 import LifeCycles from '../../learningexamples/lifecycles';
 
@@ -158,6 +159,7 @@ export default class App extends Component {
                         <div>
                             <Header />
                             <Description />
+                            <NavigatableList />
                             <PostList 
                             onDeleted={(id)=> this.removeElement(id)} 
                             items={itemList}/>

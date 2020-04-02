@@ -37,7 +37,7 @@ export default class LifeCycle extends Component {
 
     componentDidMount() {
         // mounting first element
-        this.getOnePost(1)
+        this.getOnePost(14)
         // mounting all posts to get available ids
         this.getAllCurrentPostsIds()         
     }
@@ -80,6 +80,7 @@ export default class LifeCycle extends Component {
 
         // one entry to display from api
         let postContent = this.postContent(1)
+        
         // all ids what are available for rendering
         let buttonsWithIds = this.displayAvailableIds()
         
