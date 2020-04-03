@@ -1,8 +1,13 @@
 .navigatable-list {
     display: flex;
-    
     padding-left: 10%;
+    padding-top: 10px;
     flex-direction: column;
     width: 80%;
+}
+
+.navigatable-list h3 {
+    display: flex;
+    justify-content: center;
 }
 

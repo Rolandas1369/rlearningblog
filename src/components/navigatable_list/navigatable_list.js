@@ -8,17 +8,22 @@ const API_URL = process.env.REACT_APP_API_URL
 export default class NavigatableList extends Component {
 
     state = {
-        navigate: {}
+        navigate: {},
+        hasError: false,
+        test: 1,
+        
     }
 
     componentDidMount() {
         this.getAllPosts()
     }
 
+    
+
     createNavigatableList = (nav_list) => {
         
        return nav_list.map((element) => {
-            return <div><a href={"#" + element.id}>{element.id}. {element.title}</a></div>
+            return <div key={element.id}><a href={"#" + element.id}>{element.id}. {element.title}</a></div>
         });
     }
 
@@ -30,19 +35,46 @@ export default class NavigatableList extends Component {
         .catch(console.log);
     }
 
+    componentDidCatch() {
+        this.setState({hasError: true})
+    }
+
     render() {
+
+        if(this.state.render_error){
+            this.foo.bar = 1
+        }
+
+        if(this.state.hasError){
+            return <p style={{ color: 'red'}}>You created error no list will be displayed</p>
+        }
 
         let nav_list = this.state.navigate
         let completed_list = ''
         if(nav_list.length > 0){
             completed_list = this.createNavigatableList([...nav_list])
         }
-        
-        //let list_wall = this.createNavigatableList(cc)
+
         return(
             <div className="navigatable-list">
+                <h3>Posts navigatable list</h3>
                     {completed_list}
+                    <ErrorButton />
             </div>
+        )
+    }
+}
+
+class ErrorButton extends Component {
+    state = {
+        render_error: false
+    }
+    render() {
+        if(this.state.render_error){
+            this.foo.bar = 1
+        }
+        return (
+            <button onClick={() => this.setState({render_error: true})}>Break List</button>
         )
     }
 }

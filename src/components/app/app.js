@@ -24,6 +24,7 @@ export default class App extends Component {
         item: '', 
         image: '',
         filename: '',
+        hasError: false
     };
 
     checkLogin = () => {

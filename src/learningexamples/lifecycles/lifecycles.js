@@ -36,24 +36,21 @@ export default class LifeCycle extends Component {
     }
 
     componentDidMount() {
-        // mounting first element
-        this.getOnePost(14)
-        // mounting all posts to get available ids
+        this.getOnePost(165)
         this.getAllCurrentPostsIds()         
     }
 
+    
+
     componentDidUpdate(prevProps, prevState) {
-        // we can compare on previous props or previuos state
-        // in our case it is state
-        if (prevState.id !== this.state.id) {
-            // if somewhere we change state(or props) this function is fired
-            // basicaly componentDidUpdate is tracking state or props change          
+        if (prevState.id !== this.state.id) {  
             this.updateBar(this.state.id);
         }
     }
 
+    
+
     updateBar = (id) => {
-        //need to check if id is ok
         if(id === null) {
             return
         }
@@ -65,8 +62,6 @@ export default class LifeCycle extends Component {
         return <p>{post.content}</p>
     }
 
-    // Changing state id from button click
-    // this will triger componentDidUpdate
     changeId = (idFromButton) => {
         this.setState({id: idFromButton})
     }
@@ -78,16 +73,19 @@ export default class LifeCycle extends Component {
 
     render () {
 
-        // one entry to display from api
+        if(this.state.hasError){
+            return <p>has error</p>
+        }
+
         let postContent = this.postContent(1)
         
-        // all ids what are available for rendering
         let buttonsWithIds = this.displayAvailableIds()
         
         return (
             <div>
                 {postContent}
                 {buttonsWithIds}
+                
             </div>
         )
     }
