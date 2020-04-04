@@ -36,8 +36,12 @@ export default class AddPostForm extends Component {
         this.setState({title: "title", content: "content", file: null})
     } 
 
-    addBold = (e) => {
+    addBold = () => {
         this.setState({content: this.state.content + " [b] [/b]"})
+    }
+
+    addPreTag = () => {
+        this.setState({content: this.state.content + " [pre] [/pre]"})
     }
 
     onOptionChange = (e) => {
@@ -55,8 +59,10 @@ export default class AddPostForm extends Component {
             <div className="add-post-div">
                 
                 <form className="add-post-form" onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
-
-                    <button className="bold-item" value={this.state.content} onClick={(e) => this.addBold(e)}>Bold</button>
+                    <div className="tags-pallete">
+                        <button className="bold-item" value={this.state.content} onClick={(e) => this.addBold(e)}>Bold</button>
+                        <button className="pre-item" value={this.state.content} onClick={() => this.addPreTag()}>Pre</button>
+                    </div>
                     <a href="/">Home</a>
                     <h2>Label for content</h2>
                     
@@ -77,7 +83,7 @@ export default class AddPostForm extends Component {
                         <option>Both</option>
                     </select>
 
-                    <button id="submit-button" onClick={() => this.props.addItem(title, content, 
+                    <button id="submit-button" className="submit-button" onClick={() => this.props.addItem(title, content, 
                                                                                  file, filename, 
                                                                                  gist_id, gist_filename, 
                                                                                  video_src, lang_choice)}

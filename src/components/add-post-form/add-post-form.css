@@ -1,7 +1,9 @@
 .add-post-div {
     display: flex;
-    
-    
+}
+
+.submit-button {
+    width: 30%;
 }
 
 .add-post-form {
@@ -22,14 +24,13 @@ textarea {
     height: 20px;
 }
 
-button {
-    width: 30%;
-}
 
 .file-upload-button {
     width: 30%;
 }
 
-.bold-item {
-    width: 15%;
+
+.tags-pallete {
+    display: flex;
+    flex-direction: row;
 }
