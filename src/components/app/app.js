@@ -93,7 +93,8 @@ export default class App extends Component {
 
     render() {
 
-        const { itemList } = this.state;
+        const { itemList, isUser } = this.state;
+
 
         return (
             <Router>
@@ -110,15 +111,14 @@ export default class App extends Component {
                         <div>
                             <Header />
                             <Description />
-                            <NavigatableList />
+                            {/* Functions can be passed as props */}
+                            <NavigatableList getData={this.dataService.getAllPosts}/>
                             <PostList 
                             onDeleted={(id)=>this.removeElement(id)} 
                             items={itemList}
-                            user={this.state.isUser}/>
-                            {itemList.title}
+                            user={isUser}/>
                         </div>
                         } exact/>
-                    
                 </div>
             </Router>
         )

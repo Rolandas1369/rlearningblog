@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Post(models.Model):
@@ -17,4 +18,11 @@ class Post(models.Model):
 
 class Image(models.Model):
     image = models.ImageField('uploadimage')
-    
+
+class Feature(models.Model):
+    content = models.TextField()
+    completed = models.BooleanField(default=False)
+    date_added = models.DateTimeField(default=datetime.date)
+
+class Insight(models.Model):
+    content = models.TextField()

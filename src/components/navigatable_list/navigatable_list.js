@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 import './navigatable_list.css'
-import DataService from '../../services/data_service';
 
 export default class NavigatableList extends Component {
-
-    data_service = new DataService()
 
     state = {
         navigate: {},
@@ -13,15 +10,16 @@ export default class NavigatableList extends Component {
     }
 
     componentDidMount() {   
-        this.data_service.getAllPosts()
+        const { getData } = this.props
+        getData()
         .then((data) => {
             this.setState({ navigate: data.data})
         })
     }
 
     createNavigatableList = (nav_list) => {
-        
-       return nav_list.map((element) => {
+       let navListSorted = nav_list.sort((a,b) => b.id - a.id)
+       return navListSorted.map((element) => {
             return <div key={element.id}><a href={"#" + element.id}>{element.id}. {element.title}</a></div>
         });
     }

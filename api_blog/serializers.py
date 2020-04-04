@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from api_blog.models import Post
-from api_blog.models import Image
+from api_blog.models import Post, Image, Feature, Insight
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,3 +12,8 @@ class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
         fields = ('image')
+
+class FeatureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feature
+        fields = ('__all__')
