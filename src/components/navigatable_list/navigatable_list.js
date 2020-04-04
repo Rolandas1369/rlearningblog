@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import './navigatable_list.css'
-
-const API_URL = process.env.REACT_APP_API_URL
+import DataService from '../../services/data_service';
 
 export default class NavigatableList extends Component {
 
+    data_service = new DataService()
+
     state = {
         navigate: {},
-        hasError: false,
-        test: 1,
-        
+        hasError: false
     }
 
-    componentDidMount() {
-        this.getAllPosts()
+    componentDidMount() {   
+        this.data_service.getAllPosts()
+        .then((data) => {
+            this.setState({ navigate: data.data})
+        })
     }
-
-    
 
     createNavigatableList = (nav_list) => {
         
@@ -27,23 +26,11 @@ export default class NavigatableList extends Component {
         });
     }
 
-    getAllPosts = async () => {
-        await axios.get(API_URL + "/api/posts/")
-        .then((data) => {
-            this.setState({ navigate: data.data})
-        })
-        .catch(console.log);
-    }
-
-    componentDidCatch() {
+    componentDidCatch(error, info) {
         this.setState({hasError: true})
     }
 
     render() {
-
-        if(this.state.render_error){
-            this.foo.bar = 1
-        }
 
         if(this.state.hasError){
             return <p style={{ color: 'red'}}>You created error no list will be displayed</p>

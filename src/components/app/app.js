@@ -9,6 +9,8 @@ import NavigatableList from '../navigatable_list';
 
 import LifeCycles from '../../learningexamples/lifecycles';
 
+import DataService from '../../services/data_service';
+
 import './app.css'
 
 import { BrowserRouter as Router, Route} from 'react-router-dom'
@@ -19,6 +21,8 @@ const API_URL = process.env.REACT_APP_API_URL
 
 export default class App extends Component {
 
+    dataService = new DataService()
+
     state = {
         itemList: '',
         item: '', 
@@ -27,64 +31,16 @@ export default class App extends Component {
         hasError: false
     };
 
-    checkLogin = () => {
-
-        let cokie = this.getCookie('csrftoken');
-
-        axios.get(API_URL + "/rest-auth/user/",  
-            {headers: {'X-CSRFToken': cokie, 
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'}})
-        
-        .then((data) => {
-            console.log('data form login', data.data)
-            
-        })
-        .catch(console.log);
-        
-    }
-
-    getAllPosts = async () => {
-        await axios.get(API_URL + "/api/posts/")
-        .then((data) => {
-            //console.log('data from list', data.data)
-            this.setState({ itemList: data.data})
-        })
-        .catch(console.log);
-    }
-
-    getPost = (id) => {
-        axios.get(API_URL + `/posts/${id}/`)
-        .then((item) => {
-            console.log(item)
-            this.setState({ item: item.data})
-        })
-        .catch(console.log);
-    }
-
     componentDidMount = () => {
-        this.getAllPosts()
-    }
-
-    getCookie = (name) => {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            let cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                let cookie = cookies[i].trim();
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
+        this.dataService
+        .getAllPosts()
+        .then((data) => {
+            this.setState({ itemList: data.data})})
     }
 
     removeElement = (id) => {
 
-        let cokie = this.getCookie('csrftoken');
+        let cokie = this.dataService.getCookie('csrftoken');
 
         axios
             .delete(API_URL + `/api/posts/${id}/`, 
@@ -101,9 +57,9 @@ export default class App extends Component {
             }))
     }
 
-    addItem = (item, content, image, filename, gist_id, gist_filename, video_src, lang_choice) => { // add lang_choice
+    addItem = (item, content, image, filename, gist_id, gist_filename, video_src, lang_choice) => {
 
-        let cokie = this.getCookie('csrftoken');
+        let cokie = this.dataService.getCookie('csrftoken');
 
         let formData = new FormData()
 
@@ -119,9 +75,6 @@ export default class App extends Component {
         formData.append('video_src', video_src)
         formData.append('language_choice', lang_choice) //model name
         
-        
-        
-
         for (var pair of formData.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
@@ -133,18 +86,13 @@ export default class App extends Component {
                            'Accept': 'application/json',
                            'Content-Type': 'multipart/form-data', 
                            Authorization: cokie}})
-                .then(console.log("Ok"))
-                
-                //.then(this.getAllPosts())
-        
-            
+                .then(console.log("Ok"))    
     };
 
     render() {
 
-        //const loggedIn = this.checkLogin()
         const { itemList } = this.state;
-        //console.log('Is logged', loggedIn)
+
         return (
             <Router>
                 <Route path="/lifecycles" render={() => 
