@@ -26,7 +26,8 @@ export default class PostList extends Component {
         
         return sortedByHihgest.map((item) => {
             return (
-                <Post onDeleted={(e) => this.props.onDeleted(item.id)} 
+                <Post onDeleted={(e) => this.props.onDeleted(item.id)}
+                                        user={this.props.user} 
                                         key={item.id + `post`} 
                                         item={item}/>        
             )   

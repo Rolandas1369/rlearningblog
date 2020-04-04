@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 
-
 import parser from 'bbcode-to-react';
 import ImageDisplay from '../image-display';
 
 import GistDisplay from '../gist-display';
 import VideoDisplay from '../video-display';
 
-
 import './post.css'
-
 
 export default class Post extends Component {
 
@@ -30,7 +27,6 @@ export default class Post extends Component {
     handleScriptCreate() {
         this.setState({ scriptLoaded: false })
     }
-    
 
     render() {
         let languageBackground = 'post-data'
@@ -42,6 +38,10 @@ export default class Post extends Component {
             classNamesh1 += ' blue'
         }
 
+        let delButton = null
+        if(this.props.user){    
+            delButton = <button onClick={this.props.onDeleted}>Delete Post</button>
+        }
 
         switch(item.language_choice) {
             case "Python":
@@ -78,7 +78,7 @@ export default class Post extends Component {
 
                 
                 <div>
-                    {/* <button onClick={this.props.onDeleted}>Delete Post</button> */}
+                    {delButton}
                 </div>
             </div>
         )

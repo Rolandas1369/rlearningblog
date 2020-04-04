@@ -30,4 +30,8 @@ export default class DataSevice {
         return cookieValue;
     }
 
+    checkUser = async () => {  
+        return await axios.get("/rest-auth/user/")
+      
+    }
 }

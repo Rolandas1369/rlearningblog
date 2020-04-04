@@ -28,10 +28,14 @@ export default class App extends Component {
         item: '', 
         image: '',
         filename: '',
-        hasError: false
+        hasError: false,
+        isUser: ''
     };
 
     componentDidMount = () => {
+        this.dataService.checkUser()
+        .then((res) => this.setState({isUser: res.data.username}))
+
         this.dataService
         .getAllPosts()
         .then((data) => {
@@ -44,9 +48,9 @@ export default class App extends Component {
 
         axios
             .delete(API_URL + `/api/posts/${id}/`, 
-                    {headers: {'X-CSRFToken': cokie, 
-                               'Accept': 'application/json',
-                               'Content-Type': 'application/json'}})
+                   {headers: {'X-CSRFToken': cokie, 
+                              'Accept': 'application/json',
+                              'Content-Type': 'application/json'}})
             .then(this.setState(({ itemList }) => {
                 const idx = itemList.findIndex((el) => el.id === id)
                 itemList.splice(idx, 1)
@@ -60,15 +64,13 @@ export default class App extends Component {
     addItem = (item, content, image, filename, gist_id, gist_filename, video_src, lang_choice) => {
 
         let cokie = this.dataService.getCookie('csrftoken');
-
         let formData = new FormData()
 
         formData.append('title', item)
         formData.append('content', content)
         if(image !== null) {
             formData.append('image', image, image.name)
-            formData.append('filename', filename)
-            
+            formData.append('filename', filename)      
         }
         formData.append('gist_id', gist_id)
         formData.append('gist_filename', gist_filename)
@@ -110,8 +112,9 @@ export default class App extends Component {
                             <Description />
                             <NavigatableList />
                             <PostList 
-                            onDeleted={(id)=> this.removeElement(id)} 
-                            items={itemList}/>
+                            onDeleted={(id)=>this.removeElement(id)} 
+                            items={itemList}
+                            user={this.state.isUser}/>
                             {itemList.title}
                         </div>
                         } exact/>

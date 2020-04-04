@@ -57,7 +57,6 @@ export default class AddPostForm extends Component {
         
         return(
             <div className="add-post-div">
-                
                 <form className="add-post-form" onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">
                     <div className="tags-pallete">
                         <button className="bold-item" value={this.state.content} onClick={(e) => this.addBold(e)}>Bold</button>
