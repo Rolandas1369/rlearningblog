@@ -8,6 +8,7 @@ from .views import (
     CreateAPIView,
     PostCreateView,
     FeaturesListView,
+    FeatureCreateView,
     InsightsListView
 
 )
@@ -18,5 +19,6 @@ urlpatterns = [
     path('posts/delete/<int:pk>/', DeletePost.as_view()),
     path('posts/create/', PostCreateView.as_view()),
     path('features/', FeaturesListView.as_view()),
+    path('features/create/', FeatureCreateView.as_view()),
     path('insights/', InsightsListView.as_view())
 ]

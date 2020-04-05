@@ -26,3 +26,14 @@ class Feature(models.Model):
 
 class Insight(models.Model):
     content = models.TextField()
+
+# Features/improvements to add to site
+
+#     Insights crud list
+#     Add Expand gist functionality
+#     Add yellow background for js blue for python (see post 156)
+#     Add filters for displaying only python, js or multiple
+#     Sort items by date published (see post 155)
+#     Pass login form to frontend
+#     Inform, then post created
+#     Add more info to errors display

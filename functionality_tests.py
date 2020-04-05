@@ -12,16 +12,16 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
-    # test if project works on port 3000 
-    # def test_home_page_3000(self):
-    #     self.browser.get('http://localhost:3000')
-    #
-    # # test if project works on port 8000
-    # def test_home_page_8000(self):
-    #     self.browser.get('http://localhost:8000')
-    #
-    # def test_create_page(self):
-    #     self.browser.get('http://localhost:8000/create/')
+    test if project works on port 3000 
+    def test_home_page_3000(self):
+        self.browser.get('http://localhost:3000')
+    
+    # test if project works on port 8000
+    def test_home_page_8000(self):
+        self.browser.get('http://localhost:8000')
+    
+    def test_create_page(self):
+        self.browser.get('http://localhost:8000/create/')
 
     def test_title_input(self):
         self.browser.get('http://localhost:3000/create/')

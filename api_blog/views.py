@@ -56,6 +56,15 @@ class FeaturesListView(ListAPIView):
     queryset = Feature.objects.all()
     serializer_class = FeatureSerializer
 
+class FeatureCreateView(LoginRequiredMixin, CreateAPIView):
+    
+    login_url = '/rest-auth/login/'
+    redirect_field_name = 'redirect_to'
+
+    queryset = Feature.objects.all()
+    serializer_class = FeatureSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+
 class InsightsListView(ListAPIView):
     queryset = Insight.objects.all()
     serializer_class = InsightsSerializer

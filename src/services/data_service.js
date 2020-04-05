@@ -67,6 +67,24 @@ export default class DataSevice {
                 .then(console.log("Ok"))    
     };
 
+    addFeature = (feature) => {
+
+        let cokie = this.getCookie('csrftoken');
+        let formData = new FormData()
+
+        formData.append('content',feature)
+
+        axios.post("/api/features/create/", 
+                formData, 
+                {headers: {'X-CSRFToken': cokie, 
+                           'Accept': 'application/json',
+                           'Content-Type': 'multipart/form-data', 
+                           Authorization: cokie}})
+                .then(console.log("Feature is added"))    
+        
+
+    }
+
     removeElement = (id, itemList) => {
        
         let cokie = this.getCookie('csrftoken');

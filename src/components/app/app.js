@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 
 import Header from '../header';
 import PostList from '../post-list';
@@ -17,7 +16,6 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 require('dotenv').config()
 
-const API_URL = process.env.REACT_APP_API_URL
 
 export default class App extends Component {
 
@@ -25,9 +23,6 @@ export default class App extends Component {
 
     state = {
         itemList: '',
-        item: '', 
-        image: '',
-        filename: '',
         hasError: false,
         isUser: ''
     };
@@ -47,25 +42,6 @@ export default class App extends Component {
         let updated_list = this.dataService.removeElement(id, items)
         this.setState({itemList: updated_list})
     }
-
-    // removeElement = (id) => {
-
-    //     let cokie = this.dataService.getCookie('csrftoken');
-
-    //     axios
-    //         .delete(API_URL + `/api/posts/${id}/`, 
-    //                {headers: {'X-CSRFToken': cokie, 
-    //                           'Accept': 'application/json',
-    //                           'Content-Type': 'application/json'}})
-    //         .then(this.setState(({ itemList }) => {
-    //             const idx = itemList.findIndex((el) => el.id === id)
-    //             itemList.splice(idx, 1)
-    //             const newItemList = [...itemList.slice(0, idx), ...itemList.slice(idx)]
-    //             return {
-    //                 itemList: newItemList
-    //             } 
-    //         }))
-    // }
 
     render() {
 
@@ -87,7 +63,6 @@ export default class App extends Component {
                         <div>
                             <Header />
                             <Description getData={this.dataService.getAllFeatures}/>
-                            {/* Functions can be passed as props */}
                             <NavigatableList getData={this.dataService.getAllPosts}/>
                             <PostList 
                             onDeleted={(id, items) => this.handleDelete(id, items)} 
