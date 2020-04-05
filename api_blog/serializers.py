@@ -17,3 +17,8 @@ class FeatureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feature
         fields = ('__all__')
+
+class InsightsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Insight
+        fields = ('__all__')

@@ -19,9 +19,9 @@ from rest_framework.generics import (
     CreateAPIView
 )
 
-from .models import Post
+from .models import Post, Feature, Insight
 
-from .serializers import PostSerializer, ImageSerializer
+from .serializers import PostSerializer, ImageSerializer, FeatureSerializer, InsightsSerializer
 
 
 class PostCreateView(LoginRequiredMixin, CreateAPIView):
@@ -51,5 +51,13 @@ class DeletePost(DestroyAPIView):
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = (permissions.IsAuthenticated, )
+
+class FeaturesListView(ListAPIView):
+    queryset = Feature.objects.all()
+    serializer_class = FeatureSerializer
+
+class InsightsListView(ListAPIView):
+    queryset = Insight.objects.all()
+    serializer_class = InsightsSerializer
 
 

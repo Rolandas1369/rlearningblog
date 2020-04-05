@@ -22,7 +22,7 @@ class Image(models.Model):
 class Feature(models.Model):
     content = models.TextField()
     completed = models.BooleanField(default=False)
-    date_added = models.DateTimeField(default=datetime.date)
+    date_added = models.DateField(auto_now=True)
 
 class Insight(models.Model):
     content = models.TextField()

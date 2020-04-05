@@ -2,7 +2,9 @@ import React from 'react';
 
 import './description.css'
 
-const Description = () => {
+import FuturesList from '../futures-list.js';
+
+const Description = (props) => {
 
     return (
         <div className="description-item">
@@ -18,16 +20,7 @@ const Description = () => {
             </div>
             <div className="features-item">
                 <h4>Features/improvements to add to site</h4>
-                <ul>
-                    <li>Insights crud list</li>
-                    <li>Add Expand gist functionality</li>
-                    <li>Add yellow background for js blue for python (see post 156)</li>
-                    <li>Add filters for displaying only python, js or multiple</li>
-                    <li>Sort items by date published (see post 155)</li>
-                    <li>Pass login form to frontend</li>
-                    <li>Inform, then post created</li>
-                    <li>Add more info to errors display</li>
-                </ul>
+                <FuturesList getData={props.getData}/>
             </div>
         </div>
         
