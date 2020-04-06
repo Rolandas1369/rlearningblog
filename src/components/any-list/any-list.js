@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './any-list.css';
 
-export default class FuturesList extends Component {
+export default class AnyList extends Component {
 
     render() {
         return(
