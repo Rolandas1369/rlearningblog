@@ -27,6 +27,9 @@ class Feature(models.Model):
 class Insight(models.Model):
     content = models.TextField()
 
+class HtmlStylingChange(models.Model):
+    background_color = models.CharField(max_length=200)
+
 # Features/improvements to add to site
 
 #     Insights crud list
@@ -39,3 +42,4 @@ class Insight(models.Model):
 #     Add more info to errors display
 #     Add features crud 
 #     discribe deletion on error
+#     Fun thing is to add feature what you can modify some element and it is saved to db

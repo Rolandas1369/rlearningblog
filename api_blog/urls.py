@@ -10,7 +10,8 @@ from .views import (
     FeaturesListView,
     FeatureCreateView,
     DeleteFeature,
-    InsightsListView
+    InsightsListView,
+    HtmlStylingChangeSerializerView
 
 )
 
@@ -22,5 +23,7 @@ urlpatterns = [
     path('features/', FeaturesListView.as_view()),
     path('features/create/', FeatureCreateView.as_view()),
     path('features/delete/<int:pk>/', DeleteFeature.as_view()),
-    path('insights/', InsightsListView.as_view())
+    path('insights/', InsightsListView.as_view()),
+    
+    path('html/<int:pk>/',HtmlStylingChangeSerializerView.as_view())
 ]

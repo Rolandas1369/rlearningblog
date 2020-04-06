@@ -129,4 +129,25 @@ export default class DataSevice {
     checkUser = async () => {  
         return await axios.get("/rest-auth/user/")  
     }
+
+      getHtmlChanges() {
+        let x =  axios.get("/api/html/1/");
+        
+        return x
+    }
+
+    changeHtmlColor = (color) => {
+        let cokie = this.getCookie('csrftoken');
+        let formData = new FormData()
+
+        formData.append('background_color',color)
+
+        axios.put("/api/html/1/", 
+                formData, 
+                {headers: {'X-CSRFToken': cokie, 
+                           'Accept': 'application/json',
+                           'Content-Type': 'multipart/form-data', 
+                           Authorization: cokie}})
+                .then(console.log("color is added"))   
+    }
 }

@@ -16,13 +16,19 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
     DestroyAPIView,
-    CreateAPIView
+    CreateAPIView,
+    
 )
 
-from .models import Post, Feature, Insight
+from .models import Post, Feature, Insight, HtmlStylingChange
 
-from .serializers import PostSerializer, ImageSerializer, FeatureSerializer, InsightsSerializer
-
+from .serializers import (
+    PostSerializer, 
+    ImageSerializer, 
+    FeatureSerializer, 
+    InsightsSerializer,
+    HtmlStylingChangeSerializer
+)
 
 class PostCreateView(LoginRequiredMixin, CreateAPIView):
 
@@ -76,4 +82,7 @@ class InsightsListView(ListAPIView):
     queryset = Insight.objects.all()
     serializer_class = InsightsSerializer
 
+class HtmlStylingChangeSerializerView(RetrieveUpdateDestroyAPIView):
+    queryset = HtmlStylingChange.objects.all()
+    serializer_class = HtmlStylingChangeSerializer
 

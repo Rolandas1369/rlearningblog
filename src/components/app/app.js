@@ -24,12 +24,16 @@ export default class App extends Component {
     state = {
         itemList: '',
         hasError: false,
-        isUser: ''
+        isUser: '',
+        color: ''
     };
 
     componentDidMount = () => {
         this.dataService.checkUser()
         .then((res) => this.setState({isUser: res.data.username}))
+
+        this.dataService.getHtmlChanges().then((x) => 
+        this.setState({color: x.data.background_color}))
 
         this.dataService
         .getAllPosts()
@@ -41,6 +45,13 @@ export default class App extends Component {
         
         let updated_list = this.dataService.removeElement(id, items)
         this.setState({itemList: updated_list})
+    }
+
+    changeBackGroudColor = (e) => {
+        
+        this.dataService.changeHtmlColor(e.target.value)
+        console.log(e.target.value)
+        this.setState({color: e.target.value})
     }
 
     render() {
@@ -60,14 +71,17 @@ export default class App extends Component {
                         } />
                         
                     <Route path="/" render = {() => 
-                        <div>
+                        <div style={{backgroundColor: this.state.color}}>
                             <Header />
+                            <label htmlFor="backColor">ChangeBackground </label>
+                            <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
                             <Description getData={this.dataService.getAllFeatures}/>
                             <NavigatableList getData={this.dataService.getAllPosts}/>
                             <PostList 
                             onDeleted={(id, items) => this.handleDelete(id, items)} 
                             items={itemList}
                             user={isUser}/>
+                            
                         </div>
                         } exact/>
                 </div>
