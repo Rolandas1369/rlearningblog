@@ -75,8 +75,10 @@ export default class App extends Component {
                             <Header />
                             <label htmlFor="backColor">ChangeBackground </label>
                             <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
-                            <Description getData={this.dataService.getAllFeatures} user={isUser}/>
-                            <NavigatableList getData={this.dataService.getAllPosts}/>
+                            <div className="des-nav">
+                                <Description getData={this.dataService.getAllFeatures} user={isUser}/>
+                                <NavigatableList getData={this.dataService.getAllPosts}/>
+                            </div>
                             <PostList 
                             onDeleted={(id, items) => this.handleDelete(id, items)} 
                             items={itemList}

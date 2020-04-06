@@ -1,4 +1,8 @@
 .main {
  width: 100%;
+}
 
+.des-nav {
+    display: flex;
+    flex-direction: row;
 }

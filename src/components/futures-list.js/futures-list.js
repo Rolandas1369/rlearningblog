@@ -62,19 +62,15 @@ export default class FuturesList extends Component {
         const { getData } = this.props
         const data = await getData()
         this.setState({ features: data.data })
-       
-        console.log("features now after", this.state.features)
-
     }
 
     render() {
         let user = this.props.user
         let li_features = this.build_list(user)
         
-        
-        let inp = ''
+        let inputField = ''
         if(user) {
-             inp = (
+            inputField = (
                 <form onSubmit={this.handleSubmit}>
                         <label htmlFor="add-item">Add Item</label>
                         <input name="add-item" type="text" 
@@ -83,14 +79,14 @@ export default class FuturesList extends Component {
                 </form>
             )
         } else {
-             inp = null
+            inputField = null
         }
 
         return(
             <div>
                 <ul className="Features list">
                     {li_features}
-                    {inp}
+                    {inputField}
                 </ul>
             </div>
         )

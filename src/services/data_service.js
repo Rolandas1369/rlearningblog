@@ -36,6 +36,7 @@ export default class DataSevice {
     }
 
     addItem = (item, content, image, filename, gist_id, gist_filename, video_src, lang_choice) => {
+    
 
         let cokie = this.getCookie('csrftoken');
         let formData = new FormData()
