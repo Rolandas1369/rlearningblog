@@ -10,6 +10,10 @@ export default class DataSevice {
     getAllFeatures = async () => {
         return await axios.get(API_URL + "/api/features/")
     }
+
+    getAllInsights = async () => {
+        return await axios.get(API_URL + "/api/insights/")
+    }
     
     getAllPosts = async () => {
         return await axios.get(API_URL + "/api/posts/")
@@ -68,14 +72,14 @@ export default class DataSevice {
                 .then(console.log("Ok"))    
     };
 
-    addFeature = (feature) => {
+    addFeature = (feature, path) => {
 
         let cokie = this.getCookie('csrftoken');
         let formData = new FormData()
 
         formData.append('content',feature)
 
-        axios.post("/api/features/create/", 
+        axios.post(`/api/${path}/create/`, 
                 formData, 
                 {headers: {'X-CSRFToken': cokie, 
                            'Accept': 'application/json',
@@ -106,14 +110,14 @@ export default class DataSevice {
                 return newItemList       
     }
 
-    removeFeature = (id, itemList) => {
+    removeFeature = (id, itemList, feature) => {
        
         let cokie = this.getCookie('csrftoken');
 
         console.log('In remove', itemList)
         console.log('id', id)
         axios
-            .delete(`/api/features/delete/${id}/`, 
+            .delete(`/api/${feature}/delete/${id}/`, 
                    {headers: {'X-CSRFToken': cokie, 
                               'Accept': 'application/json',
                               'Content-Type': 'multipart/form-data',

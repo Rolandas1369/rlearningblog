@@ -5,4 +5,12 @@
 .des-nav {
     display: flex;
     flex-direction: row;
+    width: 80%;
+    justify-content: center;
+}
+
+.aligner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

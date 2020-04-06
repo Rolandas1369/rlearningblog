@@ -4,7 +4,11 @@
 }
 
 .description-item {
-    padding-left: 10%;
+    width: 80%;
+    justify-content: center;
+    padding-left: 20%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .insights-item {  

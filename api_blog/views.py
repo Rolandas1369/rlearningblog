@@ -62,7 +62,7 @@ class FeaturesListView(ListAPIView):
     queryset = Feature.objects.all()
     serializer_class = FeatureSerializer
 
-class FeatureCreateView(LoginRequiredMixin, CreateAPIView):
+class FeatureCreateView(CreateAPIView):
     
     login_url = '/rest-auth/login/'
     redirect_field_name = 'redirect_to'
@@ -78,9 +78,32 @@ class DeleteFeature(DestroyAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = (permissions.IsAuthenticated,)
 
+
+
 class InsightsListView(ListAPIView):
     queryset = Insight.objects.all()
     serializer_class = InsightsSerializer
+
+class DeleteInsight(DestroyAPIView):
+    queryset = Insight.objects.all()
+    serializer_class = InsightsSerializer
+
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = (permissions.IsAuthenticated,)
+
+class InsightCreateView(CreateAPIView):
+
+    login_url = '/rest-auth/login/'
+    redirect_field_name = 'redirect_to'
+
+    queryset = Insight.objects.all()
+    serializer_class = InsightsSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+
+
+
+
+
 
 class HtmlStylingChangeSerializerView(RetrieveUpdateDestroyAPIView):
     queryset = HtmlStylingChange.objects.all()

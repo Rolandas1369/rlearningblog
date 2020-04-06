@@ -1,0 +1,11 @@
+.any-list {
+    padding: 20px;
+}
+
+
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

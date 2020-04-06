@@ -5,6 +5,7 @@ import PostList from '../post-list';
 import AddPostForm from '../add-post-form';
 import Description from '../description';
 import NavigatableList from '../navigatable_list';
+import AnyList from '../any-list';
 
 import LifeCycles from '../../learningexamples/lifecycles';
 
@@ -75,9 +76,22 @@ export default class App extends Component {
                             <Header />
                             <label htmlFor="backColor">ChangeBackground </label>
                             <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
-                            <div className="des-nav">
-                                <Description getData={this.dataService.getAllFeatures} user={isUser}/>
-                                <NavigatableList getData={this.dataService.getAllPosts}/>
+                            <Description />
+                            <div className="aligner">
+                                <div className="des-nav">
+                                    {/* <Description getData={this.dataService.getAllFeatures} user={isUser}/> */}
+                                    <div>
+                                        <AnyList getData={this.dataService.getAllFeatures}
+                                                user={isUser}
+                                                feature="features"
+                                                headline="Features"/>
+                                        <AnyList getData={this.dataService.getAllInsights}
+                                                user={isUser}
+                                                feature="insights"
+                                                headline="Insights"/>
+                                    </div>
+                                    <NavigatableList getData={this.dataService.getAllPosts}/>
+                                </div>
                             </div>
                             <PostList 
                             onDeleted={(id, items) => this.handleDelete(id, items)} 
