@@ -3,22 +3,24 @@ from django.urls import path
 
 from .views import (
     PostListView,
-    PostDetail,
+    # PostDetail,
     DeletePost,
     CreateAPIView,
     PostCreateView,
     FeaturesListView,
     FeatureCreateView,
+    DeleteFeature,
     InsightsListView
 
 )
 
 urlpatterns = [
     path('posts/', PostListView.as_view()),
-    path('posts/<int:pk>/', PostDetail.as_view()),
+    # path('posts/<int:pk>/', PostDetail.as_view()),
     path('posts/delete/<int:pk>/', DeletePost.as_view()),
     path('posts/create/', PostCreateView.as_view()),
     path('features/', FeaturesListView.as_view()),
     path('features/create/', FeatureCreateView.as_view()),
+    path('features/delete/<int:pk>/', DeleteFeature.as_view()),
     path('insights/', InsightsListView.as_view())
 ]

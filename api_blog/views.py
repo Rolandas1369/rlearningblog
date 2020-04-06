@@ -41,9 +41,9 @@ class PostListView(ListAPIView):
     serializer_class = PostSerializer
 
 
-class PostDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
+# class PostDetail(RetrieveUpdateDestroyAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
 
 class DeletePost(DestroyAPIView):
     queryset = Post.objects.all()
@@ -64,6 +64,13 @@ class FeatureCreateView(LoginRequiredMixin, CreateAPIView):
     queryset = Feature.objects.all()
     serializer_class = FeatureSerializer
     permission_classes = (permissions.IsAuthenticated, )
+
+class DeleteFeature(DestroyAPIView):
+    queryset = Feature.objects.all()
+    serializer_class = FeatureSerializer
+
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = (permissions.IsAuthenticated,)
 
 class InsightsListView(ListAPIView):
     queryset = Insight.objects.all()

@@ -21,11 +21,22 @@ export default class FuturesList extends Component {
         })
     }
 
+    handleDelete(id, featArray){
+        let updatedArray = this.data_service.removeFeature(id, featArray)
+        this.setState({features: updatedArray})
+    }
+
     build_list(){
         let  {features}  = this.state
         let featArray = [...features]
         return featArray.map((element) => {
-            return <li key={element.id}>{element.content}</li>
+            
+            return (
+                <span key={element.id}>
+                    <li key={element.id}>{element.id} {element.content} started at: {element.date_added}</li>
+                    <button onClick={() => this.handleDelete(element.id, featArray)}>Delete </button>
+                </span>
+            )
         })
     }
 
@@ -34,9 +45,7 @@ export default class FuturesList extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
-
-        
+        e.preventDefault() 
     }
 
     sleep = (milliseconds) => {
@@ -54,8 +63,6 @@ export default class FuturesList extends Component {
        
         console.log("features now after", this.state.features)
 
-        
-
     }
 
     render() {
@@ -63,13 +70,13 @@ export default class FuturesList extends Component {
         console.log(this.state.features)
         return(
             <div>
-                <ul>
+                <ul className="Features list">
                     {li_features}
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="add-item">Add Item</label>
                         <input name="add-item" type="text" 
                                 onChange={(e) => this.addFeature(e)}/>
-                        <input type="submit" onClick={() => this.handleClick()} value="SS"/>
+                        <input type="submit" onClick={() => this.handleClick()} value="Add feature"/>
                     </form>
                 </ul>
             </div>

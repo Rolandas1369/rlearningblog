@@ -37,3 +37,5 @@ class Insight(models.Model):
 #     Pass login form to frontend
 #     Inform, then post created
 #     Add more info to errors display
+#     Add features crud 
+#     discribe deletion on error

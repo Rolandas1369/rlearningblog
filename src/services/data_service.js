@@ -81,9 +81,9 @@ export default class DataSevice {
                            'Content-Type': 'multipart/form-data', 
                            Authorization: cokie}})
                 .then(console.log("Feature is added"))    
-        
-
     }
+
+
 
     removeElement = (id, itemList) => {
        
@@ -92,18 +92,37 @@ export default class DataSevice {
         console.log('In remove', itemList)
 
         axios
-            .delete(API_URL + `/api/posts/${id}/`, 
+            .delete(`/api/posts/delete/${id}/`, 
                    {headers: {'X-CSRFToken': cokie, 
                               'Accept': 'application/json',
-                              'Content-Type': 'application/json'}})
+                              'Content-Type': 'multipart/form-data',
+                              Authorization: cokie}})
             
                 const idx = itemList.findIndex((el) => el.id === id)
                 itemList.splice(idx, 1)
                 const newItemList = [...itemList.slice(0, idx), ...itemList.slice(idx)]
                 
-                return newItemList
-                
+                return newItemList       
+    }
+
+    removeFeature = (id, itemList) => {
+       
+        let cokie = this.getCookie('csrftoken');
+
+        console.log('In remove', itemList)
+        console.log('id', id)
+        axios
+            .delete(`/api/features/delete/${id}/`, 
+                   {headers: {'X-CSRFToken': cokie, 
+                              'Accept': 'application/json',
+                              'Content-Type': 'multipart/form-data',
+                              Authorization: cokie}})
             
+                const idx = itemList.findIndex((el) => el.id === id)
+                itemList.splice(idx, 1)
+                const newItemList = [...itemList.slice(0, idx), ...itemList.slice(idx)]
+                
+                return newItemList       
     }
 
 
