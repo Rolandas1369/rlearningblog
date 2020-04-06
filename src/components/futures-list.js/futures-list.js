@@ -26,15 +26,17 @@ export default class FuturesList extends Component {
         this.setState({features: updatedArray})
     }
 
-    build_list(){
+    build_list(user){
         let  {features}  = this.state
         let featArray = [...features]
+        
+
         return featArray.map((element) => {
             
             return (
                 <span key={element.id}>
                     <li key={element.id}>{element.id} {element.content} started at: {element.date_added}</li>
-                    <button onClick={() => this.handleDelete(element.id, featArray)}>Delete </button>
+                    { user ?  <button onClick={() => this.handleDelete(element.id, featArray)}>Delete </button> : null } 
                 </span>
             )
         })
@@ -66,18 +68,29 @@ export default class FuturesList extends Component {
     }
 
     render() {
-        let li_features = this.build_list()
-        console.log(this.state.features)
-        return(
-            <div>
-                <ul className="Features list">
-                    {li_features}
-                    <form onSubmit={this.handleSubmit}>
+        let user = this.props.user
+        let li_features = this.build_list(user)
+        
+        
+        let inp = ''
+        if(user) {
+             inp = (
+                <form onSubmit={this.handleSubmit}>
                         <label htmlFor="add-item">Add Item</label>
                         <input name="add-item" type="text" 
                                 onChange={(e) => this.addFeature(e)}/>
                         <input type="submit" onClick={() => this.handleClick()} value="Add feature"/>
-                    </form>
+                </form>
+            )
+        } else {
+             inp = null
+        }
+
+        return(
+            <div>
+                <ul className="Features list">
+                    {li_features}
+                    {inp}
                 </ul>
             </div>
         )

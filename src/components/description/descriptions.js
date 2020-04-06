@@ -5,6 +5,7 @@ import './description.css'
 import FuturesList from '../futures-list.js';
 
 const Description = (props) => {
+    
 
     return (
         <div className="description-item">
@@ -20,7 +21,7 @@ const Description = (props) => {
             </div>
             <div className="features-item">
                 <h4>Features/improvements to add to site</h4>
-                <FuturesList getData={props.getData}/>
+                <FuturesList getData={props.getData} user={props.user}/>
             </div>
         </div>
         
