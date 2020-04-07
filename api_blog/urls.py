@@ -22,6 +22,7 @@ urlpatterns = [
     # path('posts/<int:pk>/', PostDetail.as_view()),
     path('posts/delete/<int:pk>/', DeletePost.as_view()),
     path('posts/create/', PostCreateView.as_view()),
+    
     path('features/', FeaturesListView.as_view()),
     path('features/create/', FeatureCreateView.as_view()),
     path('features/delete/<int:pk>/', DeleteFeature.as_view()),

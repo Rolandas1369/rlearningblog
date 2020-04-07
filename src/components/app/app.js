@@ -18,6 +18,13 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 require('dotenv').config()
 
 
+const AppDescriptionContainer = (props) => {
+    return (
+        <h1>{props.header}</h1>
+    )
+}
+
+
 export default class App extends Component {
 
     dataService = new DataService()
@@ -58,6 +65,7 @@ export default class App extends Component {
     render() {
 
         const { itemList, isUser } = this.state;
+        let appDescriptionComponent = (<AppDescriptionContainer header="Things to remember doing this project"/>)
 
         return (
             <Router>
@@ -76,7 +84,7 @@ export default class App extends Component {
                             <Header />
                             <label htmlFor="backColor">ChangeBackground </label>
                             <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
-                            <Description />
+                            <Description addHeader={appDescriptionComponent}/>
                             <div className="aligner">
                                 <div className="des-nav">
                                     {/* <Description getData={this.dataService.getAllFeatures} user={isUser}/> */}
