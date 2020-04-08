@@ -39,8 +39,8 @@ export default class AnyList extends Component {
             return (
                 <span className="list-item" key={element.id}>
                     <li key={element.id}>
-                        {element.id} {element.content} 
-                        {this.props.feature === "features" ? `Started at: ${element.date_added}`: null}
+                        {element.content} 
+                        {this.props.feature === "features" ? ` Started at: ${element.date_added}`: null}
                     </li>
                     { user ?  <button onClick={() => this.handleDelete(element.id, featArray, this.props.feature)}>Delete </button> : null } 
                 </span>

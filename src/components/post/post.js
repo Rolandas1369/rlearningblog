@@ -72,7 +72,7 @@ export default class Post extends Component {
                 </div>
                
                 <ImageDisplay item={item}/>
-                <button>Expand gist</button>
+                <button >Expand gist</button>
                 <GistDisplay item={item}/>
                 <VideoDisplay item={item}/>
 

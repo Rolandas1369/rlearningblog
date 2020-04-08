@@ -65,7 +65,11 @@ export default class App extends Component {
     render() {
 
         const { itemList, isUser } = this.state;
-        let appDescriptionComponent = (<AppDescriptionContainer header="Things to remember doing this project"/>)
+        let appDescriptionComponent = (
+            <AppDescriptionContainer header="Things to remember doing this project">
+                {[1,2,3]}
+            </AppDescriptionContainer>
+            )
 
         return (
             <Router>
@@ -84,7 +88,10 @@ export default class App extends Component {
                             <Header />
                             <label htmlFor="backColor">ChangeBackground </label>
                             <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
-                            <Description addHeader={appDescriptionComponent}/>
+                            <Description addHeader={appDescriptionComponent}>
+                                {/* can pass data in component body, and this can be accessed as props.children */}
+                                {{headerText: 'a lot of data is hard for user expierence', textColor:"pink"}}
+                            </Description>
                             <div className="aligner">
                                 <div className="des-nav">
                                     {/* <Description getData={this.dataService.getAllFeatures} user={isUser}/> */}
