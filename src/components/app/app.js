@@ -14,6 +14,7 @@ import DataService from '../../services/data_service';
 import './app.css'
 
 import { BrowserRouter as Router, Route} from 'react-router-dom'
+import UpdatePostForm from '../update-post-form';
 
 require('dotenv').config()
 
@@ -80,6 +81,11 @@ export default class App extends Component {
                     <Route path="/create" render={() =>
                         
                         <AddPostForm 
+                            addItem={this.dataService.addItem}/>
+                        } />
+                    <Route path="/update/:id" render={() =>
+                        
+                        <UpdatePostForm 
                             addItem={this.dataService.addItem}/>
                         } />
                         

@@ -3,7 +3,7 @@ from django.urls import path
 
 from .views import (
     PostListView,
-    # PostDetail,
+    PostDetail,
     DeletePost,
     CreateAPIView,
     PostCreateView,
@@ -13,14 +13,17 @@ from .views import (
     InsightsListView,
     HtmlStylingChangeSerializerView,
     DeleteInsight,
-    InsightCreateView
+    InsightCreateView,
+    UpdatePostView,
+    
 
 )
 
 urlpatterns = [
     path('posts/', PostListView.as_view()),
-    # path('posts/<int:pk>/', PostDetail.as_view()),
+    path('posts/<int:pk>/', PostDetail.as_view()),
     path('posts/delete/<int:pk>/', DeletePost.as_view()),
+    path('posts/update/<int:pk>/', UpdatePostView.as_view()),
     path('posts/create/', PostCreateView.as_view()),
     
     path('features/', FeaturesListView.as_view()),

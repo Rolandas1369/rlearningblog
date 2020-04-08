@@ -17,7 +17,8 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
     DestroyAPIView,
     CreateAPIView,
-    
+    UpdateAPIView,
+    RetrieveAPIView
 )
 
 from .models import Post, Feature, Insight, HtmlStylingChange
@@ -41,15 +42,24 @@ class PostCreateView(LoginRequiredMixin, CreateAPIView):
 
     authentication_classes = [SessionAuthentication, BasicAuthentication]
 
+class UpdatePostView(LoginRequiredMixin, UpdateAPIView):
+
+    login_url = '/rest-auth/login/'
+    redirect_field_name = 'redirect_to'
+
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+
 class PostListView(ListAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
-# class PostDetail(RetrieveUpdateDestroyAPIView):
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
+class PostDetail(RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 class DeletePost(DestroyAPIView):
     queryset = Post.objects.all()

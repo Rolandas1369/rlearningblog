@@ -20,7 +20,7 @@ export default class DataSevice {
     }
 
     getPost = (id) => {
-        return axios.get(API_URL + `/posts/${id}/`)
+        return axios.get(API_URL + `/api/posts/${id}/`)
         }
 
     getCookie = (name) => {
