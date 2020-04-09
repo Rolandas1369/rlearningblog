@@ -46,7 +46,7 @@ export default class UpdatePostForm extends Component {
     componentDidMount = () =>  {
 
         
-        this.dataService.getPost(40)
+        this.dataService.getPost(this.props.id)
             .then((data) => this.setState({title: data.data.title, 
                                            content: data.data.content,
                                            file: data.data.file,
@@ -74,10 +74,6 @@ export default class UpdatePostForm extends Component {
 
     render(){
 
-
-        
-
-        
         return(
             <div className="add-post-div">
                 <form className="add-post-form" onSubmit={(e) => this.handleFormSubmit(e)} encType="multipart/form-data">

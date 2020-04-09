@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DataService from '../../services/data_service';
+import UpdatePostForm from '../update-post-form';
 
 import './any-list.css';
 
@@ -29,6 +30,7 @@ export default class AnyList extends Component {
     updatePage = (id) => {
         console.log('page id', id)
         window.location = `/update/${id}`;
+        
     }
 
     // added basic building block
@@ -36,8 +38,6 @@ export default class AnyList extends Component {
         let  {items}  = this.state
         let featArray = [...items]
         
-        
-
         return featArray.map((element) => {
             
             return (
