@@ -26,9 +26,11 @@ export default class FuturesList extends Component {
         this.setState({features: updatedArray})
     }
 
+    
     build_list(user){
         let  {features}  = this.state
         let featArray = [...features]
+    
         
 
         return featArray.map((element) => {
@@ -36,7 +38,9 @@ export default class FuturesList extends Component {
             return (
                 <span key={element.id}>
                     <li key={element.id}>{element.id} {element.content} started at: {element.date_added}</li>
-                    { user ?  <button onClick={() => this.handleDelete(element.id, featArray)}>Delete </button> : null } 
+                    
+                    { user ?  <button onClick={() => this.handleDelete(element.id, featArray)}>Delete </button> : null }
+                    
                 </span>
             )
         })
