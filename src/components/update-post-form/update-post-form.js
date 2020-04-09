@@ -11,7 +11,7 @@ export default class UpdatePostForm extends Component {
         
         title: '',
         content: '',
-        file: null,
+        file: '',
         filename: '',
         gist_id: '',
         gist_filename: '',
@@ -26,7 +26,7 @@ export default class UpdatePostForm extends Component {
 
     handleFormSubmit = async (event) => {
         event.preventDefault()
-        this.setState({title: "s"})
+        
     }
 
     onFieldChange = (e) => {
@@ -44,10 +44,19 @@ export default class UpdatePostForm extends Component {
     }
 
     componentDidMount = () =>  {
-        this.dataService.getPost(185)
+
+        
+        this.dataService.getPost(this.props.id)
             .then((data) => this.setState({title: data.data.title, 
-                                           content: data.data.content
-                                        }))
+                                           content: data.data.content,
+                                           file: data.data.file,
+                                           filename: data.data.filename,
+                                           gist_id: data.data.gist_id,
+                                           gist_filename: data.data.filename,
+                                           video_src: data.data.video_src,
+                                           lang_choice: data.data.lang_choice
+
+                                        }) )
     } 
 
     addBold = () => {
@@ -79,13 +88,13 @@ export default class UpdatePostForm extends Component {
                     <h3>Content</h3>
                     <textarea onChange={this.onFieldChange} type="text" name='content' value={this.state.content}></textarea>
                     <h3>Gist id</h3>
-                    <input className="gist-input" onChange={(e) => this.onFieldChange(e)} type="text" name='gist_id'/>
+                    <input className="gist-input" onChange={(e) => this.onFieldChange(e)} type="text" name='gist_id' value={this.state.gist_id}/>
                     <h3>Gist file name</h3>
                     <input className="gist-filename-input" onChange={(e) => this.onFieldChange(e)} type="text" name='gist_filename'/>
                     <h3>Video ID</h3>
-                    <input className="video-src-input" onChange={(e) => this.onFieldChange(e)} type="text" name='video_src'/>
+                    <input className="video-src-input" onChange={(e) => this.onFieldChange(e)} type="text" name='video_src' value={this.state.video_src}/>
                     <h3>Select language</h3>
-                    <select name="lang_choice" onChange={(e) => this.onFieldChange(e)}>
+                    <select name="lang_choice" onChange={(e) => this.onFieldChange(e) } value={this.state.lang_choice}>
                         <option>---</option>
                         <option>Python</option>
                         <option>React</option>

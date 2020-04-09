@@ -83,11 +83,11 @@ export default class App extends Component {
                         <AddPostForm 
                             addItem={this.dataService.addItem}/>
                         } />
-                    <Route path="/update/:id" render={() =>
-                        
-                        <UpdatePostForm 
+                    <Route path="/update/:id" render={({match}) => {
+                        const { id } = match.params 
+                        return <UpdatePostForm id={id}
                             addItem={this.dataService.addItem}/>
-                        } />
+                        }} />
                         
                     <Route path="/" render = {() => 
                         <div style={{backgroundColor: this.state.color}}>

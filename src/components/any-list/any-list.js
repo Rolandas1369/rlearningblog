@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DataService from '../../services/data_service';
+import UpdatePostForm from '../update-post-form';
 
 import './any-list.css';
 
@@ -26,14 +27,17 @@ export default class AnyList extends Component {
         this.setState({items: updatedArray})
     }
 
+    updatePage = (id) => {
+        console.log('page id', id)
+        window.location = `/update/${id}`;
+        
+    }
 
     // added basic building block
     build_list(user){
         let  {items}  = this.state
         let featArray = [...items]
         
-        
-
         return featArray.map((element) => {
             
             return (
@@ -42,7 +46,8 @@ export default class AnyList extends Component {
                         {element.content} 
                         {this.props.feature === "features" ? ` Started at: ${element.date_added}`: null}
                     </li>
-                    { user ?  <button onClick={() => this.handleDelete(element.id, featArray, this.props.feature)}>Delete </button> : null } 
+                    { user ?  <button onClick={() => this.handleDelete(element.id, featArray, this.props.feature)}>Delete </button> : null }
+                    <button onClick={() => this.updatePage(element.id)}>Update</button>
                 </span>
             )
         })

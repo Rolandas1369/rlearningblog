@@ -29,17 +29,3 @@ class Insight(models.Model):
 
 class HtmlStylingChange(models.Model):
     background_color = models.CharField(max_length=200)
-
-# Features/improvements to add to site
-
-#     Insights crud list
-#     Add Expand gist functionality
-#     Add yellow background for js blue for python (see post 156)
-#     Add filters for displaying only python, js or multiple
-#     Sort items by date published (see post 155)
-#     Pass login form to frontend
-#     Inform, then post created
-#     Add more info to errors display
-#     Add features crud 
-#     discribe deletion on error
-#     Fun thing is to add feature what you can modify some element and it is saved to db
