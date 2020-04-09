@@ -28,6 +28,12 @@ export default class Post extends Component {
         this.setState({ scriptLoaded: false })
     }
 
+    updatePage = (id) => {
+        console.log('page id', id)
+        window.location = `/update/${id}`;
+        
+    }
+
     render() {
         let languageBackground = 'post-data'
         let classNamesh1 = ''
@@ -39,8 +45,10 @@ export default class Post extends Component {
         }
 
         let delButton = null
+        let updButton = null
         if(this.props.user){    
             delButton = <button onClick={this.props.onDeleted}>Delete Post</button>
+            updButton = <button onClick={() => this.updatePage(item.id)}>Update</button>
         }
 
         switch(item.language_choice) {
@@ -79,6 +87,7 @@ export default class Post extends Component {
                 
                 <div>
                     {delButton}
+                    {updButton}
                 </div>
             </div>
         )

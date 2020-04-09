@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import DataService from '../../services/data_service';
-import UpdatePostForm from '../update-post-form';
 
 import './any-list.css';
+
+const Record = (props) => {
+    let args = Object.keys(props.children)
+    // let values = Object.values(props.children)
+    console.log(args)
+    return (
+    <span>{props.children.id}. {props.children.content} {props.children.date_added}</span>
+        
+    )
+    
+}
 
 export default class AnyList extends Component {
 
@@ -27,30 +37,31 @@ export default class AnyList extends Component {
         this.setState({items: updatedArray})
     }
 
-    updatePage = (id) => {
-        console.log('page id', id)
-        window.location = `/update/${id}`;
-        
-    }
+    
 
     // added basic building block
     build_list(user){
         let  {items}  = this.state
         let featArray = [...items]
         
-        return featArray.map((element) => {
+        let order = (  
+            
+            featArray.map((element) => {
             
             return (
                 <span className="list-item" key={element.id}>
                     <li key={element.id}>
-                        {element.content} 
-                        {this.props.feature === "features" ? ` Started at: ${element.date_added}`: null}
+                        {/* {element.content}  */}
+                        <Record>{element}</Record>
+                        {/* {this.props.feature === "features" ? ` Started at: ${element.date_added}`: null} */}
                     </li>
                     { user ?  <button onClick={() => this.handleDelete(element.id, featArray, this.props.feature)}>Delete </button> : null }
-                    <button onClick={() => this.updatePage(element.id)}>Update</button>
+                    
                 </span>
             )
         })
+        )
+        return <ul>{order}</ul>
     }
 
     addFeature(e) {

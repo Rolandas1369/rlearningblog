@@ -11,7 +11,7 @@ export default class UpdatePostForm extends Component {
         
         title: '',
         content: '',
-        file: '',
+        file: null,
         filename: '',
         gist_id: '',
         gist_filename: '',
@@ -26,7 +26,7 @@ export default class UpdatePostForm extends Component {
 
     handleFormSubmit = async (event) => {
         event.preventDefault()
-        
+        this.setState({title: "s"})
     }
 
     onFieldChange = (e) => {
@@ -44,19 +44,10 @@ export default class UpdatePostForm extends Component {
     }
 
     componentDidMount = () =>  {
-
-        
-        this.dataService.getPost(this.props.id)
+        this.dataService.getPost(185)
             .then((data) => this.setState({title: data.data.title, 
-                                           content: data.data.content,
-                                           file: data.data.file,
-                                           filename: data.data.filename,
-                                           gist_id: data.data.gist_id,
-                                           gist_filename: data.data.filename,
-                                           video_src: data.data.video_src,
-                                           lang_choice: data.data.lang_choice
-
-                                        }) )
+                                           content: data.data.content
+                                        }))
     } 
 
     addBold = () => {
@@ -88,24 +79,25 @@ export default class UpdatePostForm extends Component {
                     <h3>Content</h3>
                     <textarea onChange={this.onFieldChange} type="text" name='content' value={this.state.content}></textarea>
                     <h3>Gist id</h3>
-                    <input className="gist-input" onChange={(e) => this.onFieldChange(e)} type="text" name='gist_id' value={this.state.gist_id}/>
+                    <input className="gist-input" onChange={(e) => this.onFieldChange(e)} type="text" name='gist_id'/>
                     <h3>Gist file name</h3>
                     <input className="gist-filename-input" onChange={(e) => this.onFieldChange(e)} type="text" name='gist_filename'/>
                     <h3>Video ID</h3>
-                    <input className="video-src-input" onChange={(e) => this.onFieldChange(e)} type="text" name='video_src' value={this.state.video_src}/>
+                    <input className="video-src-input" onChange={(e) => this.onFieldChange(e)} type="text" name='video_src'/>
                     <h3>Select language</h3>
-                    <select name="lang_choice" onChange={(e) => this.onFieldChange(e) } value={this.state.lang_choice}>
+                    <select name="lang_choice" onChange={(e) => this.onFieldChange(e)}>
                         <option>---</option>
                         <option>Python</option>
                         <option>React</option>
                         <option>Both</option>
                     </select>
 
-                    {/* <button id="submit-button" className="submit-button" onClick={() => this.props.addItem(title, content, 
-                                                                                 file, filename, 
-                                                                                 gist_id, gist_filename, 
-                                                                                 video_src, lang_choice)}
-                                                                                 >Add post</button> */}
+                    <button id="submit-button" className="submit-button" onClick={() => this.props.addItem(this.state.title, 
+                                                                                    this.state.content, 
+                                                                                    this.state.file, this.state.filename, 
+                                                                                    this.state.gist_id, this.state.gist_filename, 
+                                                                                    this.state.video_src, this.state.lang_choice)}
+                                                                                 >Add post</button>
                     <input className="file-upload-button" onChange={(e) => this.handleFile(e)} type="file" name="file"/>
                 </form>
             </div>
