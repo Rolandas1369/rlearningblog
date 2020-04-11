@@ -19,6 +19,32 @@ import UpdatePostForm from '../update-post-form';
 require('dotenv').config()
 
 
+const DescriptionFirstSentence = (props) => {
+    let textBellow = props.children.headerText
+    console.log(textBellow)
+    return (   
+            <div>
+                <div>Learn something new and try it on this project does't mater if it makes looks ugly or useless at all in this project</div>
+                <ul>
+                    <li style={{color: props.children.textColor}}>{textBellow}</li>
+                </ul>
+            </div>      
+    )
+}
+
+const DescriptionSecondSentence = () => {
+
+    return (   
+            <div>Add new features plan those you want to implemen</div>    
+    )
+}
+
+const DescriptionThirdSentence = () => {
+    return (   
+            <div>What i want to learn, next or ,learning</div>
+    )
+}
+
 const AppDescriptionContainer = (props) => {
     return (
         <h1>{props.header}</h1>
@@ -38,6 +64,8 @@ export default class App extends Component {
     };
 
     componentDidMount = () => {
+
+        
         this.dataService.checkUser()
         .then((res) => this.setState({isUser: res.data.username}))
 
@@ -94,9 +122,15 @@ export default class App extends Component {
                             <Header />
                             <label htmlFor="backColor">ChangeBackground </label>
                             <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
-                            <Description addHeader={appDescriptionComponent}>
-                                {/* can pass data in component body, and this can be accessed as props.children */}
-                                {{headerText: 'a lot of data is hard for user expierence', textColor:"pink"}}
+                            <Description addHeader={appDescriptionComponent}>        
+                                
+                                
+                                <DescriptionFirstSentence>
+                                    {{headerText: 'a lot of data is hard for user expierence', textColor:"pink"}}
+                                </DescriptionFirstSentence>
+                                <DescriptionSecondSentence />
+                                <DescriptionThirdSentence />
+                                      
                             </Description>
                             <div className="aligner">
                                 <div className="des-nav">

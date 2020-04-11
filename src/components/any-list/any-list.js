@@ -6,7 +6,6 @@ import './any-list.css';
 const Record = (props) => {
     let args = Object.keys(props.children)
     // let values = Object.values(props.children)
-    console.log(args)
     return (
     <span>{props.children.id}. {props.children.content} {props.children.date_added}</span>
         

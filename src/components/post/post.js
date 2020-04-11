@@ -14,29 +14,35 @@ export default class Post extends Component {
         blue: false,
         style: {color: ''},
         image_src: '',
+        gistHeight: '50px'
     }
 
     makeBlue = () => {
         this.setState({ blue: !this.state.blue})
     }
 
-    handleScriptLoad () {
-        this.setState({ scriptLoaded: true })
+    returnGist = () => {
+       return( <style dangerouslySetInnerHTML={{__html: `
+                 .gist-data { height: ${this.state.gistHeight};}
+            `}} />
+       )
     }
 
-    handleScriptCreate() {
-        this.setState({ scriptLoaded: false })
+    expandGist() {
+        this.setState({gistHeight: 'auto'})
     }
 
     updatePage = (id) => {
         console.log('page id', id)
         window.location = `/update/${id}`;
-        
     }
 
     render() {
         let languageBackground = 'post-data'
         let classNamesh1 = ''
+
+        let styleComputed = this.returnGist()
+        
         
         const { item } = this.props
         
@@ -67,6 +73,8 @@ export default class Post extends Component {
 
         return (
             <div className={languageBackground}>
+                {/* I think is only inicializing one time, and next render rewrites hight to 50px */}
+                {styleComputed} 
                 
                 <div id={item.id}
                      className={classNamesh1} 
@@ -80,7 +88,7 @@ export default class Post extends Component {
                 </div>
                
                 <ImageDisplay item={item}/>
-                <button >Expand gist</button>
+                <button onClick={() => this.expandGist()}>Expand gist</button>
                 <GistDisplay item={item}/>
                 <VideoDisplay item={item}/>
 
