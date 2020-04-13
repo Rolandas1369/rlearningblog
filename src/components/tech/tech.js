@@ -55,7 +55,8 @@ export default class App extends Component {
                 {display}
                 </div>
                 <div className="work-experience">
-                    <p>Wokr</p>
+                    <p>Work expierence
+                    </p>
                 </div>
             </div>
         )
