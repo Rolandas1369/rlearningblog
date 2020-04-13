@@ -1,0 +1,26 @@
+.top-wrapper {
+    padding-top: 2%;
+    width: 80%;
+    display: flex;
+    padding-left: 10%;
+}
+
+.right-corner {
+    padding-left: 10%;
+    width: 100%;
+}
+
+.stack-element {
+    justify-content: center;
+}
+
+.stack-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.right-corner div{
+    padding-left: 5%;
+}

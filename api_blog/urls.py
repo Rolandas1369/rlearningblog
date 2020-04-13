@@ -37,7 +37,7 @@ urlpatterns = [
     path('insights/delete/<int:pk>/', DeleteInsight.as_view()),
 
     path('techstack/', TechStackView.as_view()),
-    path('techfeatures/', TechFeaturesView.as_view()),
+    path('techskills/', TechFeaturesView.as_view()),
     
     
     path('html/<int:pk>/',HtmlStylingChangeSerializerView.as_view())

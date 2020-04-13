@@ -156,12 +156,12 @@ export default class DataSevice {
                 .then(console.log("color is added"))   
     }
 
-    getTech = async () => {
+    getStack = async () => {
         return await axios.get(API_URL + "/api/techstack/")
     }
 
     getSkills = async () => {
-        return await axios.get(API_URL + "/api/techfeatures/")
+        return await axios.get(API_URL + "/api/techskills/")
     }
 
     addTech = (language, using_from) => {
@@ -172,7 +172,7 @@ export default class DataSevice {
         formData.append('language',language)
         formData.append('using_from',using_from)
 
-        axios.post(`/api/tech/`, 
+        axios.post(`/api/techstack/`, 
                 formData, 
                 {headers: {'X-CSRFToken': cokie, 
                            'Accept': 'application/json',
@@ -191,7 +191,7 @@ export default class DataSevice {
         formData.append('experience',experience)
         formData.append('skill',skill)
 
-        axios.post(`/api/tech/`, 
+        axios.post(`/api/techfeatures/`, 
                 formData, 
                 {headers: {'X-CSRFToken': cokie, 
                            'Accept': 'application/json',
