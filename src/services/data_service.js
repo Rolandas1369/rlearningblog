@@ -157,16 +157,39 @@ export default class DataSevice {
     }
 
     getTech = async () => {
-        return await axios.get(API_URL + "/api/tech/")
+        return await axios.get(API_URL + "/api/techstack/")
     }
 
-    addTech = (tech, feature) => {
+    getSkills = async () => {
+        return await axios.get(API_URL + "/api/techfeatures/")
+    }
+
+    addTech = (language, using_from) => {
 
         let cokie = this.getCookie('csrftoken');
         let formData = new FormData()
 
-        formData.append('tech',tech)
-        formData.append('feature',feature)
+        formData.append('language',language)
+        formData.append('using_from',using_from)
+
+        axios.post(`/api/tech/`, 
+                formData, 
+                {headers: {'X-CSRFToken': cokie, 
+                           'Accept': 'application/json',
+                           'Content-Type': 'multipart/form-data', 
+                           Authorization: cokie}})
+                .then(console.log("Tech is added"))    
+    }
+
+    addskill = (language_category, description, experience, skill) => {
+
+        let cokie = this.getCookie('csrftoken');
+        let formData = new FormData()
+
+        formData.append('language_category',language_category)
+        formData.append('description',description)
+        formData.append('experience',experience)
+        formData.append('skill',skill)
 
         axios.post(`/api/tech/`, 
                 formData, 
