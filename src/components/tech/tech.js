@@ -51,12 +51,41 @@ export default class App extends Component {
                 
                 
                 <div className="stack-div">
-                <h3>Stack</h3>
+                <h4>Progamming languages what i use or had experience with them</h4>
                 {display}
                 </div>
                 <div className="work-experience">
-                    <p>Work expierence
-                    </p>
+                    
+                    <div>Progamming expierence</div>
+                    <div className="job-entry">
+                        <div>2018</div>
+                        <div>Completed Wordpress website <a href="https://grinduklojimas.lt">grinduklojimas</a></div>
+                        <div>Did this project using PHP and wordpress, deployed to server made https protocol available, guided/designed project design.</div>
+                    </div>
+                    <div className="job-entry">
+                        <div>2018-2019</div>
+                        <div>Had some minor jobs with fixing Wordpress websites</div>
+                    </div>
+                    <div className="job-entry">
+                        <div>2018-2019</div>
+                        <div>Facebook groups scraper</div>
+                        <div>Writen python FB scraper for client. Used fbcrawl what uses 
+                            scrapy package to achieve results, had to fix some bugs in unmaintained 
+                            source code for script work properly.</div>
+                    </div>
+                    <div className="job-entry">
+                        <div>2018-2019</div>
+                        <div>Jira data analysis</div>
+                        <div>Used Jiras API to retrieve and store date into postgresql database,
+                            data was aggregated calculated and evaluted, then was displayed to Django
+                            API.
+                        </div>
+                    </div>
+                    <div className="job-entry">
+                        <div>2018-2019</div>
+                        <div>Competed in Kagles(data science platform) competitions</div>
+                        <div>Used sklearn, xgboost tools to solve this competition <a href="https://github.com/Rolandas1369/Santander-Competition-Kernels">Competition files</a></div>
+                    </div>
                 </div>
             </div>
         )

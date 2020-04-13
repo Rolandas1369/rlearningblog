@@ -15,10 +15,16 @@
 }
 
 .stack-div {
+    padding-top: 2%;
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
+}
+
+.job-entry {
+    padding-left: 10%;
+    padding-top: 10px;
 }
 
 .right-corner div{
