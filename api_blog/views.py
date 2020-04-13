@@ -19,7 +19,7 @@ from rest_framework.generics import (
     RetrieveAPIView
 )
 
-from .models import Post, Feature, Insight, HtmlStylingChange
+from .models import Post, Feature, Insight, HtmlStylingChange, TechStack, TechFeatures
 
 from .serializers import (
     PostSerializer, 
@@ -27,8 +27,8 @@ from .serializers import (
     FeatureSerializer, 
     InsightsSerializer,
     HtmlStylingChangeSerializer,
-    # TechStackSerializer,
-    # TechFeaturesSerializer
+    TechStackSerializer,
+    TechFeaturesSerializer
 )
 
 class PostCreateView(LoginRequiredMixin, CreateAPIView):
@@ -115,13 +115,13 @@ class HtmlStylingChangeSerializerView(RetrieveUpdateDestroyAPIView):
     serializer_class = HtmlStylingChangeSerializer
 
 # cv
-# class TechStackView(ListCreateAPIView):
-#     queryset = TechStack.objects.all()
-#     serializer_class = TechStackSerializer
+class TechStackView(ListCreateAPIView):
+    queryset = TechStack.objects.all()
+    serializer_class = TechStackSerializer
 
-# class TechFeaturesView(ListCreateAPIView):
-#     queryset = TechFeatures.objects.all()
-#     serializer_class = TechFeaturesSerializer
+class TechFeaturesView(ListCreateAPIView):
+    queryset = TechFeatures.objects.all()
+    serializer_class = TechFeaturesSerializer
 
 
 
