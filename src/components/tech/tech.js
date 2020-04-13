@@ -36,6 +36,7 @@ export default class App extends Component {
         return (
             
             <div className="stack-main">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
                 <div className="top-wrapper">
                     <div className="left-corner">
                         <h1>Rolandas</h1>
@@ -51,7 +52,7 @@ export default class App extends Component {
                 
                 
                 <div className="stack-div">
-                <h4>Progamming languages what i use or had experience with them</h4>
+                <h4>Progamming languages what I use or had experience with</h4>
                 {display}
                 </div>
                 <div className="work-experience">
@@ -86,6 +87,13 @@ export default class App extends Component {
                         <div>Competed in Kagles(data science platform) competitions</div>
                         <div>Used sklearn, xgboost tools to solve this competition <a href="https://github.com/Rolandas1369/Santander-Competition-Kernels">Competition files</a></div>
                     </div>
+
+                    <div>Job expierence</div>
+                    <div className="job-entry">
+                        <div >2005 - Present</div>
+                        <div>Working as a contractor in construction. Mostly building stairs for residental and comercial places.</div>
+                    </div>
+                    <br></br>
                 </div>
             </div>
         )
