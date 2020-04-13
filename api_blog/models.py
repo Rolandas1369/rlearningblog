@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 
+# Migrations
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=120)
