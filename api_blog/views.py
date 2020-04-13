@@ -7,8 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 
 from django.contrib.auth.decorators import login_required
 
-
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from rest_framework.generics import (
@@ -21,14 +19,16 @@ from rest_framework.generics import (
     RetrieveAPIView
 )
 
-from .models import Post, Feature, Insight, HtmlStylingChange
+from .models import Post, Feature, Insight, HtmlStylingChange, TechStack, TechFeature
 
 from .serializers import (
     PostSerializer, 
     ImageSerializer, 
     FeatureSerializer, 
     InsightsSerializer,
-    HtmlStylingChangeSerializer
+    HtmlStylingChangeSerializer,
+    TechStackSerializer,
+    TechFeaturesSerializer
 )
 
 class PostCreateView(LoginRequiredMixin, CreateAPIView):
@@ -110,12 +110,18 @@ class InsightCreateView(CreateAPIView):
     serializer_class = InsightsSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
-
-
-
-
-
 class HtmlStylingChangeSerializerView(RetrieveUpdateDestroyAPIView):
     queryset = HtmlStylingChange.objects.all()
     serializer_class = HtmlStylingChangeSerializer
+
+# cv
+class TechStackView(ListCreateAPIView):
+    queryset = TechStack.objects.all()
+    serializer_class = TechStackSerializer
+
+class TechFeaturesView(ListCreateAPIView):
+    queryset = TechFeature.objects.all()
+    serializer_class = TechFeaturesSerializer
+
+
 

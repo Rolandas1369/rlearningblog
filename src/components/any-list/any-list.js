@@ -4,7 +4,7 @@ import DataService from '../../services/data_service';
 import './any-list.css';
 
 const Record = (props) => {
-    let args = Object.keys(props.children)
+    //let args = Object.keys(props.children)
     // let values = Object.values(props.children)
     return (
     <span>{props.children.id}. {props.children.content} {props.children.date_added}</span>

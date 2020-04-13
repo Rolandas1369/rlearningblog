@@ -155,4 +155,25 @@ export default class DataSevice {
                            Authorization: cokie}})
                 .then(console.log("color is added"))   
     }
+
+    getTech = async () => {
+        return await axios.get(API_URL + "/api/tech/")
+    }
+
+    addTech = (tech, feature) => {
+
+        let cokie = this.getCookie('csrftoken');
+        let formData = new FormData()
+
+        formData.append('tech',tech)
+        formData.append('feature',feature)
+
+        axios.post(`/api/tech/`, 
+                formData, 
+                {headers: {'X-CSRFToken': cokie, 
+                           'Accept': 'application/json',
+                           'Content-Type': 'multipart/form-data', 
+                           Authorization: cokie}})
+                .then(console.log("Feature is added"))    
+    }
 }

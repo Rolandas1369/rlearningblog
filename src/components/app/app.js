@@ -6,6 +6,7 @@ import AddPostForm from '../add-post-form';
 import Description from '../description';
 import NavigatableList from '../navigatable_list';
 import AnyList from '../any-list';
+import Tech from '../tech';
 
 import LifeCycles from '../../learningexamples/lifecycles';
 
@@ -32,10 +33,13 @@ const DescriptionFirstSentence = (props) => {
     )
 }
 
-const DescriptionSecondSentence = () => {
+const DescriptionSecondSentence = (props) => {
 
     return (   
-            <div>Add new features plan those you want to implemen</div>    
+        <div>
+            <p>This element is accesable in cloned children: {props.newItem}</p> 
+            <p>Add new features plan those you want to implemen</p>
+        </div>    
     )
 }
 
@@ -104,6 +108,9 @@ export default class App extends Component {
             <Router>
                 <Route path="/lifecycles" render={() => 
                     <LifeCycles />
+                }/>
+                <Route path="/tech" render={() => 
+                    <Tech />
                 }/>
                 <div className='main'>      
                     <Route path="/create" render={() =>

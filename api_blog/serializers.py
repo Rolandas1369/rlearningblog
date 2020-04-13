@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api_blog.models import Post, Image, Feature, Insight, HtmlStylingChange
+from api_blog.models import Post, Image, Feature, Insight, HtmlStylingChange, TechStack, TechFeature
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,4 +26,15 @@ class InsightsSerializer(serializers.ModelSerializer):
 class HtmlStylingChangeSerializer(serializers.ModelSerializer):
     class Meta:
         model = HtmlStylingChange
+        fields = ('__all__')
+
+# Cv related
+class TechStackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TechStack
+        fields = ('__all__')
+
+class TechFeaturesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TechFeature
         fields = ('__all__')

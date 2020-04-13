@@ -29,3 +29,19 @@ class Insight(models.Model):
 
 class HtmlStylingChange(models.Model):
     background_color = models.CharField(max_length=200)
+
+class TechStack(models.Model):
+    language = models.CharField(max_length=255)
+    using_from = models.IntegerField()
+
+    def __str__(self):
+        return self.language
+
+class TechFeature(models.Model):
+    language_category = models.ForeignKey(TechStack, on_delete=models.CASCADE)
+    description = models.TextField(blank=True)
+    experience = models.TextField(blank=True)
+    skill = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return self.skill

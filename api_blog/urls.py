@@ -15,6 +15,8 @@ from .views import (
     DeleteInsight,
     InsightCreateView,
     UpdatePostView,
+    TechStackView,
+    TechFeaturesView
     
 
 )
@@ -33,6 +35,9 @@ urlpatterns = [
     path('insights/', InsightsListView.as_view()),
     path('insights/create/', InsightCreateView.as_view()),
     path('insights/delete/<int:pk>/', DeleteInsight.as_view()),
+
+    path('techstack/', TechStackView.as_view()),
+    path('techfeatures/', TechFeaturesView.as_view()),
     
     
     path('html/<int:pk>/',HtmlStylingChangeSerializerView.as_view())

@@ -5,7 +5,7 @@ import './description.css'
 
 
 const Description = (props) => {
-    
+    let newItem = "Need a plan for inplementation"
     return (
         <div className="description-item">
             {props.addHeader}
@@ -14,7 +14,7 @@ const Description = (props) => {
             
             <ul>
                 {React.Children.map(props.children, (child, idx) => {
-                    return <div>{child}</div>
+                    return React.cloneElement(child, {newItem});
                 })}
             </ul>
 
