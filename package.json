@@ -7,11 +7,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "autoprefixer": "^9.7.6",
     "axios": "^0.19.2",
     "bbcode-to-react": "^0.2.9",
     "django-react-csrftoken": "^1.0.4",
     "little-loader": "^0.2.0",
     "npm": "^6.14.1",
+    "postcss-cli": "^7.1.0",
     "react": "^16.13.0",
     "react-cookie": "^4.0.3",
     "react-dom": "^16.13.0",
@@ -20,7 +22,9 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-youtube": "^7.9.0",
-    "upgrade": "^1.1.0"
+    "tailwindcss": "^1.2.0",
+    "upgrade": "^1.1.0",
+    "yo": "^3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

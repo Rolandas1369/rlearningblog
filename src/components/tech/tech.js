@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import DataService from '../../services/data_service';
 
-import './tech.css'
+import './output.css'
 
 export default class App extends Component {
 
@@ -36,7 +36,6 @@ export default class App extends Component {
         return (
             
             <div className="stack-main">
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
                 <div className="top-wrapper">
                     <div className="left-corner">
                         <h1>Rolandas</h1>
@@ -68,14 +67,14 @@ export default class App extends Component {
                         <div>Had some minor jobs with fixing Wordpress websites</div>
                     </div>
                     <div className="job-entry">
-                        <div>2018-2019</div>
+                        <div>2019-2020</div>
                         <div>Facebook groups scraper</div>
                         <div>Writen python FB scraper for client. Used fbcrawl what uses 
                             scrapy package to achieve results, had to fix some bugs in unmaintained 
                             source code for script work properly.</div>
                     </div>
                     <div className="job-entry">
-                        <div>2018-2019</div>
+                        <div>2019-2020</div>
                         <div>Jira data analysis</div>
                         <div>Used Jiras API to retrieve and store date into postgresql database,
                             data was aggregated calculated and evaluted, then was displayed to Django
@@ -83,9 +82,14 @@ export default class App extends Component {
                         </div>
                     </div>
                     <div className="job-entry">
-                        <div>2018-2019</div>
+                        <div>2019-2020</div>
                         <div>Competed in Kagles(data science platform) competitions</div>
-                        <div>Used sklearn, xgboost tools to solve this competition <a href="https://github.com/Rolandas1369/Santander-Competition-Kernels">Competition files</a></div>
+                        <div>Used sklearn, xgboost tools to solve this competition <a href="https://github.com/Rolandas1369/Santander-Competition-Kernels">competition files</a></div>
+                    </div>
+                    <div className="job-entry">
+                        <div>2019-2020</div>
+                        <div>Python script for creating and uploading videos from text. <a href="https://www.youtube.com/channel/UC1PclTMbcB0TsbjAH-3Q9NA">view on youtube</a></div>
+                        <div></div>
                     </div>
 
                     <div>Job expierence</div>

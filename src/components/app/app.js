@@ -112,7 +112,7 @@ export default class App extends Component {
                 <Route path="/tech" render={() => 
                     <Tech />
                 }/>
-                <div className='main'>      
+                <div className='container'>      
                     <Route path="/create" render={() =>
                         
                         <AddPostForm 
