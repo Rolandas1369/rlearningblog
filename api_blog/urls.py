@@ -16,7 +16,8 @@ from .views import (
     InsightCreateView,
     UpdatePostView,
     TechStackView,
-    TechFeaturesView
+    TechFeaturesView,
+    WorkExpirienceView
     
 
 )
@@ -38,6 +39,7 @@ urlpatterns = [
 
     path('techstack/', TechStackView.as_view()),
     path('techskills/', TechFeaturesView.as_view()),
+    path('workexpierence/', WorkExpirienceView.as_view()),
     
     
     path('html/<int:pk>/',HtmlStylingChangeSerializerView.as_view())

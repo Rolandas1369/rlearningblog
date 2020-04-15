@@ -36,31 +36,35 @@ export default class App extends Component {
         return (
             
             <div className="stack-main">
-                <div className="top-wrapper">
-                    <div className="left-corner">
-                        <h1>Rolandas</h1>
+                <div className="flex mb-4">
+                    <div className="w-1/2 bg-gray-400">
+                        <h1>Rolandas Butkevičius</h1>
                     </div>
-                    <div className="right-corner">
+                    <div className="w-1/2 bg-gray-400">
                         <h3>Software developer</h3>
                         <div>Email: rolandaswb@gmail.com</div>
                         <div>Skype: rolandaswb@gmail.com</div>
-                        <div>LinkedIn: <a href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">View LinkedIn Profile</a></div>
-                        <div>GitHub: <a href="https://github.com/Rolandas1369">View Github Page</a></div>
+                        <div>LinkedIn: <a className="text-blue-500 hover:text-blue-800" href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">View LinkedIn Profile</a></div>
+                        <div>GitHub: <a className="text-blue-500 hover:text-blue-800" href="https://github.com/Rolandas1369">View Github Page</a></div>
                     </div>
                 </div>
                 
                 
-                <div className="stack-div">
-                <h4>Progamming languages what I use or had experience with</h4>
-                {display}
+                <div className="flex mb-4">
+                    <div className="w-full bg-gray-500">
+                        <h4>Progamming languages what I use or had experience with</h4>
+                        {display}
+                    </div>
                 </div>
                 <div className="work-experience">
                     
                     <div>Progamming expierence</div>
-                    <div className="job-entry">
-                        <div>2018</div>
-                        <div>Completed Wordpress website <a href="https://grinduklojimas.lt">grinduklojimas</a></div>
-                        <div>Did this project using PHP and wordpress, deployed to server made https protocol available, guided/designed project design.</div>
+                    <div className="flex mb-4">
+                        <div className="w-full bg-gray-500">
+                            <div className="none">2018</div>
+                            <div className="none">Completed Wordpress website <a href="https://grinduklojimas.lt">grinduklojimas</a></div>
+                            <div className="none">Did this project using PHP and wordpress, deployed to server made https protocol available, guided/designed project design.</div>
+                        </div>
                     </div>
                     <div className="job-entry">
                         <div>2018-2019</div>
