@@ -7,7 +7,7 @@ import './description.css'
 const Description = (props) => {
     let newItem = "Need a plan for inplementation"
     return (
-        <div className="description-item">
+        <div className="w-full text-center">
             {props.addHeader}
             {/* this way i am accepting children from component */}
             <p style={{color: props.children[0].textColor}}>{props.children[0].headerText}</p>

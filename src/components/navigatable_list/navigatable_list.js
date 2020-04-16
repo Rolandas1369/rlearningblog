@@ -20,7 +20,7 @@ export default class NavigatableList extends Component {
     createNavigatableList = (nav_list) => {
        let navListSorted = nav_list.sort((a,b) => b.id - a.id)
        return navListSorted.map((element) => {
-            return <div key={element.id}><a href={"#" + element.id}>{element.id}. {element.title}</a></div>
+            return <div className="text-blue-500 hover:text-blue-800" key={element.id}><a href={"#" + element.id}>{element.id}. {element.title}</a></div>
         });
     }
 
@@ -41,7 +41,7 @@ export default class NavigatableList extends Component {
         }
 
         return(
-            <div className="navigatable-list">
+            <div className="any-list">
                 <h3>Posts navigatable list</h3>
                     {completed_list}
                     <ErrorButton />

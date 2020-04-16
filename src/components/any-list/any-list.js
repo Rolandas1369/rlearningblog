@@ -94,8 +94,8 @@ export default class AnyList extends Component {
         if(user) {
             inputField = (
                 <form onSubmit={this.handleSubmit}>
-                        <label htmlFor="add-item">Add Item</label>
-                        <input name="add-item" type="text" 
+                        <label htmlFor="add-item">Add Item:</label>
+                        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="add-item" type="text" 
                                 onChange={(e) => this.addFeature(e, this.props.feature)}/>
                         <input type="submit" onClick={() => this.handleClick()} value="Add feature"/>
                 </form>

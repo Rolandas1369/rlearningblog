@@ -112,7 +112,7 @@ export default class App extends Component {
                 <Route path="/tech" render={() => 
                     <Tech />
                 }/>
-                <div className='container'>      
+                <div className='w-full'>      
                     <Route path="/create" render={() =>
                         
                         <AddPostForm 
@@ -127,8 +127,10 @@ export default class App extends Component {
                     <Route path="/" render = {() => 
                         <div style={{backgroundColor: this.state.color}}>
                             <Header />
-                            <label htmlFor="backColor">ChangeBackground </label>
-                            <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
+                            <div className="w-full text-center">
+                                <label htmlFor="backColor">ChangeBackground </label>
+                                <input type="color" name="backColor" onChange={(e) => {this.changeBackGroudColor(e)}} />
+                            </div>
                             <Description addHeader={appDescriptionComponent}>        
                                 
                                 
@@ -140,9 +142,9 @@ export default class App extends Component {
                                       
                             </Description>
                             <div className="aligner">
-                                <div className="des-nav">
+                                <div className="w-1/2">
                                     {/* <Description getData={this.dataService.getAllFeatures} user={isUser}/> */}
-                                    <div>
+                                    <div className="">
                                         <AnyList getData={this.dataService.getAllFeatures}
                                                 user={isUser}
                                                 feature="features"
@@ -151,8 +153,9 @@ export default class App extends Component {
                                                 user={isUser}
                                                 feature="insights"
                                                 headline="Insights"/>
+                                        <NavigatableList getData={this.dataService.getAllPosts}/>
                                     </div>
-                                    <NavigatableList getData={this.dataService.getAllPosts}/>
+                                    
                                 </div>
                             </div>
                             <PostList 

@@ -30,7 +30,7 @@ export default class Post extends Component {
     expandGist = (e) => {
         
         console.log()
-        let x = document.getElementById(e.target.id)
+            document.getElementById(e.target.id)
             .nextSibling
             .children[0]
             .children[0]
