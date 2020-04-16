@@ -13,23 +13,30 @@ export default class Post extends Component {
     state = {
         blue: false,
         style: {color: ''},
-        image_src: '',
-        gistHeight: '50px'
+        image_src: ''
     }
 
     makeBlue = () => {
         this.setState({ blue: !this.state.blue})
     }
 
-    returnGist = () => {
-       return( <style dangerouslySetInnerHTML={{__html: `
-                 .gist-data { height: ${this.state.gistHeight};}
-            `}} />
-       )
-    }
+    // returnGist = () => {
+    //    return( <style dangerouslySetInnerHTML={{__html: `
+    //              .gist-data { height: ${this.state.gistHeight};}
+    //         `}} />
+    //    )
+    // }
 
-    expandGist() {
-        this.setState({gistHeight: 'auto'})
+    expandGist = (e) => {
+        
+        console.log()
+        let x = document.getElementById(e.target.id)
+            .nextSibling
+            .children[0]
+            .children[0]
+            .children[0]
+            .children[0]              
+            .setAttribute('style', 'height: auto;');
     }
 
     updatePage = (id) => {
@@ -41,7 +48,7 @@ export default class Post extends Component {
         let languageBackground = 'post-data'
         let classNamesh1 = ''
 
-        let styleComputed = this.returnGist()
+        //let styleComputed = this.returnGist()
         
         
         const { item } = this.props
@@ -73,8 +80,8 @@ export default class Post extends Component {
 
         return (
             <div className={languageBackground}>
-                {/* I think is only inicializing one time, and next render rewrites hight to 50px */}
-                {styleComputed} 
+                {/* I think is only inicializing one time, and next render rewrites hight to 50px
+                {styleComputed}  */}
                 
                 <div id={item.id}
                      className={classNamesh1} 
@@ -88,7 +95,7 @@ export default class Post extends Component {
                 </div>
                
                 <ImageDisplay item={item}/>
-                <button onClick={() => this.expandGist()}>Expand gist</button>
+                <button id={`${item.id}ix`} onClick={(e) => this.expandGist(e)}>Expand gist</button>
                 <GistDisplay item={item}/>
                 <VideoDisplay item={item}/>
 
