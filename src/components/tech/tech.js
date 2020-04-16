@@ -8,7 +8,8 @@ export default class App extends Component {
 
     state = {
         stack: "",
-        skills: ""
+        skills: "",
+        workexperiece: ""
     }
 
     dataService =  new DataService()
@@ -19,6 +20,8 @@ export default class App extends Component {
         .then((data) => this.setState({stack: data.data}))
         this.dataService.getSkills()
         .then((data) => this.setState({skills: data.data}))
+        this.dataService.getWorkExpierience()
+        .then((data) => this.setState({workexperiece: data.data}))
     }
 
     createDisplay = () => {
@@ -27,11 +30,28 @@ export default class App extends Component {
         return stackArray.map((st) =>  <div key={st.id} className=".stack-element">{st.language}</div>)
     }
 
+    createExp = () => {
+        let { workexperiece } = this.state
+        let workArray = [...workexperiece]
+        return workArray.map((wrk) => {
+            console.log(wrk.links)
+            return (
+                <div className="flex-full p-1 ">
+                    <div className="w-full bg-gray-500 h-12">{wrk.worked_from}</div>
+                    <div className="w-full bg-gray-500 pl-3">{wrk.description}</div>
+                    <div className="w-full bg-gray-500 pl-3">{wrk.skills_used}</div>
+                    <div className="w-full bg-gray-500 pl-3">
+                        <a className="text-blue-500 hover:text-blue-800" href={wrk.links} target="_blank">Visit proect</a>
+                    </div>
+                </div>
+            )
+        })
+    }
 
     render(){
 
         let display = this.createDisplay()
-
+        let workexperiece = this.createExp()
         console.log("tech", this.state.stack, "skills", this.state.skills)
         return (
             
@@ -57,8 +77,8 @@ export default class App extends Component {
                     </div>
                 </div>
                 <div className="work-experience">
-                    
-                    <div>Progamming expierence</div>
+                    { workexperiece }
+                    {/* <div>Progamming expierence</div>
                     <div className="flex mb-4">
                         <div className="w-full bg-gray-500">
                             <div className="none">2018</div>
@@ -69,39 +89,7 @@ export default class App extends Component {
                     <div className="job-entry">
                         <div>2018-2019</div>
                         <div>Had some minor jobs with fixing Wordpress websites</div>
-                    </div>
-                    <div className="job-entry">
-                        <div>2019-2020</div>
-                        <div>Facebook groups scraper</div>
-                        <div>Writen python FB scraper for client. Used fbcrawl what uses 
-                            scrapy package to achieve results, had to fix some bugs in unmaintained 
-                            source code for script work properly.</div>
-                    </div>
-                    <div className="job-entry">
-                        <div>2019-2020</div>
-                        <div>Jira data analysis</div>
-                        <div>Used Jiras API to retrieve and store date into postgresql database,
-                            data was aggregated calculated and evaluted, then was displayed to Django
-                            API.
-                        </div>
-                    </div>
-                    <div className="job-entry">
-                        <div>2019-2020</div>
-                        <div>Competed in Kagles(data science platform) competitions</div>
-                        <div>Used sklearn, xgboost tools to solve this competition <a href="https://github.com/Rolandas1369/Santander-Competition-Kernels">competition files</a></div>
-                    </div>
-                    <div className="job-entry">
-                        <div>2019-2020</div>
-                        <div>Python script for creating and uploading videos from text. <a href="https://www.youtube.com/channel/UC1PclTMbcB0TsbjAH-3Q9NA">view on youtube</a></div>
-                        <div></div>
-                    </div>
-
-                    <div>Job expierence</div>
-                    <div className="job-entry">
-                        <div >2005 - Present</div>
-                        <div>Working as a contractor in construction. Mostly building stairs for residental and comercial places.</div>
-                    </div>
-                    <br></br>
+                    </div> */}
                 </div>
             </div>
         )

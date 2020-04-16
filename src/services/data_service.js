@@ -164,6 +164,10 @@ export default class DataSevice {
         return await axios.get(API_URL + "/api/techskills/")
     }
 
+    getWorkExpierience = async () => {
+        return await axios.get(API_URL + "/api/workexpierence/")
+    }
+
     addTech = (language, using_from) => {
 
         let cokie = this.getCookie('csrftoken');
