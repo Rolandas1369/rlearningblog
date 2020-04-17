@@ -45,10 +45,11 @@ class TechFeatures(models.Model):
     skill = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return self.skill
+        return self.experience
 
 class WorkExperiece(models.Model):
     worked_from = models.CharField(blank=True, max_length=50)
     description = models.TextField(blank=True)
     skills_used = models.TextField(blank=True)
     links = models.TextField(blank=True)
+    image = models.ImageField('uploadimage', null=True, blank=True)

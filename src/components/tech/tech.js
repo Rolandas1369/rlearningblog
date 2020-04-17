@@ -40,7 +40,10 @@ export default class App extends Component {
                 <div className="flex-full p-1 ">
                     <div className="w-full bg-gray-500 h-12">{wrk.worked_from}</div>
                     <div className="w-full bg-gray-500 pl-3">{wrk.description}</div>
-                    <div className="w-full bg-gray-500 pl-3">{wrk.skills_used}</div>
+                    <div className="w-full bg-gray-500 pl-3">
+                        <p>What i used in this project</p>
+                        <span className="bg-teal-500">{wrk.skills_used}</span>
+                    </div>
                     <div className="w-full bg-gray-500 pl-3">
                         {wrk.links ?  <a className="text-blue-500 hover:text-blue-800" href={wrk.links}
                             rel="noopener noreferrer" 
