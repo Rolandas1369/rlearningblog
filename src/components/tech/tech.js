@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DataService from '../../services/data_service';
 
 import './output.css'
+import './tech.css'
 
 export default class App extends Component {
 
@@ -33,19 +34,23 @@ export default class App extends Component {
     createExp = () => {
         let { workexperiece } = this.state
         let workArray = [...workexperiece]
+        let workArraySorted = workArray.sort((a,b) => b.worked_from - a.worked_from)
         
-        return workArray.map((wrk) => {
+        return workArraySorted.map((wrk) => {
             console.log(wrk.links)
+            let helpers = (wrk.skills_used).split(',')
+            
             return (
-                <div className="flex-full p-1 ">
-                    <div className="w-full bg-gray-500 h-12">{wrk.worked_from}</div>
-                    <div className="w-full bg-gray-500 pl-3">{wrk.description}</div>
-                    <div className="w-full bg-gray-500 pl-3">
-                        <p>What i used in this project</p>
-                        <span className="bg-teal-500">{wrk.skills_used}</span>
+                <div className="flex-full p-1 fonter">
+                    <div className="w-full bg-gray-500 h-12 pt-1">{wrk.worked_from}</div>
+                    <div className="w-full bg-gray-500 pl-3 pt-1">{wrk.description}</div>
+                    <div className="w-full bg-gray-500 pl-3 pt-1">
+                        <p className="">What i used in this project:</p>
+                        {helpers.map((helper) => <span className="bg-teal-500 p-1">{helper}</span>)}
+                        
                     </div>
-                    <div className="w-full bg-gray-500 pl-3">
-                        {wrk.links ?  <a className="text-blue-500 hover:text-blue-800" href={wrk.links}
+                    <div className="w-full bg-gray-500 pl-3 pt-3 pb-3">
+                        {wrk.links ?  <a className="bg-teal-500 text-yellow-500 hover:text-blue-800" href={wrk.links}
                             rel="noopener noreferrer" 
                             target="_blank">Visit project</a> : null}
                     </div>
@@ -64,7 +69,7 @@ export default class App extends Component {
             <div className="stack-main">
                 <div className="flex mb-4">
                     <div className="w-1/2 bg-gray-400">
-                        <h1>Rolandas Butkevičius</h1>
+                        <h1 className="text-6xl">Rolandas Butkevičius</h1>
                     </div>
                     <div className="w-1/2 bg-gray-400">
                         <h3>Software developer</h3>
