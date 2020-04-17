@@ -1,4 +1,41 @@
 * {
-    font-family: 'Merriweather', serif;;
+    font-family: 'Merriweather', serif;
+    box-sizing: border-box;
 }
 
+hr.style1 {
+    border-top: 1px solid #8c8b8b
+}
+
+i {
+    font-size: x-large;
+}
+
+.stack-main {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* .tech-header {
+    display: flex;
+    flex-direction: row;
+} */
+
+.flex1 {
+   display: grid;
+   grid-template-columns: 1fr 1fr; 
+}
+
+
+@media screen and (max-width:620px) {
+    /* For mobile phones: */
+    .flex {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .tech-left {
+        padding-left: 0%;
+    }
+  }

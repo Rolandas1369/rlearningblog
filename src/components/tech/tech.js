@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 
 import DataService from '../../services/data_service';
 
+
 import './output.css'
 import './tech.css'
+
 
 export default class App extends Component {
 
@@ -41,15 +43,18 @@ export default class App extends Component {
             let helpers = (wrk.skills_used).split(',')
             
             return (
+                
                 <div className="flex-full p-1 fonter">
-                    <div className="w-full bg-gray-500 h-12 pt-1">{wrk.worked_from}</div>
-                    <div className="w-full bg-gray-500 pl-3 pt-1">{wrk.description}</div>
-                    <div className="w-full bg-gray-500 pl-3 pt-1">
+                    <hr class="style1"/>
+                    <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
+                    <div className="w-full pl-3 pt-1">{wrk.description}</div>
+                    <div className="w-full pl-3 pt-1">
                         <p className="">What i used in this project:</p>
-                        {helpers.map((helper) => <span className="bg-teal-500 p-1">{helper}</span>)}
+                        
+                        {helpers.map((helper) => <span className="bg-teal-500 mr-3 p-1">{helper}</span>)}
                         
                     </div>
-                    <div className="w-full bg-gray-500 pl-3 pt-3 pb-3">
+                    <div className="w-full pl-3 pt-3 pb-3">
                         {wrk.links ?  <a className="bg-teal-500 text-yellow-500 hover:text-blue-800" href={wrk.links}
                             rel="noopener noreferrer" 
                             target="_blank">Visit project</a> : null}
@@ -66,41 +71,32 @@ export default class App extends Component {
         console.log("tech", this.state.stack, "skills", this.state.skills)
         return (
             
-            <div className="stack-main">
-                <div className="flex mb-4">
-                    <div className="w-1/2 bg-gray-400">
-                        <h1 className="text-6xl">Rolandas Butkevičius</h1>
+            <div className="stack-main w-full pt-10">
+                <div className="flex">
+                    <div className="tech-right">
+                        <h1 className="text-5xl">Rolandas Butkevičius</h1>
+                        <p className="text-center">Python / JavaScript</p>
+                        
                     </div>
-                    <div className="w-1/2 bg-gray-400">
-                        <h3>Software developer</h3>
-                        <div>Email: rolandaswb@gmail.com</div>
-                        <div>Skype: rolandaswb@gmail.com</div>
-                        <div>LinkedIn: <a className="text-blue-500 hover:text-blue-800" href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">View LinkedIn Profile</a></div>
-                        <div>GitHub: <a className="text-blue-500 hover:text-blue-800" href="https://github.com/Rolandas1369">View Github Page</a></div>
+                    <div className="tech-left pl-10">
+                        <div><i class="fa fa-envelope"></i>: <a href="mailto:rolandaswb@gmail.com">rolandaswb@gmail.com</a></div>
+                        
+                        <div><i class="fab fa-skype"></i>: rolandaswb@gmail.com</div>
+                        <div><i class="fab fa-linkedin"></i>: <a className="text-blue-500 hover:text-blue-800" href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">LinkedIn</a></div>
+                        <div><i class="fab fa-github"></i>: <a className="text-blue-500 hover:text-blue-800" href="https://github.com/Rolandas1369">Github</a></div>
                     </div>
                 </div>
                 
                 
                 <div className="flex mb-4">
-                    <div className="w-full bg-gray-500">
+                    <div className="w-full mt-20">
                         <h4>Progamming languages what I use or had experience with</h4>
-                        {display}
+                        <div className="pl-5">{display}</div>
                     </div>
                 </div>
                 <div className="work-experience">
+                    <h3 className="text-4xl"> Programming / Work History</h3>
                     { workexperiece }
-                    {/* <div>Progamming expierence</div>
-                    <div className="flex mb-4">
-                        <div className="w-full bg-gray-500">
-                            <div className="none">2018</div>
-                            <div className="none">Completed Wordpress website <a href="https://grinduklojimas.lt">grinduklojimas</a></div>
-                            <div className="none">Did this project using PHP and wordpress, deployed to server made https protocol available, guided/designed project design.</div>
-                        </div>
-                    </div>
-                    <div className="job-entry">
-                        <div>2018-2019</div>
-                        <div>Had some minor jobs with fixing Wordpress websites</div>
-                    </div> */}
                 </div>
             </div>
         )
