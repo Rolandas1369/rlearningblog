@@ -47,7 +47,7 @@ export default class App extends Component {
                     <div className="w-full bg-gray-500 pl-3">
                         {wrk.links ?  <a className="text-blue-500 hover:text-blue-800" href={wrk.links}
                             rel="noopener noreferrer" 
-                            target="_blank">Visit proect</a> : null}
+                            target="_blank">Visit project</a> : null}
                     </div>
                 </div>
             )
