@@ -44,11 +44,7 @@ export default class App extends Component {
         console.log('sorted', workArraySorted)
         return workArraySorted.map((wrk) => {
            
-            let helpers = (wrk.skills_used).split(',')
-
-            
-        
-            
+            let helpers = (wrk.skills_used).split(',')    
                 
             return (
                 
@@ -60,9 +56,10 @@ export default class App extends Component {
                                 <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
                                 <div className="w-full pl-3 pt-1">{wrk.description}</div>
                                 <div className="w-full pl-3 pt-1">
-                                    <p className="">What i used in this project:</p>
+
                                     
-                                    {helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 p-1">{helper}</span>)}
+                                    {helpers ? <p>In this project I used:</p> : null}
+                                    {helpers ? helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 p-1"> {helper}</span>) : null}
                                     
                                 </div>
                                 <div className="w-full pl-3 pt-3 pb-3">
@@ -72,12 +69,8 @@ export default class App extends Component {
                                 </div>
                             </div>
                             <ImageDispl image={wrk.image}/>
-                        </div>
-                        
-                            
-                        
+                        </div>      
                     </div>
-                   
                 </div>
             )
         })
@@ -99,7 +92,6 @@ export default class App extends Component {
                     </div>
                     <div className="tech-left pl-10">
                         <div><i className="fa fa-envelope"></i>: <a href="mailto:rolandaswb@gmail.com">rolandaswb@gmail.com</a></div>
-                        
                         <div><i className="fab fa-skype"></i>: rolandaswb@gmail.com</div>
                         <div><i className="fab fa-linkedin"></i>: <a className="text-blue-500 hover:text-blue-800" href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">LinkedIn</a></div>
                         <div><i className="fab fa-github"></i>: <a className="text-blue-500 hover:text-blue-800" href="https://github.com/Rolandas1369">Github</a></div>
@@ -111,13 +103,13 @@ export default class App extends Component {
                     <div className="top w-full mt-20">
                         
                         <div className="pl-5">
-                            <h4>Progamming languages what I use or had experience with</h4>
+                            <h4>Then i code</h4>
                             <ul className="ulmed pl-5 pt-6">
-                                <li>Using Linux as working OS. </li>
-                                <li>Github my most used platform for code sharing</li>
-                                <li>Python with Django for building backend</li>
-                                <li>JavaScript with React for building frontend</li>
-                                <li>Docker for adding services to virtual machine</li>
+                                <li>Using <b>Linux</b> as working OS. </li>
+                                <li><b>Git</b>hub my most used platform for code sharing</li>
+                                <li><b>Python</b> with <b>Django</b> for building backend</li>
+                                <li><b>JavaScript</b> with <b>React</b> for building frontend</li>
+                                <li><b>Docker</b> for adding services to virtual machine</li>
                                 <li>Testing for runing code with less bugs</li>
                             </ul>
                         </div>

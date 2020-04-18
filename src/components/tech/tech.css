@@ -28,6 +28,7 @@ i {
 
 .portolio-image {
     justify-content: center;
+    padding-top: 0.5%;
 }
 
 .portolio-image img{
@@ -49,16 +50,13 @@ i {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    
 }
-
 
 @media screen and (max-width:620px) {
     /* For mobile phones: */
     .flex {
         display: flex;
         flex-direction: column;
-        
     }
 
     .ulmed {
@@ -76,8 +74,7 @@ i {
         padding-left: 1%;
         
     }
-    .porfolio-image {
-        
+    .porfolio-image { 
         min-width: 50px;
   }
 }
