@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import DataService from '../../services/data_service';
+import Image from 'react-image-resizer';
 
 
 import './output.css'
@@ -33,6 +34,8 @@ export default class App extends Component {
         return stackArray.map((st) =>  <div key={st.id} className=".stack-element">{st.language}</div>)
     }
 
+    
+
     createExp = () => {
         let { workexperiece } = this.state
         const workArray = [...workexperiece]
@@ -40,26 +43,41 @@ export default class App extends Component {
         const workArraySorted = workArray.sort((a,b) => (b.worked_from).substring(0,4) - (a.worked_from).substring(0,4))
         console.log('sorted', workArraySorted)
         return workArraySorted.map((wrk) => {
-            console.log(wrk.links)
+           
             let helpers = (wrk.skills_used).split(',')
+
             
+        
+            
+                
             return (
                 
-                <div key={Math.random()} className="flex-full p-1 fonter">
-                    <hr className="style1"/>
-                    <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
-                    <div className="w-full pl-3 pt-1">{wrk.description}</div>
-                    <div className="w-full pl-3 pt-1">
-                        <p className="">What i used in this project:</p>
+                <div key={Math.random()} className="flex-full p-1">
+                    
+                    <div className="fonter">
+                        <div className="left w-full border-t-2">
+                            <div>
+                                <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
+                                <div className="w-full pl-3 pt-1">{wrk.description}</div>
+                                <div className="w-full pl-3 pt-1">
+                                    <p className="">What i used in this project:</p>
+                                    
+                                    {helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 p-1">{helper}</span>)}
+                                    
+                                </div>
+                                <div className="w-full pl-3 pt-3 pb-3">
+                                    {wrk.links ?  <a className="bg-teal-500 text-yellow-500 hover:text-blue-800" href={wrk.links}
+                                        rel="noopener noreferrer" 
+                                        target="_blank">Visit project</a> : null}
+                                </div>
+                            </div>
+                            <ImageDispl image={wrk.image}/>
+                        </div>
                         
-                        {helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 p-1">{helper}</span>)}
+                            
                         
                     </div>
-                    <div className="w-full pl-3 pt-3 pb-3">
-                        {wrk.links ?  <a className="bg-teal-500 text-yellow-500 hover:text-blue-800" href={wrk.links}
-                            rel="noopener noreferrer" 
-                            target="_blank">Visit project</a> : null}
-                    </div>
+                   
                 </div>
             )
         })
@@ -111,5 +129,29 @@ export default class App extends Component {
             </div>
         )
     }
+
+}
+
+const ImageDispl = (props) => {
+
+        let url = ""
+        if(props.image !== null) {
+            url = (props.image).slice(0, props.image.indexOf('?'))
+            return (
+                <div className="portolio-image">
+                    <a href={url} target="_blank" rel="noopener noreferrer">                         
+                    <img
+                        
+                        src={url} 
+                        height={200}
+                        width={400}
+                        alt="this is image"/>
+                    </a>
+                </div>  
+            )
+        } else {
+            return null;
+        }
+    
 
 }

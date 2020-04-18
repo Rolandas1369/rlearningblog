@@ -26,6 +26,17 @@ i {
    grid-template-columns: 1fr 1fr; 
 }
 
+.portolio-image {
+    justify-content: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 @media screen and (max-width:620px) {
     /* For mobile phones: */
@@ -38,4 +49,14 @@ i {
     .tech-left {
         padding-left: 0%;
     }
+
+    .left {
+        display: flex;
+        flex-direction: column
+        
+    }
+    .porfolio-image {
+        
+        width: 50px;
   }
+}

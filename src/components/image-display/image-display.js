@@ -12,7 +12,8 @@ class ImageDisplay  extends Component {
             let url = (item.image).slice(0, item.image.indexOf('?'))
             return (
                 <a href={url} target="_blank" rel="noopener noreferrer">                         
-                <Image 
+                <Image
+                    
                     src={url} 
                     height={200}
                     width={400}
