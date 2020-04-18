@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/', include('api_blog.urls')),
     path('rest-auth/', include('rest_auth.urls')),
     path('create/', TemplateView.as_view(template_name='index.html')),
+    path('update/', TemplateView.as_view(template_name='index.html')),
     path('lifecycles/', TemplateView.as_view(template_name='index.html')),
     path('tech/', TemplateView.as_view(template_name='index.html'))
 ]
