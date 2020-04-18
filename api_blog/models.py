@@ -53,3 +53,6 @@ class WorkExperiece(models.Model):
     skills_used = models.TextField(blank=True)
     links = models.TextField(blank=True)
     image = models.ImageField('uploadimage', null=True, blank=True)
+
+    def __str__(self):
+        return self.worked_from
