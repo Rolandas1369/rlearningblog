@@ -103,9 +103,9 @@ export default class App extends Component {
                     <div className="top w-full mt-20">
                         
                         <div className="pl-5">
-                            <h4>Then i code</h4>
+                            <h4>Then I code</h4>
                             <ul className="ulmed pl-5 pt-6">
-                                <li>Using <b>Linux</b> as working OS. </li>
+                                <li>I use <b>Linux</b> as working OS. </li>
                                 <li><b>Git</b>hub my most used platform for code sharing</li>
                                 <li><b>Python</b> with <b>Django</b> for building backend</li>
                                 <li><b>JavaScript</b> with <b>React</b> for building frontend</li>
@@ -114,7 +114,7 @@ export default class App extends Component {
                             </ul>
                         </div>
                         <div className="pl-5 ml-5 border-l-2">
-                            <h4>Languages i can communicate with</h4>
+                            <h4>Languages I can communicate with</h4>
                             <ul className="ulmed pl-5 pt-6">
                                 <li>Russian</li>
                                 <li>English</li>
