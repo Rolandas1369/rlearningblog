@@ -56,7 +56,7 @@ export default class App extends Component {
                     
                     <div className="fonter">
                         <div className="left w-full border-t-2">
-                            <div>
+                            <div className="w-5/6">
                                 <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
                                 <div className="w-full pl-3 pt-1">{wrk.description}</div>
                                 <div className="w-full pl-3 pt-1">
@@ -108,16 +108,25 @@ export default class App extends Component {
                 
                 
                 <div className="flex mb-4">
-                    <div className="w-full mt-20">
-                        <h4>Progamming languages what I use or had experience with</h4>
+                    <div className="top w-full mt-20">
+                        
                         <div className="pl-5">
-                            <ul>
+                            <h4>Progamming languages what I use or had experience with</h4>
+                            <ul className="ulmed pl-5 pt-6">
                                 <li>Using Linux as working OS. </li>
                                 <li>Github my most used platform for code sharing</li>
                                 <li>Python with Django for building backend</li>
                                 <li>JavaScript with React for building frontend</li>
                                 <li>Docker for adding services to virtual machine</li>
                                 <li>Testing for runing code with less bugs</li>
+                            </ul>
+                        </div>
+                        <div className="pl-5 ml-5 border-l-2">
+                            <h4>Languages i can communicate with</h4>
+                            <ul className="ulmed pl-5 pt-6">
+                                <li>Russian</li>
+                                <li>English</li>
+                                <li>Lithuanian</li>
                             </ul>
                         </div>
                     </div>
@@ -140,8 +149,7 @@ const ImageDispl = (props) => {
             return (
                 <div className="portolio-image">
                     <a href={url} target="_blank" rel="noopener noreferrer">                         
-                    <img
-                        
+                    <img     
                         src={url} 
                         height={200}
                         width={400}
