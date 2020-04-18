@@ -44,7 +44,7 @@ export default class UpdatePostForm extends Component {
     }
 
     componentDidMount = () =>  {
-        this.dataService.getPost(185)
+        this.dataService.getPost(this.props.id)
             .then((data) => this.setState({title: data.data.title, 
                                            content: data.data.content
                                         }))
@@ -72,6 +72,7 @@ export default class UpdatePostForm extends Component {
                         <button className="bold-item" value={this.state.content} onClick={(e) => this.addBold(e)}>Bold</button>
                         <button className="pre-item" value={this.state.content} onClick={() => this.addPreTag()}>Pre</button>
                     </div>
+                    <h1>Update post</h1>
                     <a href="/">Home</a>
                     <h2>Label for content</h2>
                     

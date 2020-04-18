@@ -16,11 +16,6 @@ i {
     padding-right: 10%;
 }
 
-/* .tech-header {
-    display: flex;
-    flex-direction: row;
-} */
-
 .flex1 {
    display: grid;
    grid-template-columns: 1fr 1fr; 

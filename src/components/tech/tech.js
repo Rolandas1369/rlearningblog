@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 import DataService from '../../services/data_service';
-import Image from 'react-image-resizer';
-
 
 import './output.css'
 import './tech.css'
@@ -55,9 +53,8 @@ export default class App extends Component {
                             <div className="w-5/6">
                                 <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
                                 <div className="w-full pl-3 pt-1">{wrk.description}</div>
-                                <div className="w-full pl-3 pt-1">
-
-                                    
+                                <div className="w-full pl-3 mt-1 pt-1">
+ 
                                     {helpers.length > 1 ? <p>In this project I used:</p> : null}
                                     {helpers.length > 1 ? helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 pr-1 p-1"> {helper}</span>) : null}
                                     
@@ -78,7 +75,6 @@ export default class App extends Component {
 
     render(){
 
-        let display = this.createDisplay()
         let workexperiece = this.createExp()
         console.log("tech", this.state.stack, "skills", this.state.skills)
         return (
@@ -145,7 +141,7 @@ const ImageDispl = (props) => {
                         src={url} 
                         height={200}
                         width={400}
-                        alt="this is image"/>
+                        alt="porfolio item"/>
                     </a>
                 </div>  
             )

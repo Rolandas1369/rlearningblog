@@ -1,6 +1,5 @@
 from django.urls import path
 
-
 from .views import (
     PostListView,
     PostDetail,
@@ -18,8 +17,6 @@ from .views import (
     TechStackView,
     TechFeaturesView,
     WorkExpirienceView
-    
-
 )
 
 urlpatterns = [
@@ -40,7 +37,6 @@ urlpatterns = [
     path('techstack/', TechStackView.as_view()),
     path('techskills/', TechFeaturesView.as_view()),
     path('workexpierence/', WorkExpirienceView.as_view()),
-    
     
     path('html/<int:pk>/',HtmlStylingChangeSerializerView.as_view())
 ]
