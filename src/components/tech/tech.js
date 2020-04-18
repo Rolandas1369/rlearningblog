@@ -58,8 +58,8 @@ export default class App extends Component {
                                 <div className="w-full pl-3 pt-1">
 
                                     
-                                    {helpers ? <p>In this project I used:</p> : null}
-                                    {helpers ? helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 p-1"> {helper}</span>) : null}
+                                    {helpers.length > 1 ? <p>In this project I used:</p> : null}
+                                    {helpers.length > 1 ? helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 p-1"> {helper}</span>) : null}
                                     
                                 </div>
                                 <div className="w-full pl-3 pt-3 pb-3">
