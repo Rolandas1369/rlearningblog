@@ -1,4 +1,4 @@
-* {
+.fonter {
     font-family: 'Merriweather', serif;
     box-sizing: border-box;
 }
@@ -40,6 +40,11 @@ i {
     
 }
 
+span {
+    border-radius: 5px;
+    box-shadow: 5px 5px black;
+}
+
 .left {
     display: flex;
     flex-direction: row;
@@ -47,11 +52,23 @@ i {
     justify-content: space-between;
 }
 
+.project-links {
+    
+    padding: 1%;
+    margin-top: 1%;
+    box-shadow:  2px 3px;
+}
+
 @media screen and (max-width:620px) {
     /* For mobile phones: */
     .flex {
         display: flex;
         flex-direction: column;
+    }
+
+    span {
+        line-height: 3;
+        border-radius: 5px;
     }
 
     .ulmed {

@@ -53,14 +53,15 @@ export default class App extends Component {
                             <div className="w-5/6">
                                 <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
                                 <div className="w-full pl-3 pt-1">{wrk.description}</div>
-                                <div className="w-full pl-3 mt-1 pt-1">
+                                <div className="w-full pl-3 mt-1 pt-1 mt-3 mb-3">
  
-                                    {helpers.length > 1 ? <p>In this project I used:</p> : null}
-                                    {helpers.length > 1 ? helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 pr-1 p-1"> {helper}</span>) : null}
-                                    
+                                    {helpers.length > 1 ? <p className="pb-3">In this project I used:</p> : null}
+                                    <div className="flex-col">
+                                        {helpers.length > 1 ? helpers.map((helper) => <span key={Math.random()} className="bg-teal-500 mr-3 pr-1 p-1"> {helper}</span>) : null}
+                                    </div>
                                 </div>
                                 <div className="w-full pl-3 pt-3 pb-3">
-                                    {wrk.links ?  <a className="bg-teal-500 text-yellow-500 hover:text-blue-800" href={wrk.links}
+                                    {wrk.links ?  <a className="project-links bg-teal-500 text-yellow-500 hover:text-blue-800" href={wrk.links}
                                         rel="noopener noreferrer" 
                                         target="_blank">Visit project</a> : null}
                                 </div>
@@ -83,7 +84,7 @@ export default class App extends Component {
                 <div className="flex">
                     <div className="tech-right">
                         <h1 className="text-5xl">Rolandas Butkevičius</h1>
-                        <p className="text-center">Python / JavaScript</p>
+                        <h2 className="text-center">Web developer harnessing python and javascript technologies</h2>
                         
                     </div>
                     <div className="tech-left pl-10">
@@ -99,7 +100,7 @@ export default class App extends Component {
                     <div className="top w-full mt-20">
                         
                         <div className="pl-5">
-                            <h4>Then I code</h4>
+                            <h4>When I code</h4>
                             <ul className="ulmed pl-5 pt-6">
                                 <li>I use <b>Linux</b> as working OS. </li>
                                 <li><b>Git</b>hub my most used platform for code sharing</li>
