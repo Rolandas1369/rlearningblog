@@ -1,6 +1,8 @@
-.fonter {
+.work-exp {
     font-family: 'Merriweather', serif;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
 
 hr.style1 {
@@ -16,14 +18,9 @@ i {
     padding-right: 10%;
 }
 
-.flex1 {
-   display: grid;
-   grid-template-columns: 1fr 1fr; 
-}
-
 .portolio-image {
     justify-content: center;
-    padding-top: 0.5%;
+    
 }
 
 .portolio-image img{
@@ -37,26 +34,18 @@ i {
 .top {
     display: flex;
     flex-direction: row;
-    
 }
 
-.skill-span span {
+.skill-span {
     border-radius: 5px;
     box-shadow: 5px 5px black;
 }
 
-.left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .project-links {
-    
-    padding: 1%;
+    padding: 5px;
     margin-top: 1%;
-    box-shadow:  2px 3px;
+    margin-bottom: 1%;
+    box-shadow: 2px 3px;
 }
 
 @media screen and (max-width:620px) {
