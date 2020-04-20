@@ -15,7 +15,6 @@ export default class App extends Component {
     }
 
     dataService =  new DataService()
-    
 
     componentDidMount(){
         this.dataService.getStack()
@@ -29,23 +28,20 @@ export default class App extends Component {
     createDisplay = () => {
         let { stack } = this.state
         let stackArray = [...stack]
-        return stackArray.map((st) =>  <div key={st.id} className=".stack-element">{st.language}</div>)
+        return stackArray.map((st) =>  
+                                <div key={st.id} 
+                                     className=".stack-element">
+                                    {st.language}
+                                </div>)
     }
-
-    
 
     createExp = () => {
         let { workexperiece } = this.state
         const workArray = [...workexperiece]
-       
         const workArraySorted = workArray.sort((a,b) => (b.worked_from).substring(0,4) - (a.worked_from).substring(0,4))
-        console.log('sorted', workArraySorted)
         return workArraySorted.map((wrk) => {
-           
-            let helpers = (wrk.skills_used).split(',')    
-                
+            let helpers = (wrk.skills_used).split(',')        
             return (
-                
                 <div key={Math.random()} className="flex-full p-1">
                     
                     <div className="fonter">
@@ -77,31 +73,36 @@ export default class App extends Component {
     render(){
 
         let workexperiece = this.createExp()
-        console.log("tech", this.state.stack, "skills", this.state.skills)
-        return (
-            
-            <div className="stack-main w-full pt-10">
+        return (     
+            <div className="w-full p-10">
                 <div className="flex">
-                    <div className="tech-right">
+                    <div className="name-header w-1/2">
                         <h1 className="text-5xl">Rolandas Butkevičius</h1>
                         <h2 className="text-center">Web developer harnessing python and javascript technologies</h2>
-                        
                     </div>
-                    <div className="tech-left pl-10">
-                        <div><i className="fa fa-envelope"></i>: <a href="mailto:rolandaswb@gmail.com">rolandaswb@gmail.com</a></div>
-                        <div><i className="fab fa-skype"></i>: rolandaswb@gmail.com</div>
-                        <div><i className="fab fa-linkedin"></i>: <a className="text-blue-500 hover:text-blue-800" href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">LinkedIn</a></div>
-                        <div><i className="fab fa-github"></i>: <a className="text-blue-500 hover:text-blue-800" href="https://github.com/Rolandas1369">Github</a></div>
+                    <div className="contacts-header w-1/2">
+                        <div><i className="fa fa-envelope"></i><a href="mailto:rolandaswb@gmail.com">rolandaswb@gmail.com</a></div>
+                        <div><i className="fab fa-skype"></i>rolandaswb@gmail.com</div>
+                        <div><i className="fab fa-linkedin"></i>
+                            <a className="text-blue-500 hover:text-blue-800" 
+                               href="https://www.linkedin.com/in/rolandas-butkevi%C4%8Dius-4a8471106/">
+                                LinkedIn
+                            </a>
+                        </div>
+                        <div><i className="fab fa-github"></i>
+                            <a className="text-blue-500 hover:text-blue-800" 
+                               href="https://github.com/Rolandas1369">
+                                Github
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 
-                <div className="flex mb-4">
                     <div className="top w-full mt-20">
-                        
-                        <div className="pl-5">
+                        <div className="workflow">
                             <h4>When I code</h4>
-                            <ul className="ulmed pl-5 pt-6">
+                            <ul className="pl-5 pt-6">
                                 <li>I use <b>Linux</b> as working OS. </li>
                                 <li><b>Git</b>hub my most used platform for code sharing</li>
                                 <li><b>Python</b> with <b>Django</b> for building backend</li>
@@ -110,16 +111,16 @@ export default class App extends Component {
                                 <li>Testing for runing code with less bugs</li>
                             </ul>
                         </div>
-                        <div className="pl-5 ml-5 border-l-2">
+                        <div className="languages border-l-2">
                             <h4>Languages I can communicate with</h4>
-                            <ul className="ulmed pl-5 pt-6">
+                            <ul className="pl-5 pt-6">
                                 <li>Russian</li>
                                 <li>English</li>
                                 <li>Lithuanian</li>
                             </ul>
                         </div>
                     </div>
-                </div>
+                
                 <div className="work-experience">
                     <h3 className="text-4xl"> Programming / Work History</h3>
                     { workexperiece }
@@ -127,7 +128,6 @@ export default class App extends Component {
             </div>
         )
     }
-
 }
 
 const ImageDispl = (props) => {
