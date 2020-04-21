@@ -35,7 +35,8 @@ i {
 .skill-span {
     border-radius: 5px;
     box-shadow: 5px 5px black;
-    line-height: 2px;
+    display: inline;
+    padding: 3px;
 }
 
 .project-links {
@@ -86,11 +87,12 @@ i {
         width: 100%;
     }
 
-    .skills {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
+    .skill-span {
+        display: inline;
+        padding: 0px;
     }
+
+
 
     .exp-text {
         display: flex;
@@ -105,7 +107,6 @@ i {
     .languages {
         padding-left: 0;
     }
-
 
     .porfolio-image { 
         min-height: 250px;

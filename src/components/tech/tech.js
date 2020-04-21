@@ -51,8 +51,8 @@ export default class App extends Component {
                                 <div className="w-full mt-1 pt-1 mt-3 mb-3">
  
                                     {helpers.length > 1 ? <p className="pb-3">In this project I used:</p> : null}
-                                    <div className="skills-list flex">
-                                        {helpers.length > 1 ? helpers.map((helper) => <span key={Math.random()} className="flex skill-span bg-teal-500 p-2 mr-3 mt-4 mb-4"> {helper}</span>) : null}
+                                    <div className="skills-list">
+                                        {helpers.length > 1 ? helpers.map((helper) => <div key={Math.random()} className="skill-span bg-teal-500 mr-3 mt-5 mb-5"> <span>{helper}</span></div>) : null}
                                     </div>
                                 </div>
                                 <div className="w-full pt-3 pb-3">
