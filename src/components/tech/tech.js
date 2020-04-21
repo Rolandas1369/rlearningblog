@@ -52,7 +52,7 @@ export default class App extends Component {
  
                                     {helpers.length > 1 ? <p className="pb-3">In this project I used:</p> : null}
                                     <div className="skills-list">
-                                        {helpers.length > 1 ? helpers.map((helper) => <div key={Math.random()} className="skill-span bg-teal-500 mr-3 mt-5 mb-5"> <span>{helper}</span></div>) : null}
+                                        {helpers.length > 1 ? helpers.map((helper) => <div key={Math.random()} className="skill-span bg-teal-500 mr-3 mt-2 mb-2"> <span>{helper}</span></div>) : null}
                                     </div>
                                 </div>
                                 <div className="w-full pt-3 pb-3">

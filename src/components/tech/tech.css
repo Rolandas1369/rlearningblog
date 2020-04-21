@@ -35,7 +35,7 @@ i {
 .skill-span {
     border-radius: 5px;
     box-shadow: 5px 5px black;
-    display: inline;
+    display: inline-block;
     padding: 3px;
 }
 
@@ -87,10 +87,10 @@ i {
         width: 100%;
     }
 
-    .skill-span {
+    /* .skill-span {
         display: inline;
-        padding: 0px;
-    }
+        
+    } */
 
 
 
