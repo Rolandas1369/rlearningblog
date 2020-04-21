@@ -98,6 +98,14 @@ i {
         width: 100%;
     }
 
+    .contacts-header {
+        padding-left: 0;
+    }
+
+    .languages {
+        padding-left: 0;
+    }
+
 
     .porfolio-image { 
         min-height: 250px;
