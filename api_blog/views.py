@@ -26,7 +26,8 @@ from .models import (
      HtmlStylingChange, 
      TechStack, 
      TechFeatures,
-     WorkExperiece
+     WorkExperiece,
+     KnownTech
 )
 from .serializers import (
     PostSerializer, 
@@ -36,7 +37,8 @@ from .serializers import (
     HtmlStylingChangeSerializer,
     TechStackSerializer,
     TechFeaturesSerializer,
-    WorkExperienceSerializer
+    WorkExperienceSerializer,
+    KnownTechSerializer
 )
 
 class PostCreateView(LoginRequiredMixin, CreateAPIView):
@@ -134,6 +136,10 @@ class TechFeaturesView(ListCreateAPIView):
 class WorkExpirienceView(ListCreateAPIView):
     queryset = WorkExperiece.objects.all()
     serializer_class = WorkExperienceSerializer
+
+class KnownTechView(ListCreateAPIView):
+    queryset = KnownTech.objects.all()
+    serializer_class = KnownTechSerializer
 
 
 

@@ -8,7 +8,8 @@ from api_blog.models import (
      HtmlStylingChange, 
      TechStack, 
      TechFeatures,
-     WorkExperiece
+     WorkExperiece,
+     KnownTech
 )
 
 class PostSerializer(serializers.ModelSerializer):
@@ -51,4 +52,9 @@ class TechFeaturesSerializer(serializers.ModelSerializer):
 class WorkExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkExperiece
+        fields = ('__all__')
+
+class KnownTechSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = KnownTech
         fields = ('__all__')

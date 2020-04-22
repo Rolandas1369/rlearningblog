@@ -11,18 +11,22 @@ export default class App extends Component {
     state = {
         stack: "",
         skills: "",
-        workexperiece: ""
+        workexperiece: "",
+        knownTech: ""
     }
 
     dataService =  new DataService()
 
     componentDidMount(){
+        
         this.dataService.getStack()
         .then((data) => this.setState({stack: data.data}))
         this.dataService.getSkills()
         .then((data) => this.setState({skills: data.data}))
         this.dataService.getWorkExpierience()
         .then((data) => this.setState({workexperiece: data.data}))
+        this.dataService.getKnownTech()
+        .then((data) => this.setState({knownTech: data.data}))
     }
 
     createDisplay = () => {
@@ -69,12 +73,41 @@ export default class App extends Component {
         })
     }
 
+    createknowTech = () => {
+        let { knownTech } = this.state
+        console.log(knownTech)
+        let knownTechArray = [...knownTech] 
+
+        return knownTechArray.map((tech) => {
+            let techSkills = tech.skills.split(',')
+            return (
+                <div key={Math.random()}>
+                    <div className="language-field font-bold">
+                        {tech.language}
+                    </div>
+                    <div className="skills-list">
+                        {techSkills.map((skill) => { 
+                            return (
+                                <span
+                                    className="bg-teal-500 p-2 m-2 inline-block"  
+                                    key={Math.random()}>
+                                    {skill}
+                                </span>)
+                        })}
+                    </div>
+                    
+                    </div>
+            )
+        })
+
+    }
+
     render(){
 
         let workexperiece = this.createExp()
+        let knownTech = this.createknowTech()
         return (     
             <div className="w-full pr-10 pl-10 pb-10">
-
                 <div className="top-header">
                     <div className="name-header w-1/2 pt-5">
                         <h1 className="text-5xl">Rolandas Butkevičius</h1>
@@ -124,6 +157,11 @@ export default class App extends Component {
                     <h3 className="work-exp-header text-4xl w-1/2 pt-5">Programming / Work History</h3>
                     { workexperiece }
                 </div>
+                <div>
+                    <h3 className="text-4xl pt-5">Do know how to work with</h3>
+                    {knownTech}
+                </div>
+                
 
             </div>
         )

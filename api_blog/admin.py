@@ -7,7 +7,8 @@ from api_blog.models import (
     HtmlStylingChange, 
     TechFeatures, 
     TechStack,
-    WorkExperiece
+    WorkExperiece,
+    KnownTech
 )
 
 admin.site.register(Post)
@@ -17,3 +18,4 @@ admin.site.register(HtmlStylingChange)
 admin.site.register(TechFeatures)
 admin.site.register(TechStack)
 admin.site.register(WorkExperiece)
+admin.site.register(KnownTech)

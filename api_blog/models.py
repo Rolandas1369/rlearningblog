@@ -56,3 +56,10 @@ class WorkExperiece(models.Model):
 
     def __str__(self):
         return self.worked_from
+
+class KnownTech(models.Model):
+    language = models.CharField(blank=True, max_length=50)
+    skills = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.language
