@@ -66,7 +66,8 @@ class KnownTech(models.Model):
 
 class Education(models.Model):
     related_to = models.CharField(blank=True, max_length=50)
-    description = models.TextField()
+    description = models.TextField(blank=True)
+    link = models.TextField()
     completed_on = models.CharField(blank=True, max_length=50)
 
     def __str__(self):

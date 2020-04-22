@@ -19,6 +19,9 @@ export default class App extends Component {
     dataService =  new DataService()
 
     componentDidMount(){
+
+        document.title = "CV"
+        document.querySelector('meta[name="description"]').setAttribute("content", "Rolandas Butkevicius CV");
         
         this.dataService.getStack()
         .then((data) => this.setState({stack: data.data}))
@@ -89,7 +92,7 @@ export default class App extends Component {
                         {techSkills.map((skill) => { 
                             return (
                                 <span
-                                    className="bg-teal-500 p-2 m-2 inline-block"  
+                                    className="skill-span bg-teal-500 p-2 m-2 inline-block"  
                                     key={Math.random()}>
                                     {skill}
                                 </span>)
@@ -103,16 +106,18 @@ export default class App extends Component {
     }
 
     createEductionRes = () => {
-        let { education } = this.state
-        let knownTechArray = [...education]
-        console.log(knownTechArray)
+        // let { education } = this.state
+        // let educationArray = [...education]
+        
+        
+
     }
 
     render(){
 
         let workexperiece = this.createExp()
         let knownTech = this.createknowTech()
-        let educationRes = this.createEductionRes()
+        
         return (     
             <div className="w-full pr-10 pl-10 pb-10">
                 <div className="top-header">
@@ -168,10 +173,7 @@ export default class App extends Component {
                     <h3 className="text-4xl pt-5">Do know how to work with</h3>
                     {knownTech}
                 </div>
-                <div>
-                <h3 className="work-exp-header text-4xl w-1/2 pt-5">Education resources</h3>
-                    {educationRes}
-                </div>
+
                 
 
             </div>
