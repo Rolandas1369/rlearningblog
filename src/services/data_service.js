@@ -164,6 +164,10 @@ export default class DataSevice {
         return await axios.get(API_URL + "/api/techskills/")
     }
 
+    getEducation = async () => {
+        return await axios.get(API_URL + "/api/education/")
+    }
+
     getKnownTech = async () => {
         return await axios.get(API_URL + "/api/knowntech/")
     }

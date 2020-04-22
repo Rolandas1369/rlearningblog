@@ -12,7 +12,8 @@ export default class App extends Component {
         stack: "",
         skills: "",
         workexperiece: "",
-        knownTech: ""
+        knownTech: "",
+        education: ""
     }
 
     dataService =  new DataService()
@@ -27,6 +28,8 @@ export default class App extends Component {
         .then((data) => this.setState({workexperiece: data.data}))
         this.dataService.getKnownTech()
         .then((data) => this.setState({knownTech: data.data}))
+        this.dataService.getEducation()
+        .then((data) => this.setState({education: data.data}))
     }
 
     createDisplay = () => {
@@ -46,8 +49,7 @@ export default class App extends Component {
         return workArraySorted.map((wrk) => {
             let helpers = (wrk.skills_used).split(',')        
             return (
-                <div key={Math.random()} className="flex work-exp border-t-2">                   
-                       
+                <div key={Math.random()} className="flex work-exp border-t-2">                          
 
                             <div className="exp-text w-1/2">
                                 <div className="w-full h-12 pt-1">{wrk.worked_from}</div>
@@ -65,9 +67,7 @@ export default class App extends Component {
                                         target="_blank">Visit project</a> : null}
                                 </div>
                             </div>
-
                             <ImageDispl image={wrk.image}/>
-        
                 </div>
             )
         })
@@ -75,7 +75,7 @@ export default class App extends Component {
 
     createknowTech = () => {
         let { knownTech } = this.state
-        console.log(knownTech)
+        
         let knownTechArray = [...knownTech] 
 
         return knownTechArray.map((tech) => {
@@ -102,10 +102,17 @@ export default class App extends Component {
 
     }
 
+    createEductionRes = () => {
+        let { education } = this.state
+        let knownTechArray = [...education]
+        console.log(knownTechArray)
+    }
+
     render(){
 
         let workexperiece = this.createExp()
         let knownTech = this.createknowTech()
+        let educationRes = this.createEductionRes()
         return (     
             <div className="w-full pr-10 pl-10 pb-10">
                 <div className="top-header">
@@ -160,6 +167,10 @@ export default class App extends Component {
                 <div>
                     <h3 className="text-4xl pt-5">Do know how to work with</h3>
                     {knownTech}
+                </div>
+                <div>
+                <h3 className="work-exp-header text-4xl w-1/2 pt-5">Education resources</h3>
+                    {educationRes}
                 </div>
                 
 

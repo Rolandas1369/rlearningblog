@@ -8,7 +8,8 @@ from api_blog.models import (
     TechFeatures, 
     TechStack,
     WorkExperiece,
-    KnownTech
+    KnownTech,
+    Education
 )
 
 admin.site.register(Post)
@@ -19,3 +20,4 @@ admin.site.register(TechFeatures)
 admin.site.register(TechStack)
 admin.site.register(WorkExperiece)
 admin.site.register(KnownTech)
+admin.site.register(Education)

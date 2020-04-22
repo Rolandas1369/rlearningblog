@@ -63,3 +63,11 @@ class KnownTech(models.Model):
 
     def __str__(self):
         return self.language
+
+class Education(models.Model):
+    related_to = models.CharField(blank=True, max_length=50)
+    description = models.TextField()
+    completed_on = models.CharField(blank=True, max_length=50)
+
+    def __str__(self):
+        return self.related_to

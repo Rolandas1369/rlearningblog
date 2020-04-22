@@ -9,7 +9,8 @@ from api_blog.models import (
      TechStack, 
      TechFeatures,
      WorkExperiece,
-     KnownTech
+     KnownTech,
+     Education
 )
 
 class PostSerializer(serializers.ModelSerializer):
@@ -55,6 +56,11 @@ class WorkExperienceSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class KnownTechSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = KnownTech
+        fields = ('__all__')
+
+class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = KnownTech
         fields = ('__all__')
