@@ -22,8 +22,7 @@ render() {
 
     return (
         <div>{filteredGist}</div>
-        //<div className="expand">{filteredGist}</div>
-    )
+        )
     }
 }
 

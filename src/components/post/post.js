@@ -20,16 +20,20 @@ export default class Post extends Component {
   };
 
   expandGist = (e) => {
-    let x = document.getElementById(e.target.id).nextSibling;
-    console.log(x);
+    let x = document.getElementById(e.target.id).parentNode.nextSibling
+    let g = x.getElementsByClassName('gist-data')[0]
+    g.setAttribute(
+      "style",
+      "height: auto;"
+    );
   };
 
   shrinkGist = (e) => {
-    document
-      .getElementById(e.target.id)
-      .nextSibling.children[0].children[0].children[0].children[0].setAttribute(
+    let x = document.getElementById(e.target.id).parentNode.nextSibling
+    let g = x.getElementsByClassName('gist-data')[0]
+    g.setAttribute(
         "style",
-        "height: 200px;"
+        "height: 100px;"
       );
   };
 

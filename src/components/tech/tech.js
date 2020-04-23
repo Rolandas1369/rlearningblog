@@ -74,7 +74,6 @@ export default class App extends Component {
                         key={Math.random()}
                         className="skill-span bg-teal-500 mr-3 mt-2 mb-2"
                       >
-                        {" "}
                         <span>{helper}</span>
                       </div>
                     ))
