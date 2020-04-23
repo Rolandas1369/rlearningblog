@@ -20,12 +20,16 @@ export default class Post extends Component {
   };
 
   expandGist = (e) => {
-    console.log();
+    let x = document.getElementById(e.target.id).nextSibling;
+    console.log(x);
+  };
+
+  shrinkGist = (e) => {
     document
       .getElementById(e.target.id)
       .nextSibling.children[0].children[0].children[0].children[0].setAttribute(
         "style",
-        "height: auto;"
+        "height: 200px;"
       );
   };
 
@@ -99,13 +103,22 @@ export default class Post extends Component {
 
         <ImageDisplay item={item} />
         {item.gist_id ? (
-          <button
-            id={`${item.id}ix`}
-            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
-            onClick={(e) => this.expandGist(e)}
-          >
-            Expand gist
-          </button>
+          <div>
+            <button
+              id={`${item.id}ix`}
+              className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+              onClick={(e) => this.expandGist(e)}
+            >
+              Expand gist
+            </button>
+            <button
+              id={`${item.id}ix`}
+              className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+              onClick={(e) => this.shrinkGist(e)}
+            >
+              Shrink gist
+            </button>
+          </div>
         ) : null}
         <GistDisplay item={item} />
         <VideoDisplay item={item} />
