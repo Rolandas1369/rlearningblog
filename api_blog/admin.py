@@ -1,11 +1,11 @@
 from django.contrib import admin
 
 from api_blog.models import (
-    Post, 
-    Feature, 
-    Insight, 
-    HtmlStylingChange, 
-    TechFeatures, 
+    Post,
+    Feature,
+    Insight,
+    HtmlStylingChange,
+    TechFeatures,
     TechStack,
     WorkExperiece,
     KnownTech,

@@ -1,111 +1,120 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import parser from 'bbcode-to-react';
-import ImageDisplay from '../image-display';
+import parser from "bbcode-to-react";
+import ImageDisplay from "../image-display";
 
-import GistDisplay from '../gist-display';
-import VideoDisplay from '../video-display';
+import GistDisplay from "../gist-display";
+import VideoDisplay from "../video-display";
 
-import './post.css'
+import "./post.css";
 
 export default class Post extends Component {
+  state = {
+    blue: false,
+    style: { color: "" },
+    image_src: "",
+  };
 
-    state = {
-        blue: false,
-        style: {color: ''},
-        image_src: ''
+  makeBlue = () => {
+    this.setState({ blue: !this.state.blue });
+  };
+
+  expandGist = (e) => {
+    console.log();
+    document
+      .getElementById(e.target.id)
+      .nextSibling.children[0].children[0].children[0].children[0].setAttribute(
+        "style",
+        "height: auto;"
+      );
+  };
+
+  updatePage = (id) => {
+    console.log("page id", id);
+    window.location = `/update/${id}`;
+  };
+
+  render() {
+    let languageBackground = "post-data";
+    let classNamesh1 = "";
+
+    //let styleComputed = this.returnGist()
+
+    const { item } = this.props;
+
+    if (this.state.blue) {
+      classNamesh1 += " blue";
     }
 
-    makeBlue = () => {
-        this.setState({ blue: !this.state.blue})
+    let delButton = null;
+    let updButton = null;
+    if (this.props.user) {
+      delButton = (
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          onClick={this.props.onDeleted}
+        >
+          Delete Post
+        </button>
+      );
+      updButton = (
+        <button
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => this.updatePage(item.id)}
+        >
+          Update
+        </button>
+      );
     }
 
-    // returnGist = () => {
-    //    return( <style dangerouslySetInnerHTML={{__html: `
-    //              .gist-data { height: ${this.state.gistHeight};}
-    //         `}} />
-    //    )
-    // }
-
-    expandGist = (e) => {
-        
-        console.log()
-            document.getElementById(e.target.id)
-            .nextSibling
-            .children[0]
-            .children[0]
-            .children[0]
-            .children[0]              
-            .setAttribute('style', 'height: auto;');
+    switch (item.language_choice) {
+      case "Python":
+        languageBackground += " blue-back";
+        break;
+      case "React":
+        languageBackground += " yellow-back";
+        break;
+      case "Both":
+        languageBackground += " default-back";
+        break;
+      default:
+        languageBackground += " default-back";
     }
 
-    updatePage = (id) => {
-        console.log('page id', id)
-        window.location = `/update/${id}`;
-    }
+    return (
+      <div className={languageBackground}>
+        <div
+          id={item.id}
+          className={classNamesh1}
+          style={this.state.style}
+          onClick={this.makeBlue}
+        >
+          <h3>
+            {item.id} {item.title}
+          </h3>
+        </div>
+        <div>
+          <div>{parser.toReact(item.content)}</div>
+        </div>
 
-    render() {
-        let languageBackground = 'post-data'
-        let classNamesh1 = ''
+        <ImageDisplay item={item} />
+        {item.gist_id ? (
+          <button
+            id={`${item.id}ix`}
+            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+            onClick={(e) => this.expandGist(e)}
+          >
+            Expand gist
+          </button>
+        ) : null}
+        <GistDisplay item={item} />
+        <VideoDisplay item={item} />
 
-        //let styleComputed = this.returnGist()
-        
-        
-        const { item } = this.props
-        
-        if(this.state.blue){
-            classNamesh1 += ' blue'
-        }
-
-        let delButton = null
-        let updButton = null
-        if(this.props.user){    
-            delButton = <button onClick={this.props.onDeleted}>Delete Post</button>
-            updButton = <button onClick={() => this.updatePage(item.id)}>Update</button>
-        }
-
-        switch(item.language_choice) {
-            case "Python":
-            languageBackground += ' blue-back'
-              break;
-            case "React":
-            languageBackground += ' yellow-back'
-              break;
-            case "Both":
-            languageBackground += ' default-back'
-              break;
-            default:
-            languageBackground += ' default-back'
-          } 
-
-        return (
-            <div className={languageBackground}>
-                {/* I think is only inicializing one time, and next render rewrites hight to 50px
-                {styleComputed}  */}
-                
-                <div id={item.id}
-                     className={classNamesh1} 
-                     style={this.state.style} 
-                     onClick={this.makeBlue}>
-                     <h3>{item.id} {item.title}</h3> 
-
-                </div>
-                <div>
-                    <div>{parser.toReact(item.content)}</div>            
-                </div>
-               
-                <ImageDisplay item={item}/>
-                <button id={`${item.id}ix`} onClick={(e) => this.expandGist(e)}>Expand gist</button>
-                <GistDisplay item={item}/>
-                <VideoDisplay item={item}/>
-
-                
-                <div>
-                    {delButton}
-                    {updButton}
-                </div>
-            </div>
-        )
-    }
+        <div>
+          {delButton}
+          {updButton}
+        </div>
+      </div>
+    );
+  }
 }
-
