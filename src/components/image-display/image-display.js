@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './image-display.css'
-import Image from 'react-image-resizer';
+
 
 class ImageDisplay  extends Component {
     
@@ -12,12 +12,9 @@ class ImageDisplay  extends Component {
             let url = (item.image).slice(0, item.image.indexOf('?'))
             return (
                 <a href={url} target="_blank" rel="noopener noreferrer">                         
-                <Image
-                    
+                <img className="image-display"
                     src={url} 
-                    height={200}
-                    width={400}
-                    alt="this is image"/>
+                    alt="this is egzample"/>
                 </a>  
             )
     } else {
