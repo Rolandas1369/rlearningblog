@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Post
+from .models import Post, Education
 from django.contrib.auth.models import User
 from django.contrib import auth
 
@@ -68,6 +68,16 @@ class ItemModelTest(TestCase):
         self.assertEqual(Post.objects.count(), 1)
         new_item = Post.objects.first()
         self.assertEqual('some', new_item.title)
+
+    def test_many_to_many(self):
+        item = Education()
+       
+        item.related_to = 'Python'
+        item.save()
+
+        items = Education.objects.all()
+        
+        self.assertIn('Python', items[0].related_to)
 
 
 

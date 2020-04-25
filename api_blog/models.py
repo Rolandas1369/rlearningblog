@@ -28,6 +28,7 @@ class Insight(models.Model):
 
 class HtmlStylingChange(models.Model):
     background_color = models.CharField(max_length=200)
+    code = models.TextField()
 
 class TechStack(models.Model):
     language = models.CharField(max_length=255)
@@ -63,9 +64,9 @@ class KnownTech(models.Model):
         return self.language
 
 class Education(models.Model):
-    related_to = models.CharField(blank=True, max_length=50)
+    related_to = models.ManyToManyField(KnownTech)
     description = models.TextField(blank=True)
-    link = models.TextField()
+    link = models.TextField(blank=True)
     completed_on = models.CharField(blank=True, max_length=50)
 
     def __str__(self):

@@ -45,5 +45,7 @@ urlpatterns = [
 
     path('education/', EducationView.as_view()),
 
-    path('html/<int:pk>/', HtmlStylingChangeSerializerView.as_view())
+    path('html/', HtmlStylingChangeSerializerView.as_view())
+    
+    
 ]

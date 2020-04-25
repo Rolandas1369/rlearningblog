@@ -7,15 +7,18 @@ import Description from '../description';
 import NavigatableList from '../navigatable_list';
 import AnyList from '../any-list';
 import Tech from '../tech';
+import Framer from '../framer';
 
 import LifeCycles from '../../learningexamples/lifecycles';
 
 import DataService from '../../services/data_service';
 
+
 import './app.css'
 
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import UpdatePostForm from '../update-post-form';
+import { readSync } from 'graceful-fs';
 
 require('dotenv').config()
 
@@ -123,6 +126,9 @@ export default class App extends Component {
                         return <UpdatePostForm id={id}
                             addItem={this.dataService.addItem}/>
                         }} />
+                    <Route path="/framer" render={() => {
+                        return <Framer/>
+                    }} />
                         
                     <Route path="/" render = {() => 
                         <div style={{backgroundColor: this.state.color}}>

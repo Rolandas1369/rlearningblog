@@ -16,6 +16,10 @@
     height: 100px;
 }
 
+.ok {
+    color: blueviolet;
+}
+
 
 @media screen and (max-width: 620px) {
 

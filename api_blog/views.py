@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
+from django.http import HttpResponse
+
 
 from rest_framework import permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
@@ -122,9 +124,77 @@ class InsightCreateView(CreateAPIView):
     serializer_class = InsightsSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
-class HtmlStylingChangeSerializerView(RetrieveUpdateDestroyAPIView):
+class HtmlStylingChangeSerializerView(ListAPIView):
     queryset = HtmlStylingChange.objects.all()
     serializer_class = HtmlStylingChangeSerializer
+
+    def save_to_file(self):
+        html = open('public/media/index.html', "w")
+        code = """
+            <!DOCTYPE html> 
+                <html lang="en"> 
+                <head>
+                    <meta charset="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta name="theme-color" content="#000000" />
+                    <script src="https://kit.fontawesome.com/83d8c7c628.js" crossorigin="anonymous"></script>
+                    
+                    <meta
+                    name="description"
+                    content="My journey creating React/Django web app"
+                    />
+                    <title>React + Django App</title>
+                </head>
+                <body>
+                    <noscript>You need to enable JavaScript to run this app.</noscript>
+                    
+                    
+                    <div id="root">
+                        <p>keturi</p>
+                    </div>
+                </body>
+                </html>
+        """
+        HtmlStylingChange.objects.create(background_color="gg", code=code)
+        html.write(code)
+        html.close()
+
+    save_to_file(self=save_to_file)
+
+
+def save_to_file(self):
+        html = open('public/media/index.html', "w")
+        code = """
+            <!DOCTYPE html> 
+                <html lang="en"> 
+                <head>
+                    <meta charset="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta name="theme-color" content="#000000" />
+                    <script src="https://kit.fontawesome.com/83d8c7c628.js" crossorigin="anonymous"></script>
+                    
+                    <meta
+                    name="description"
+                    content="My journey creating React/Django web app"
+                    />
+                    <title>React + Django App</title>
+                </head>
+                <body>
+                    <noscript>You need to enable JavaScript to run this app.</noscript>
+                    
+                    
+                    <div id="root">
+                        <p>vienas</p>
+                    </div>
+                </body>
+                </html>
+        """
+        HtmlStylingChange.objects.create(background_color="gg", code=code)
+        html.write(code)
+        html.close()
+        return HttpResponse('Ok') 
+
+ 
 
 # cv
 class TechStackView(ListCreateAPIView):
@@ -147,6 +217,4 @@ class EducationView(ListCreateAPIView):
     queryset = Education.objects.all()
     serializer_class = EducationSerializer
 
-
-
-
+    
