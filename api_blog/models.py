@@ -29,6 +29,7 @@ class Insight(models.Model):
 class HtmlStylingChange(models.Model):
     background_color = models.CharField(max_length=200)
     code = models.TextField()
+    html_file = models.FileField(upload_to='uploads/')
 
 class TechStack(models.Model):
     language = models.CharField(max_length=255)

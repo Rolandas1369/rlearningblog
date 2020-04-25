@@ -18,8 +18,12 @@ from .views import (
     TechFeaturesView,
     WorkExpirienceView,
     KnownTechView,
-    EducationView
+    EducationView,
+    CreateHtmlView,
+    CreateDetailHtmlView
 )
+
+
 
 urlpatterns = [
     path('posts/', PostListView.as_view()),
@@ -45,7 +49,9 @@ urlpatterns = [
 
     path('education/', EducationView.as_view()),
 
-    path('html/', HtmlStylingChangeSerializerView.as_view())
+    path('html/', HtmlStylingChangeSerializerView.as_view()),
+    path('html/create/', CreateHtmlView.as_view()),
+    path('html/create/<int:pk>/', CreateDetailHtmlView.as_view())
     
     
 ]

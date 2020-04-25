@@ -176,6 +176,10 @@ export default class DataSevice {
         return await axios.get(API_URL + "/api/workexpierence/")
     }
 
+    getLastHtml = async () => {
+        return await axios.get(API_URL + "/api/html/create/")
+    }
+
     addTech = (language, using_from) => {
 
         let cokie = this.getCookie('csrftoken');

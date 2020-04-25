@@ -4,10 +4,32 @@ import DataService from '../../services/data_service';
 import './framer.css';
 
 export default class Framer extends Component {
+
+    dataService = new DataService()
+
+    state = {
+        last: null
+    }
+
+    componentDidMount(){
+        this.dataService.getLastHtml()
+        .then((data) => {
+            this.setState({ last: data.data})})
+    }
+
     render(){
+
+        let ok ="s"
+        if (this.state.last) {
+            let item = this.state.last
+            let url = (item.html_file).slice(0, item.html_file.indexOf('?'))
+            console.log(url)
+            ok = (<iframe className="border-solid border-4 border-gray-600" title="google" src={url}></iframe>)
+        }
+        
         return(
             <div >
-                <iframe className="border-solid border-4 border-gray-600" allowfullscreen="true" title="google" src="https://rlearning.s3.eu-north-1.amazonaws.com/media/index.html"></iframe>
+                {ok}
             </div>
         )
     }
