@@ -20,21 +20,15 @@ export default class Post extends Component {
   };
 
   expandGist = (e) => {
-    let x = document.getElementById(e.target.id).parentNode.nextSibling
-    let g = x.getElementsByClassName('gist-data')[0]
-    g.setAttribute(
-      "style",
-      "height: auto;"
-    );
+    let x = document.getElementById(e.target.id).parentNode.nextSibling;
+    let g = x.getElementsByClassName("gist-data")[0];
+    g.setAttribute("style", "height: auto;");
   };
 
   shrinkGist = (e) => {
-    let x = document.getElementById(e.target.id).parentNode.nextSibling
-    let g = x.getElementsByClassName('gist-data')[0]
-    g.setAttribute(
-        "style",
-        "height: 100px;"
-      );
+    let x = document.getElementById(e.target.id).parentNode.nextSibling;
+    let g = x.getElementsByClassName("gist-data")[0];
+    g.setAttribute("style", "height: 100px;");
   };
 
   updatePage = (id) => {
@@ -43,7 +37,7 @@ export default class Post extends Component {
   };
 
   render() {
-    let languageBackground = "post-data";
+    let languageBackground = "post-data video-holder";
     let classNamesh1 = "";
 
     //let styleComputed = this.returnGist()

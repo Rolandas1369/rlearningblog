@@ -29,7 +29,7 @@ export default class VideoDisplay extends React.Component {
       video = this.showVideo(videoUrl, opts);
     }
 
-    return <div className="video-holder">{video}</div>;
+    return <div>{video}</div>;
   }
 
   _onReady(event) {
