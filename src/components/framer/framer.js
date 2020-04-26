@@ -18,10 +18,13 @@ export default class Framer extends Component {
     }
 
     render(){
-
+        
         let ok ="s"
         if (this.state.last) {
-            let item = this.state.last
+
+            let lastIndex = (this.state.last).length -1
+            let item = (this.state.last)[lastIndex]
+            console.log(item, lastIndex)
             let url = (item.html_file).slice(0, item.html_file.indexOf('?'))
             console.log(url)
             ok = (<iframe className="border-solid border-4 border-gray-600" title="google" src={url}></iframe>)

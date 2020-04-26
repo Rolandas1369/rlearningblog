@@ -177,7 +177,7 @@ export default class DataSevice {
     }
 
     getLastHtml = async () => {
-        return await axios.get(API_URL + "/api/html/create/")
+        return await axios.get(API_URL + "/api/html/")
     }
 
     addTech = (language, using_from) => {

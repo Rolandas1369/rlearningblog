@@ -129,17 +129,31 @@ class CreateHtmlView(CreateAPIView):
     queryset = HtmlStylingChange.objects.all()
     serializer_class = HtmlStylingChangeSerializer
 
-    entry = HtmlStylingChange.objects.last()
-    code = entry.html_file.url
-    url = code[:code.index('.html')+5]
+    
+    try:
+        url = code[:code.index('.html')+5]
+    except:
+        print("no hmtl")
 
-    def save_to_file(self, url):
+    def post(self, request, *args, **kwargs):
+        self.save_to_file()
+        return self.create(request, *args, **kwargs)
+
+
+    def save_to_file(self):
+
+        entry = HtmlStylingChange.objects.last()
+        url = "no"
+
+        code = entry.html_file.url
+        print(code)
+        print(entry.code)
         html = open('public/media/index.html', "w")
         
-        html.write(url)
+        html.write(entry.code)
         html.close()
 
-    save_to_file(self=save_to_file, url=url)
+    
 
 class CreateDetailHtmlView(RetrieveAPIView):
     queryset = HtmlStylingChange.objects.all()
