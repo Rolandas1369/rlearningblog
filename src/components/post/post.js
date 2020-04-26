@@ -40,8 +40,6 @@ export default class Post extends Component {
     let languageBackground = "post-data video-holder";
     let classNamesh1 = "";
 
-    //let styleComputed = this.returnGist()
-
     const { item } = this.props;
 
     if (this.state.blue) {
